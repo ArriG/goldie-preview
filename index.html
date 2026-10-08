@@ -14,7 +14,7 @@
 :root{
   --cream:#f4ede1; --paper:#fbf8f2; --white:#fffdf9;
   --ink:#141618; --ink-2:#2a2d31; --muted:#6a6e75; --line:#e2d9c8;
-  --rust:#ad4a20; --rust-lt:#ec9a6f; --sage:#3d6a56; --sage-d:#244638; --sage-lt:#bcd0c1; --sage-bg:#e6eee7;
+  --violet:#8670d0; --violet-d:#6c57b8; --violet-lt:#b8a6ee; --sage:#3d6a56; --sage-d:#244638; --sage-lt:#bcd0c1; --sage-bg:#e6eee7;
   --gold:#b98a2f; --gold-lt:#dcb96f; --water:#8ab6c8;
   --gold-a:#d9ae52; --gold-hi:#f1d48b; --off-white:#f3eee4; --logo-ink:#17191c;
   --serif:"Instrument Serif", "Times New Roman", serif;
@@ -34,7 +34,7 @@ em{font-style:italic}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;background:var(--ink);color:var(--white);text-decoration:none;font-weight:500;font-size:15px;transition:transform .3s ease, background .3s ease}
-.btn:hover{transform:translateY(-2px);background:var(--rust)}
+.btn:hover{transform:translateY(-2px);background:var(--violet-d)}
 .btn .arr{transition:transform .3s ease}.btn:hover .arr{transform:translateX(4px)}
 .btn.light{background:var(--white);color:var(--ink)}
 .btn.light:hover{background:var(--gold-lt)}
@@ -44,7 +44,6 @@ em{font-style:italic}
 .h-lg{font-family:var(--serif);font-weight:400;line-height:.98;letter-spacing:-.015em;font-size:clamp(40px, 5.6vw, 92px)}
 .h-md{font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:-.01em;font-size:clamp(32px, 3.6vw, 56px)}
 .lead{font-size:clamp(17px, 1.35vw, 20px);color:var(--ink-2);max-width:34em}
-.ph{display:inline-block;margin-top:10px;padding:6px 10px;border:1px dashed var(--gold);border-radius:8px;font-size:12px;color:#8a6a24;background:#fbf3df}
 
 /* progress + nav */
 .progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:60}
@@ -54,7 +53,7 @@ em{font-style:italic}
 .logo span{color:var(--gold-a)}
 .nav ul{display:flex;gap:22px;list-style:none;font-size:14px}
 .nav ul a{text-decoration:none;color:var(--ink-2)}
-.nav ul a:hover{color:var(--rust)}
+.nav ul a:hover{color:var(--violet-d)}
 .nav .btn{padding:11px 18px;font-size:14px}
 
 /* HERO */
@@ -68,7 +67,7 @@ em{font-style:italic}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(50px, 9.4vw, 164px);line-height:.92;letter-spacing:-.025em;margin:22px 0 28px}
 .hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .hero h1 .line > span{display:inline-block}
-.hero h1 em{color:var(--rust-lt)}
+.hero h1 em{color:var(--violet-lt)}
 .hero-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px}
 .hero-sub{font-size:clamp(17px, 1.4vw, 20px);max-width:28em;color:rgba(255,253,249,.88)}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
@@ -80,21 +79,20 @@ em{font-style:italic}
 .leaks{background:var(--cream);position:relative;padding:clamp(80px, 12vh, 140px) 0}
 .leaks-grid{display:grid;grid-template-columns:minmax(260px, .8fr) 2fr;gap:clamp(32px, 4vw, 72px);align-items:start}
 .leaks-side h2{margin:18px 0 26px}
-.leaks-side h2 em{color:var(--rust)}
+.leaks-side h2 em{color:var(--violet)}
 .bucket{width:100%;max-width:360px;color:var(--ink);overflow:visible}
 .bucket .water{fill:var(--water);opacity:.55;transform:translateY(var(--lvl, 120px));transition:transform 1s cubic-bezier(.2,.7,.2,1)}
-.bucket[data-active="0"]{--lvl:150px}.bucket[data-active="1"]{--lvl:115px}.bucket[data-active="2"]{--lvl:80px}.bucket[data-active="3"]{--lvl:45px}.bucket[data-active="4"]{--lvl:10px}
-.bucket .hole{fill:var(--rust);transition:fill .4s, r .4s}
+.bucket[data-active="0"]{--lvl:170px}.bucket[data-active="1"]{--lvl:140px}.bucket[data-active="2"]{--lvl:110px}.bucket[data-active="3"]{--lvl:80px}.bucket[data-active="4"]{--lvl:50px}.bucket[data-active="5"]{--lvl:20px}
+.bucket .hole{fill:var(--violet);transition:fill .4s, r .4s}
 .bucket .hole.fixed{fill:var(--sage)}
 .bucket .jet{fill:none;stroke:var(--water);stroke-width:5;stroke-linecap:round;stroke-dasharray:8 10;animation:flow 1s linear infinite;transition:opacity .4s}
 .bucket .jet.off{opacity:0}
 .bucket .hole.active{animation:pulse 1.4s ease-in-out infinite}
 .bucket .num circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.5;transition:fill .4s, stroke .4s}
 .bucket .num text{font:600 14px var(--sans);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
-.bucket .num.on circle{fill:var(--rust);stroke:var(--rust)}.bucket .num.on text{fill:#fff}
+.bucket .num.on circle{fill:var(--violet);stroke:var(--violet)}.bucket .num.on text{fill:#fff}
 .bucket .num.done circle{fill:var(--sage);stroke:var(--sage)}.bucket .num.done text{fill:#fff}
 .bucket .stream{stroke:var(--water);stroke-width:7;stroke-linecap:round;stroke-dasharray:6 16;animation:flow 1.2s linear infinite;opacity:.35;transition:opacity .5s, stroke-width .5s}
-.bucket[data-active="4"] .stream{opacity:1;stroke-width:12;stroke-dasharray:none}
 .bucket .tap-label{font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;fill:var(--muted)}
 @keyframes flow{to{stroke-dashoffset:-36}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
@@ -104,19 +102,16 @@ em{font-style:italic}
 
 .leak{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px, 3.5vw, 56px);align-items:center;padding:56px 0;border-top:1px solid var(--line)}
 .leak:first-child{border-top:0;padding-top:0}
-.leak-num{font-family:var(--serif);font-size:clamp(96px, 12vw, 200px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--rust);letter-spacing:-.04em;display:block;transform-origin:0% 80%}
-.leak h3{font-family:var(--serif);font-weight:400;font-size:clamp(38px, 4.4vw, 72px);line-height:.95;letter-spacing:-.015em;margin:18px 0 16px}
-.leak p{font-size:clamp(17px, 1.3vw, 20px);color:var(--ink-2);max-width:22em}
-.tag{display:inline-block;margin-top:22px;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--white);color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
-.tag.go{background:var(--sage);color:#fff;box-shadow:none}
+.leak-k{display:block;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.leak-big{font-family:var(--serif);font-weight:400;font-size:clamp(84px, 9vw, 150px);line-height:.85;letter-spacing:-.035em;color:var(--violet);margin:14px 0 18px;display:block;transform-origin:0% 80%;white-space:nowrap}
+.leak-big small{font-size:.5em;letter-spacing:-.01em;margin-left:.04em}
+.leak p{font-size:clamp(18px, 1.45vw, 22px);line-height:1.4;color:var(--ink-2);max-width:21em}
+.leak .src{margin-top:18px;font-size:12.5px;line-height:1.45;color:var(--muted);max-width:30em}
+.leak .src a{color:var(--muted);text-underline-offset:2px}.leak .src a:hover{color:var(--violet-d)}
+.need{display:inline-block;margin-left:2px;padding:1px 6px;border:1px dashed currentColor;border-radius:6px;font-size:11.5px;font-weight:600;letter-spacing:.02em;color:var(--violet-d);white-space:nowrap}
 .leak-media{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#ddd;max-height:72vh}
 .leak-media img{width:100%;height:100%;object-fit:cover}
-.leak.tap .leak-num{-webkit-text-stroke-color:var(--gold)}
-.tap-card{border-radius:28px;aspect-ratio:4/5;max-height:72vh;background:var(--ink);color:var(--white);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px, 3vw, 48px);position:relative;overflow:hidden}
-.tap-card::before{content:"";position:absolute;width:140%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle, rgba(185,138,47,.35), transparent 60%);top:-40%;right:-50%}
-.tap-card .serif{font-size:clamp(34px, 3.4vw, 54px);line-height:1;position:relative}
-.tap-card .serif em{color:var(--gold-lt)}
-.tap-card p{color:rgba(255,253,249,.75);margin-top:16px;position:relative;font-size:16px}
+.leak-media img.op-r{object-position:68% 50%}.leak-media img.op-rr{object-position:80% 50%}
 
 @media (min-width:900px){
   .motion .leaks{height:100vh;padding:0;overflow:hidden}
@@ -125,18 +120,8 @@ em{font-style:italic}
   .motion .leaks-list{position:relative;height:min(76vh, 720px)}
   .motion .leak{position:absolute;inset:0;padding:0;border:0;visibility:hidden}
   .motion .leak:first-child{visibility:visible}
-  .motion .leak-media, .motion .tap-card{height:min(76vh, 720px);max-height:none;aspect-ratio:auto}
+  .motion .leak-media{height:min(76vh, 720px);max-height:none;aspect-ratio:auto}
 }
-
-/* STAT */
-.stat{background:var(--ink);color:var(--white);min-height:100vh;display:flex;align-items:center;overflow:hidden;position:relative}
-.stat .wrap{width:100%;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px, 4vw, 64px);align-items:center}
-.stat-num{font-family:var(--serif);font-size:clamp(150px, 27vw, 460px);line-height:.8;letter-spacing:-.05em;color:var(--gold-lt);transform-origin:20% 60%;white-space:nowrap}
-.stat-num sup{font-size:.42em;vertical-align:.95em;margin-left:.02em;color:var(--rust-lt)}
-.stat-copy .serif{font-size:clamp(30px, 3vw, 48px);line-height:1.05}
-.stat-copy .src{margin-top:26px;font-size:13px;color:rgba(255,253,249,.6);max-width:30em}
-.stat-copy .src a{color:rgba(255,253,249,.85)}
-.stat .eyebrow{color:rgba(255,253,249,.6);margin-bottom:22px}
 
 /* TEAM ISN'T THE LEAK (from Ari's artifact, in v3's palette) */
 .busy{background:var(--paper);padding:clamp(96px, 16vh, 180px) 0}
@@ -149,9 +134,9 @@ em{font-style:italic}
 .note b{font-weight:600}
 .note span{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.02em}
 .dot{width:9px;height:9px;border-radius:50%;background:var(--gold-a)}
-.dot.is-leak{background:var(--rust)}
+.dot.is-leak{background:var(--violet)}
 .busy-copy{display:grid;gap:24px}
-.busy h2 em{color:var(--rust)}
+.busy h2 em{color:var(--violet)}
 .reveal{font-family:var(--serif);font-size:clamp(1.7rem, 3.2vw, 2.8rem);line-height:1.15;letter-spacing:-0.01em;max-width:25ch}
 .aside{font-size:.875rem;color:var(--muted);max-width:50ch}
 .motion .reveal .w{color:rgba(20,22,24,.28);transition:color .35s}
@@ -203,7 +188,7 @@ em{font-style:italic}
 .collage .c2{right:0;top:0;width:46%;aspect-ratio:3/2}
 .collage .c3{right:3%;bottom:0;width:50%;aspect-ratio:3/2;z-index:3}
 .founder h2{margin:20px 0 26px}
-.founder h2 em{color:var(--rust)}
+.founder h2 em{color:var(--violet)}
 .creds{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0}
 .creds span{padding:8px 14px;border-radius:999px;background:var(--cream);font-size:13px;font-weight:500}
 .founder .more p{font-size:clamp(17px, 1.3vw, 19px);color:var(--ink-2);max-width:34em}
@@ -217,7 +202,7 @@ em{font-style:italic}
 .faq details:last-child{border-bottom:1px solid var(--line)}
 .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--serif);font-size:clamp(24px, 2vw, 30px);line-height:1.1}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--rust);transition:transform .3s}
+.faq summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--violet-d);transition:transform .3s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{margin-top:12px;color:var(--ink-2);max-width:36em}
 
@@ -259,18 +244,16 @@ footer .logo{color:var(--off-white)}
   .nav{gap:14px;padding-left:18px}
   .cue{display:none}
   .hero h1{font-size:clamp(46px, 13.4vw, 90px)}
-  .leaks-grid,.stat .wrap,.busy-grid,.check-grid,.p-intro,.founder-grid,.faq-grid{grid-template-columns:1fr}
+  .leaks-grid,.busy-grid,.check-grid,.p-intro,.founder-grid,.faq-grid{grid-template-columns:1fr}
   .notes{top:auto;bottom:14px;right:10px;width:min(280px, 84%)}
   .check-photo{aspect-ratio:16 / 10}
   .leaks-side{display:grid;grid-template-columns:1fr;gap:10px}
   .bucket{max-width:260px;margin:0 auto}
   .leak{grid-template-columns:1fr;padding:44px 0}
-  .leak-media,.tap-card{aspect-ratio:4/3}
+  .leak-media{aspect-ratio:4/3}
   .p-intro .img{aspect-ratio:4/3}
   .collage{height:110vw}
   .collage .c1{width:80%}.collage .c2{width:56%}.collage .c3{width:66%;right:0}
-  .stat{min-height:auto;padding:100px 0}
-  .stat-num{font-size:clamp(150px, 46vw, 260px)}
 }
 @media (max-width:520px){
   .hero-ctas .btn{flex:1 1 auto;justify-content:center}
@@ -323,9 +306,8 @@ footer .logo{color:var(--off-white)}
   <div class="wrap">
     <div class="leaks-grid">
       <div class="leaks-side">
-        <span class="eyebrow">The leaky bucket</span>
         <h2 class="h-md" id="leaks-h">Fix the leaks. <em>Then</em> turn up the tap.</h2>
-        <svg class="bucket" viewBox="0 0 400 450" data-active="none" role="img" aria-label="A bucket with four leaks, fixed in order, and a tap above it for marketing spend">
+        <svg class="bucket" viewBox="0 0 400 450" data-active="none" role="img" aria-label="A bucket with six leaks, fixed in order, and a tap above it for marketing spend">
           <defs><clipPath id="bk"><path d="M84 130 L316 130 L292 420 Q200 440 108 420 Z"/></clipPath></defs>
           <text class="tap-label" x="40" y="22">Tap · marketing</text>
           <path d="M40 50 H196 a14 14 0 0 1 14 14 V82" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
@@ -334,85 +316,83 @@ footer .logo{color:var(--off-white)}
           <g clip-path="url(#bk)"><rect class="water" x="60" y="130" width="280" height="330"/></g>
           <path d="M84 130 L316 130 L292 420 Q200 440 108 420 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
           <ellipse cx="200" cy="130" rx="116" ry="13" fill="var(--cream)" fill-opacity=".001" stroke="currentColor" stroke-width="3"/>
-          <path class="jet" data-i="0" d="M93 236 q -26 4 -40 58"/>
-          <path class="jet" data-i="1" d="M307 236 q 26 4 40 58"/>
-          <path class="jet" data-i="2" d="M100 330 q -26 4 -40 58"/>
-          <path class="jet" data-i="3" d="M300 330 q 26 4 40 58"/>
-          <circle class="hole" data-i="0" cx="93" cy="236" r="7"/>
-          <circle class="hole" data-i="1" cx="307" cy="236" r="7"/>
-          <circle class="hole" data-i="2" cx="100" cy="330" r="7"/>
-          <circle class="hole" data-i="3" cx="300" cy="330" r="7"/>
-          <g class="num" data-i="0"><circle cx="40" cy="214" r="14"/><text x="40" y="214">1</text></g>
-          <g class="num" data-i="1"><circle cx="360" cy="214" r="14"/><text x="360" y="214">2</text></g>
-          <g class="num" data-i="2"><circle cx="46" cy="308" r="14"/><text x="46" y="308">3</text></g>
-          <g class="num" data-i="3"><circle cx="354" cy="308" r="14"/><text x="354" y="308">4</text></g>
-          <g class="num" data-i="4"><circle cx="20" cy="50" r="14"/><text x="20" y="50">5</text></g>
+          <path class="jet" data-i="0" d="M91.0 215 q -18 4 -26 40"/>
+          <path class="jet" data-i="1" d="M309.0 215 q 18 4 26 40"/>
+          <path class="jet" data-i="2" d="M97.2 290 q -18 4 -26 40"/>
+          <path class="jet" data-i="3" d="M302.8 290 q 18 4 26 40"/>
+          <path class="jet" data-i="4" d="M103.4 365 q -18 4 -26 40"/>
+          <path class="jet" data-i="5" d="M296.6 365 q 18 4 26 40"/>
+          <circle class="hole" data-i="0" cx="91.0" cy="215" r="7"/>
+          <circle class="hole" data-i="1" cx="309.0" cy="215" r="7"/>
+          <circle class="hole" data-i="2" cx="97.2" cy="290" r="7"/>
+          <circle class="hole" data-i="3" cx="302.8" cy="290" r="7"/>
+          <circle class="hole" data-i="4" cx="103.4" cy="365" r="7"/>
+          <circle class="hole" data-i="5" cx="296.6" cy="365" r="7"/>
+          <g class="num" data-i="0"><circle cx="40" cy="197" r="14"/><text x="40" y="197">1</text></g>
+          <g class="num" data-i="1"><circle cx="360" cy="197" r="14"/><text x="360" y="197">2</text></g>
+          <g class="num" data-i="2"><circle cx="40" cy="272" r="14"/><text x="40" y="272">3</text></g>
+          <g class="num" data-i="3"><circle cx="360" cy="272" r="14"/><text x="360" y="272">4</text></g>
+          <g class="num" data-i="4"><circle cx="40" cy="347" r="14"/><text x="40" y="347">5</text></g>
+          <g class="num" data-i="5"><circle cx="360" cy="347" r="14"/><text x="360" y="347">6</text></g>
         </svg>
-        <p class="leak-count" aria-hidden="true"><b class="lc">01</b> / 05</p>
+        <p class="leak-count" aria-hidden="true"><b class="lc">01</b> / 06</p>
       </div>
 
       <div class="leaks-list">
         <article class="leak">
           <div class="leak-copy">
-            <span class="leak-num">01</span>
-            <h3>Quiet enquiries</h3>
-            <p>They asked about aligners or implants. Then went quiet.</p>
-            <span class="tag go">Where we start · the pilot</span>
+            <span class="leak-k">Leak 01</span>
+            <h3 class="leak-big">Website</h3>
+            <p>A slow, fiddly site loses them before they enquire.</p>
           </div>
-          <div class="leak-media"><img src="img/leak-quiet.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A woman looking at her phone at home in the evening"></div>
+          <div class="leak-media"><img class="op-r" src="img/leak-website.webp" width="1200" height="1500" loading="lazy" decoding="async" alt="Illustration: a phone showing a half-loaded dental clinic page with a spinner, and a back-swipe away from it, in front of a woman on her phone at home"></div>
         </article>
         <article class="leak">
           <div class="leak-copy">
-            <span class="leak-num">02</span>
-            <h3>Reviews not asked</h3>
-            <p>Happy patients leave without being asked.</p>
-            <span class="tag">Scoped with you later</span>
+            <span class="leak-k">Leak 02</span>
+            <h3 class="leak-big">97<small>%</small></h3>
+            <p>of consumers read reviews for local businesses. How often are you asking your happy patients?</p>
+            <p class="src">Source: BrightLocal, <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener">Local Consumer Review Survey 2026</a> (1,002 US adults).</p>
           </div>
           <div class="leak-media"><img src="img/leak-reviews.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A smiling patient checks her teeth in a hand mirror beside a dental professional"></div>
         </article>
         <article class="leak">
           <div class="leak-copy">
-            <span class="leak-num">03</span>
-            <h3>Missed calls, slow replies</h3>
-            <p>The morning rush. The 8.40pm enquiry.</p>
-            <span class="tag">Scoped with you later</span>
+            <span class="leak-k">Leak 03</span>
+            <h3 class="leak-big">62<small>%</small></h3>
+            <p>of calls to small businesses went unanswered.</p>
+            <p class="src">Source: 411 Locals, <a href="https://411locals.us/small-business-owners-dont-answer-62-of-phone-calls/" target="_blank" rel="noopener">2016 study</a> of 85 US small businesses.</p>
+          </div>
+          <div class="leak-media"><img class="op-rr" src="img/reception.webp" width="1800" height="1718" loading="lazy" decoding="async" alt="A receptionist talking with a man at a clinic front desk"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-k">Leak 04</span>
+            <h3 class="leak-big">42<small>hrs</small></h3>
+            <p>Average wait for a reply to an online enquiry, where one came. 23% never got one.</p>
+            <p class="src">Source: <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">Harvard Business Review, 2011</a>. Test enquiries to 2,241 US companies.</p>
           </div>
           <div class="leak-media"><img src="img/leak-calls.webp" width="1200" height="1800" loading="lazy" decoding="async" alt="A hand holding a phone showing a message thread"></div>
         </article>
         <article class="leak">
           <div class="leak-copy">
-            <span class="leak-num">04</span>
-            <h3>Consults that don’t convert</h3>
-            <p>“I’ll have a think.” Then nothing.</p>
-            <span class="tag">Scoped with you later</span>
+            <span class="leak-k">Leak 05</span>
+            <h3 class="leak-big">54<small>%</small></h3>
+            <p>of patients considered high-value treatment, then didn’t go ahead.</p>
+            <p class="src">Source: Practi’s 2022 research with BCG (500+ patients), reported in <a href="https://dentistry.co.uk/2024/01/16/the-case-acceptance-problem/" target="_blank" rel="noopener">Dentistry, January 2024</a>.</p>
           </div>
           <div class="leak-media"><img src="img/leak-consult.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A patient sitting in a dental chair, looking thoughtful"></div>
         </article>
-        <article class="leak tap">
+        <article class="leak">
           <div class="leak-copy">
-            <span class="leak-num">05</span>
-            <h3>Marketing spend</h3>
-            <p>The tap. Turn it up last, not first.</p>
-            <span class="tag">We don’t run ads</span>
+            <span class="leak-k">Leak 06</span>
+            <h3 class="leak-big">70<small>%</small></h3>
+            <p>of salespeople say they’ve had no formal sales training. Ongoing training is linked to 50% higher sales per employee.</p>
+            <p class="src"><span class="need" title="Source not yet verified">[source needed]</span></p>
           </div>
-          <div class="tap-card">
-            <p class="serif">More water in a leaking bucket <em>just costs more.</em></p>
-            <p>Happy with your agency? Keep them.</p>
-          </div>
+          <div class="leak-media"><img src="img/consult.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="A treatment coordinator and a dentist talking through a smile design on screen"></div>
         </article>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- 4 STAT -->
-<section class="stat" id="stat" aria-labelledby="stat-h">
-  <div class="wrap">
-    <div class="stat-num" aria-hidden="true"><b class="count">54</b><sup>%</sup></div>
-    <div class="stat-copy">
-      <span class="eyebrow">“I’ll have a think”</span>
-      <p class="serif" id="stat-h"><span class="sr" style="position:absolute;left:-9999px">54% </span>of 500+ patients surveyed about high-value treatment considered it, then didn’t go ahead.</p>
-      <p class="src">Source: Practi’s 2022 research with BCG, reported in <a href="https://dentistry.co.uk/2024/01/16/the-case-acceptance-problem/" target="_blank" rel="noopener">Dentistry, January 2024</a>.</p>
     </div>
   </div>
 </section>
@@ -495,10 +475,9 @@ footer .logo{color:var(--off-white)}
 <section class="faq" id="faq" aria-labelledby="faq-h">
   <div class="wrap faq-grid">
     <div>
-      <h2 class="h-lg" id="faq-h">Fair <em>questions.</em></h2>
+      <h2 class="h-lg" id="faq-h">Questions</h2>
     </div>
     <div>
-      <details><summary>What does the pilot cost?</summary><p>No upfront fee. You pay when a re-engaged patient meets the agreed criteria and pays for treatment. Fee, criteria and attribution are agreed first. Anything after the pilot is scoped separately.</p><span class="ph">[Confirm how post-pilot work is priced]</span></details>
       <details><summary>Will patients be talking to AI?</summary><p>AI-assisted SMS may be part of it. We agree the wording, how it’s introduced and when a person steps in.</p></details>
       <details><summary>Will this add work for reception?</summary><p>No call lists. Your team gets interested patients with a short summary.</p></details>
       <details><summary>Can you message our whole database?</summary><p>No. We agree which enquiries are suitable and check permissions and exclusions first.</p></details>
@@ -663,7 +642,7 @@ if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href 
         onUpdate: self => { const t = self.progress * tl.duration(); setActive(Math.max(0, Math.min(n - 1, Math.floor(t + 0.12)))); }
       } });
       panels.forEach((p, i) => {
-        const num = p.querySelector('.leak-num'), media = p.querySelector('.leak-media, .tap-card'), img = p.querySelector('.leak-media img'), txt = p.querySelectorAll('.leak-copy > :not(.leak-num)');
+        const num = p.querySelector('.leak-big'), media = p.querySelector('.leak-media'), img = p.querySelector('.leak-media img'), txt = p.querySelectorAll('.leak-copy > :not(.leak-big)');
         const at = i === 0 ? 0 : i - 0.15;
         if (i > 0) tl.fromTo(p, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12 }, at);
         tl.fromTo(num, { scale: 0.35, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'power3.out' }, at)
@@ -676,20 +655,11 @@ if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href 
     } else {
       setActive(-1);
       panels.forEach(p => {
-        gsap.from(p.querySelector('.leak-num'), { scale: 0.5, opacity: 0, transformOrigin: '0% 80%', scrollTrigger: { trigger: p, start: 'top 85%', end: 'top 45%', scrub: true } });
+        gsap.from(p.querySelector('.leak-big'), { scale: 0.5, opacity: 0, transformOrigin: '0% 80%', scrollTrigger: { trigger: p, start: 'top 85%', end: 'top 45%', scrub: true } });
         const m = p.querySelector('.leak-media img'); if (m) gsap.fromTo(m, { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: p, start: 'top bottom', end: 'bottom top', scrub: true } });
       });
     }
 
-    // STAT count-up
-    const cEl = document.querySelector('.count'); const o = { v: 0 };
-    const stl = gsap.timeline({ scrollTrigger: desk
-      ? { trigger: '#stat', start: 'top top', end: '+=120%', pin: true, scrub: 0.6 }
-      : { trigger: '#stat', start: 'top 70%', toggleActions: 'play none none none' } });
-    stl.fromTo('.stat-num', { scale: 0.3, opacity: 0.15 }, { scale: 1, opacity: 1, duration: 1, ease: 'power3.out' }, 0)
-       .fromTo(o, { v: 0 }, { v: 54, duration: 1, ease: 'power2.out', onUpdate: () => { cEl.textContent = Math.round(o.v); } }, 0)
-       .from('.stat-copy > *', { y: 40, opacity: 0, stagger: 0.15, duration: 0.5 }, 0.55);
-    if (desk) stl.to({}, { duration: 0.4 });
 
     // PILOT horizontal
     if (desk) {
