@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Goldie · Your appointment book isn’t empty. It’s leaking.</title>
+<title>Goldie · The patients who’d fill this chair already enquired.</title>
 <meta name="description" content="Goldie restarts quiet treatment enquiries for dental practices and hands interested patients to your team. Pilot first, no upfront pilot fee.">
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/hero-chair.webp" fetchpriority="high">
 <style>
 :root{
@@ -16,6 +16,7 @@
   --ink:#141618; --ink-2:#2a2d31; --muted:#6a6e75; --line:#e2d9c8;
   --rust:#ad4a20; --rust-lt:#ec9a6f; --sage:#3d6a56; --sage-d:#244638; --sage-lt:#bcd0c1; --sage-bg:#e6eee7;
   --gold:#b98a2f; --gold-lt:#dcb96f; --water:#8ab6c8;
+  --gold-a:#d9ae52; --gold-hi:#f1d48b; --off-white:#f3eee4; --logo-ink:#17191c;
   --serif:"Instrument Serif", "Times New Roman", serif;
   --sans:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
   --pad:clamp(20px, 5vw, 72px);
@@ -32,7 +33,6 @@ em{font-style:italic}
 .wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 .eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
-.small{font-size:13px;color:var(--muted);line-height:1.5}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;background:var(--ink);color:var(--white);text-decoration:none;font-weight:500;font-size:15px;transition:transform .3s ease, background .3s ease}
 .btn:hover{transform:translateY(-2px);background:var(--rust)}
 .btn .arr{transition:transform .3s ease}.btn:hover .arr{transform:translateX(4px)}
@@ -50,8 +50,8 @@ em{font-style:italic}
 .progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:60}
 .no-motion .progress{display:none}
 .nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:28px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(251,248,242,.78);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 1px 0 rgba(20,22,24,.06), 0 8px 30px rgba(20,22,24,.08);width:max-content;max-width:calc(100% - 24px)}
-.logo{font-family:var(--serif);font-size:28px;line-height:1;text-decoration:none;letter-spacing:-.01em;display:flex;align-items:baseline}
-.logo i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:2px}
+.logo{font-family:"Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;font-size:1.65rem;letter-spacing:-0.02em;line-height:1;text-decoration:none;color:var(--logo-ink)}
+.logo span{color:var(--gold-a)}
 .nav ul{display:flex;gap:22px;list-style:none;font-size:14px}
 .nav ul a{text-decoration:none;color:var(--ink-2)}
 .nav ul a:hover{color:var(--rust)}
@@ -65,7 +65,6 @@ em{font-style:italic}
 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,22,24,.35) 0%, rgba(20,22,24,.1) 35%, rgba(20,22,24,.82) 100%), linear-gradient(90deg, rgba(20,22,24,.55) 0%, rgba(20,22,24,0) 65%);z-index:2}
 .hero-bg .veil{position:absolute;inset:0;background:var(--ink);opacity:0;z-index:3}
 .hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:0 var(--pad) clamp(40px, 8vh, 90px);max-width:1500px;margin:0 auto;transform-origin:0% 100%}
-.hero .eyebrow{color:rgba(255,253,249,.8)}
 .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(50px, 9.4vw, 164px);line-height:.92;letter-spacing:-.025em;margin:22px 0 28px}
 .hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
 .hero h1 .line > span{display:inline-block}
@@ -73,17 +72,9 @@ em{font-style:italic}
 .hero-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px}
 .hero-sub{font-size:clamp(17px, 1.4vw, 20px);max-width:28em;color:rgba(255,253,249,.88)}
 .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
-.hero-note{font-size:13px;color:rgba(255,253,249,.7);margin-top:14px}
 .cue{position:absolute;right:var(--pad);top:50%;z-index:4;writing-mode:vertical-rl;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,253,249,.7);display:flex;align-items:center;gap:12px}
 .cue::after{content:"";width:1px;height:60px;background:linear-gradient(rgba(255,253,249,.8), transparent);animation:cue 2.2s ease-in-out infinite}
 @keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
-
-/* STATEMENT */
-.statement{min-height:100vh;display:flex;align-items:center;background:var(--paper)}
-.statement .wrap{width:100%}
-.statement p.big{font-family:var(--serif);font-size:clamp(48px, 8.6vw, 150px);line-height:.95;letter-spacing:-.025em;max-width:11em}
-.statement p.big em{color:var(--rust)}
-.statement .eyebrow{margin-bottom:34px}
 
 /* LEAKS */
 .leaks{background:var(--cream);position:relative;padding:clamp(80px, 12vh, 140px) 0}
@@ -147,56 +138,28 @@ em{font-style:italic}
 .stat-copy .src a{color:rgba(255,253,249,.85)}
 .stat .eyebrow{color:rgba(255,253,249,.6);margin-bottom:22px}
 
-/* SHRINK STATEMENT */
-.shrink{background:var(--paper);min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:120px 0}
-.shrink h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px, 7.6vw, 132px);line-height:.95;letter-spacing:-.025em;max-width:10em;margin:0 auto}
-.shrink h2 em{color:var(--rust)}
-.shrink p{margin-top:28px;font-size:clamp(18px, 1.5vw, 22px);color:var(--ink-2)}
-
-/* AGENCY */
-.agency{background:var(--paper);padding:clamp(40px, 8vh, 100px) 0 clamp(90px, 14vh, 160px)}
-.agency h2 em{color:var(--sage)}
-.agency-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px, 6vh, 64px)}
-.split{display:grid;grid-template-columns:1fr 1fr;border-radius:32px;overflow:hidden;min-height:60vh}
-.side{padding:clamp(32px, 4vw, 64px)}
-.side h3{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:clamp(24px, 4vh, 44px)}
-.side ul{list-style:none}
-.side li{font-family:var(--serif);font-size:clamp(28px, 2.7vw, 44px);line-height:1.05;padding:18px 0;border-top:1px solid}
-.side-them{background:#ebe4d7;color:#7c7a74}
-.side-them h3{color:#8d8a83}
-.side-them li{border-color:#d9d0c0;position:relative}
-.side-them li span{position:relative;display:inline}
-.side-them li span::after{content:"";position:absolute;left:-2px;right:-2px;top:55%;height:2px;background:var(--rust);transform-origin:0 50%;transform:scaleX(var(--x,1))}
-.side-us{background:var(--sage-d);color:var(--white)}
-.side-us h3{color:var(--sage-lt)}
-.side-us li{border-color:rgba(255,255,255,.14)}
-.side-us li::before{content:"✓";font-family:var(--sans);font-size:.5em;color:var(--gold-lt);margin-right:14px;vertical-align:.25em}
-.agency .foot{margin-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-
-/* DESK */
-.desk{background:var(--cream);position:relative}
-.desk-grid{display:grid;grid-template-columns:1fr 1fr}
-.desk-media{position:sticky;top:0;height:100vh;overflow:hidden}
-.no-motion .desk-media{position:relative;height:100%;min-height:100vh}
-.no-motion .desk-media img{object-position:85% 50%}
-.desk-media img{width:100%;height:100%;object-fit:cover;object-position:68% 50%}
-.desk-copy{padding:0 var(--pad)}
-.desk-screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0;max-width:600px}
-.desk-screen h2{margin:20px 0 26px}
-.desk-screen h2 em{color:var(--rust)}
-.phone{background:var(--white);border-radius:34px;box-shadow:0 30px 80px rgba(20,22,24,.14), 0 0 0 1px rgba(20,22,24,.05);overflow:hidden;max-width:420px}
-.phone-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
-.av{width:36px;height:36px;border-radius:50%;background:var(--sage);color:#fff;display:grid;place-items:center;font-weight:600}
-.phone-head strong{display:block;font-size:15px}
-.phone-head span{font-size:12px;color:var(--muted)}
-.ex{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--cream);color:var(--muted)}
-.msgs{padding:20px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.4}
-.meta{font-size:11px;color:var(--muted);text-align:center;margin-bottom:4px}
-.b{max-width:82%;padding:11px 15px;border-radius:18px 18px 18px 6px;background:#efeae0;align-self:flex-start}
-.b.me{align-self:flex-end;background:var(--sage);color:#fff;border-radius:18px 18px 6px 18px}
-.handoff{margin-top:8px;padding:14px 16px;border-radius:16px;background:#fbf3df;border:1px solid #ecd9a8;font-size:14px}
-.handoff strong{display:block;color:#7a5a17;margin-bottom:2px}
-.cap{margin-top:16px}
+/* TEAM ISN'T THE LEAK (from Ari's artifact, in v3's palette) */
+.busy{background:var(--paper);padding:clamp(96px, 16vh, 180px) 0}
+.busy-grid{display:grid;grid-template-columns:minmax(0, 5fr) minmax(0, 6fr);gap:clamp(32px, 6vw, 96px);align-items:center}
+.busy-photo{position:relative;margin:0}
+.frame{border-radius:28px;overflow:hidden;aspect-ratio:4 / 5;background:var(--line)}
+.frame img{width:100%;height:100%;object-fit:cover}
+.notes{position:absolute;bottom:9%;right:-7%;width:min(300px, 80%);display:grid;gap:10px}
+.note{display:grid;grid-template-columns:auto minmax(0, 1fr) auto;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;font-size:.9rem;color:var(--ink);background:rgba(255,253,249,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 18px 40px -18px rgba(20,22,24,.32), 0 0 0 1px rgba(20,22,24,.07)}
+.note b{font-weight:600}
+.note span{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold-a)}
+.dot.is-leak{background:var(--rust)}
+.busy-copy{display:grid;gap:24px}
+.busy h2 em{color:var(--rust)}
+.reveal{font-family:var(--serif);font-size:clamp(1.7rem, 3.2vw, 2.8rem);line-height:1.15;letter-spacing:-0.01em;max-width:25ch}
+.aside{font-size:.875rem;color:var(--muted);max-width:50ch}
+.motion .reveal .w{color:rgba(20,22,24,.28);transition:color .35s}
+.motion .reveal .w.lit{color:var(--ink)}
+.motion .frame{clip-path:inset(calc((1 - var(--rv, 1)) * 9%) round 28px)}
+.motion .frame img{transform:scale(calc(1.16 - var(--rv, 1) * .16))}
+.motion .note{opacity:0;transform:translateX(28px) scale(.9);transition:opacity .45s, transform .7s cubic-bezier(.3, 1.5, .5, 1)}
+.motion .note.in{opacity:1;transform:none}
 
 /* PILOT */
 .pilot{background:var(--ink);color:var(--white);overflow:hidden}
@@ -243,57 +206,49 @@ em{font-style:italic}
 .founder h2 em{color:var(--rust)}
 .creds{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0}
 .creds span{padding:8px 14px;border-radius:999px;background:var(--cream);font-size:13px;font-weight:500}
+.founder .more p{font-size:clamp(17px, 1.3vw, 19px);color:var(--ink-2);max-width:34em}
+.founder .more p + p{margin-top:14px}
 .sig{font-family:var(--serif);font-size:34px;line-height:1}
 .sig small{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:6px}
-details.more{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
-details.more summary{cursor:pointer;font-size:14px;font-weight:600;list-style:none;display:flex;align-items:center;gap:8px}
-details.more summary::after{content:"+";font-size:18px;font-weight:400;color:var(--rust)}
-details.more[open] summary::after{content:"–"}
-details.more p{margin-top:12px;font-size:15px;color:var(--ink-2)}
-
-/* TRUST */
-.trust{background:var(--cream);padding:clamp(90px, 14vh, 150px) 0}
-.trust-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
-.trust h2 em{color:var(--sage)}
-.icons{display:grid;grid-template-columns:repeat(4, 1fr);gap:0;margin-top:clamp(40px, 7vh, 72px);border-top:1px solid var(--line)}
-.icon-item{padding:30px 26px 10px 0}
-.icon-item + .icon-item{padding-left:26px;border-left:1px solid var(--line)}
-.ic{width:52px;height:52px;border-radius:50%;background:var(--white);display:grid;place-items:center;color:var(--sage);box-shadow:inset 0 0 0 1px var(--line);margin-bottom:20px}
-.icon-item h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px, 2.2vw, 34px);line-height:1}
-.icon-item p{font-size:15px;color:var(--muted);margin-top:8px}
-.trust .fine{margin-top:40px;max-width:60em}
-
 /* FAQ */
-.faq{background:var(--paper);padding:clamp(90px, 14vh, 150px) 0}
+.faq{background:var(--cream);padding:clamp(90px, 14vh, 150px) 0}
 .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px, 6vw, 100px)}
 .faq details{border-top:1px solid var(--line);padding:22px 0}
 .faq details:last-child{border-bottom:1px solid var(--line)}
 .faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--serif);font-size:clamp(24px, 2vw, 30px);line-height:1.1}
-.faq summary::-webkit-details-marker, details.more summary::-webkit-details-marker{display:none}
+.faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--rust);transition:transform .3s}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq details p{margin-top:12px;color:var(--ink-2);max-width:36em}
 
-/* CTA */
-.cta{position:relative;min-height:100vh;color:var(--white);display:flex;align-items:center;overflow:hidden;background:var(--ink)}
-.cta-bg{position:absolute;inset:0}
-.cta-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
-.cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(20,22,24,.92) 0%, rgba(20,22,24,.8) 50%, rgba(20,22,24,.62) 100%)}
-.cta .wrap{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:120px}
-.cta h2{font-family:var(--serif);font-weight:400;font-size:clamp(52px, 8.4vw, 144px);line-height:.92;letter-spacing:-.025em;margin:22px 0 40px}
-.cta h2 em{color:var(--gold-lt)}
-.cta .eyebrow{color:rgba(255,253,249,.7)}
-.cta-row{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;justify-content:space-between}
-.cta .micro{margin-top:16px;font-size:14px;color:rgba(255,253,249,.75)}
-.cta ol{list-style:none;counter-reset:c;max-width:420px;font-size:15px;color:rgba(255,253,249,.85)}
-.cta ol li{counter-increment:c;padding:12px 0;border-top:1px solid rgba(255,255,255,.16);display:flex;gap:14px}
-.cta ol li::before{content:counter(c, decimal-leading-zero);font-family:var(--serif);font-size:20px;color:var(--gold-lt);line-height:1.1}
-.cta .olh{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,253,249,.6);margin-bottom:10px}
-.cta .ph{background:rgba(251,243,223,.1);color:var(--gold-lt);border-color:rgba(220,185,111,.5)}
+/* LEAK CHECK (from Ari's artifact, in v3's palette) */
+.check{position:relative;isolation:isolate;background:var(--ink);color:var(--off-white);padding:clamp(96px, 14vh, 160px) 0}
+.check::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.check-grid{display:grid;grid-template-columns:minmax(0, 5fr) minmax(0, 7fr);gap:clamp(32px, 5vw, 80px);align-items:center}
+.check-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4 / 5.2;margin:0}
+.check-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.check-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 18px;font-family:var(--serif);font-style:italic;font-size:1.9rem;line-height:1.1;color:var(--off-white);background:linear-gradient(transparent, rgba(20,22,24,.8))}
+.check-tool{display:grid;gap:20px}
+.check h2 em{color:var(--gold-hi)}
+.check-sub{color:rgba(243,238,228,.68);font-size:clamp(1.06rem, 1.35vw, 1.28rem)}
+.ticks{list-style:none;display:grid;gap:8px}
+.tick{width:100%;display:flex;align-items:center;gap:12px;text-align:left;cursor:pointer;padding:11px 14px;border-radius:14px;color:var(--off-white);font:500 .95rem/1.3 var(--sans);border:1px solid rgba(243,238,228,.16);background:rgba(243,238,228,.04);transition:background-color .25s, border-color .25s}
+.tick:hover{border-color:rgba(217,174,82,.6)}
+.tick:focus-visible{outline:2px solid var(--gold-a);outline-offset:3px}
+.tick .box{flex:none;width:22px;height:22px;border-radius:7px;display:grid;place-items:center;border:1.5px solid rgba(243,238,228,.45)}
+.tick .tn{margin-left:auto;font-size:.72rem;color:rgba(243,238,228,.55);font-variant-numeric:tabular-nums}
+.tick[aria-pressed="true"]{background:rgba(217,174,82,.14);border-color:rgba(217,174,82,.6)}
+.tick[aria-pressed="true"] .box{background:var(--gold-a);border-color:var(--gold-a)}
+.tick[aria-pressed="true"] .box::after{content:"";width:10px;height:5px;border-left:2px solid var(--logo-ink);border-bottom:2px solid var(--logo-ink);transform:translateY(-1px) rotate(-45deg)}
+.result{font-size:clamp(1.06rem, 1.35vw, 1.28rem)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn.gold{background:var(--gold-a);color:var(--logo-ink);box-shadow:0 14px 34px -16px var(--gold-a)}
+.btn.gold:hover{background:var(--gold-hi)}
+.check .aside{color:rgba(243,238,228,.6)}
 
 footer{background:var(--ink);color:rgba(255,253,249,.6);padding:36px 0;font-size:13px;border-top:1px solid rgba(255,255,255,.08)}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-footer .logo{color:var(--white);font-size:24px}
+footer .logo{color:var(--off-white)}
 
 /* word split */
 .w{display:inline-block}
@@ -304,28 +259,18 @@ footer .logo{color:var(--white);font-size:24px}
   .nav{gap:14px;padding-left:18px}
   .cue{display:none}
   .hero h1{font-size:clamp(46px, 13.4vw, 90px)}
-  .leaks-grid,.stat .wrap,.desk-grid,.p-intro,.founder-grid,.faq-grid{grid-template-columns:1fr}
+  .leaks-grid,.stat .wrap,.busy-grid,.check-grid,.p-intro,.founder-grid,.faq-grid{grid-template-columns:1fr}
+  .notes{top:auto;bottom:14px;right:10px;width:min(280px, 84%)}
+  .check-photo{aspect-ratio:16 / 10}
   .leaks-side{display:grid;grid-template-columns:1fr;gap:10px}
   .bucket{max-width:260px;margin:0 auto}
   .leak{grid-template-columns:1fr;padding:44px 0}
   .leak-media,.tap-card{aspect-ratio:4/3}
-  .split{grid-template-columns:1fr;min-height:0}
-  .desk-media, .no-motion .desk-media{position:relative;height:62vh;min-height:0}
-  .desk-screen{min-height:0;padding:64px 0}
-  .desk-screen + .desk-screen{padding-top:0}
   .p-intro .img{aspect-ratio:4/3}
   .collage{height:110vw}
   .collage .c1{width:80%}.collage .c2{width:56%}.collage .c3{width:66%;right:0}
-  .icons{grid-template-columns:1fr 1fr;border-top:0}
-  .icon-item, .icon-item + .icon-item{padding:24px 14px 18px 0;border-top:1px solid var(--line);border-left:0}
-  .icon-item:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
-  .icon-item h3{font-size:24px}
-  .icon-item p{font-size:14px}
-  .ic{width:44px;height:44px;margin-bottom:14px}
   .stat{min-height:auto;padding:100px 0}
   .stat-num{font-size:clamp(150px, 46vw, 260px)}
-  .shrink{min-height:0}
-  .statement{min-height:70vh}
 }
 @media (max-width:520px){
   .hero-ctas .btn{flex:1 1 auto;justify-content:center}
@@ -340,7 +285,7 @@ footer .logo{color:var(--white);font-size:24px}
 <div class="progress" aria-hidden="true"></div>
 
 <nav class="nav" aria-label="Main">
-  <a class="logo" href="#top" aria-label="Goldie home">goldie<i aria-hidden="true"></i></a>
+  <a class="logo" href="#top">goldie<span>.</span></a>
   <ul>
     <li><a href="#leaks">The leaks</a></li>
     <li><a href="#pilot">The pilot</a></li>
@@ -359,12 +304,10 @@ footer .logo{color:var(--white);font-size:24px}
     <div class="veil"></div>
   </div>
   <div class="hero-copy">
-    <span class="eyebrow">For dental practices with busy front desks</span>
-    <h1 id="h1"><span class="line"><span>Your appointment</span></span><span class="line"><span>book isn’t empty.</span></span><span class="line"><span><em>It’s leaking.</em></span></span></h1>
+    <h1 id="h1"><span class="line"><span>The patients</span></span><span class="line"><span>who’d fill this chair</span></span><span class="line"><span><em>already enquired.</em></span></span></h1>
     <div class="hero-row">
       <div>
         <p class="hero-sub">Goldie restarts quiet treatment enquiries and hands interested patients to your team.</p>
-        <p class="hero-note">Pilot first. No upfront pilot fee.</p>
       </div>
       <div class="hero-ctas">
         <a class="btn light" href="#book" data-book>Book a discovery call <span class="arr" aria-hidden="true">→</span></a>
@@ -373,14 +316,6 @@ footer .logo{color:var(--white);font-size:24px}
     </div>
   </div>
   <div class="cue" aria-hidden="true">Scroll</div>
-</section>
-
-<!-- 2 STATEMENT -->
-<section class="statement" aria-label="The problem">
-  <div class="wrap">
-    <span class="eyebrow">The real problem</span>
-    <p class="big" data-words>Not a patient problem.<br>A <em>leak</em> problem.</p>
-  </div>
 </section>
 
 <!-- 3 LEAKY BUCKET -->
@@ -482,74 +417,21 @@ footer .logo{color:var(--white);font-size:24px}
   </div>
 </section>
 
-<!-- 4b SHRINK -->
-<section class="shrink" aria-label="Marketing">
-  <div class="wrap">
-    <h2 class="shrink-h">More marketing won’t fix a <em>leaking bucket.</em></h2>
-    <p class="shrink-p">It just costs more to fill.</p>
-  </div>
-</section>
-
-<!-- 5 NOT ANOTHER AGENCY -->
-<section class="agency" id="agency" aria-labelledby="agency-h">
-  <div class="wrap">
-    <div class="agency-head">
-      <div>
-        <span class="eyebrow">What we keep hearing · 1</span>
-        <h2 class="h-lg" id="agency-h" style="margin-top:18px">We don’t send leads.<br><em>We have the conversations.</em></h2>
+<!-- 5 YOUR TEAM ISN'T THE LEAK (from Ari's artifact) -->
+<section class="busy" id="team" aria-labelledby="team-h">
+  <div class="wrap busy-grid">
+    <figure class="busy-photo">
+      <div class="frame"><img src="img/busy-team.webp" width="1200" height="1500" alt="A dentist mid-treatment, a patient in the chair" loading="lazy" decoding="async"></div>
+      <div class="notes" aria-label="Notifications waiting at reception">
+        <p class="note" data-at="0.2"><i class="dot is-leak"></i><b>Missed call</b><span>10:42</span></p>
+        <p class="note" data-at="0.28"><i class="dot"></i><b>Web enquiry · Implants</b><span>Unread</span></p>
+        <p class="note" data-at="0.36"><i class="dot is-leak"></i><b>Missed call</b><span>10:51</span></p>
       </div>
-    </div>
-    <div class="split">
-      <div class="side side-them">
-        <h3>Typical lead-gen agency</h3>
-        <ul>
-          <li><span>Names and numbers</span></li>
-          <li><span>Your desk does the chasing</span></li>
-          <li><span>Every form fill is a “lead”</span></li>
-          <li><span>Monthly fee, whatever happens</span></li>
-        </ul>
-      </div>
-      <div class="side side-us">
-        <h3>Goldie</h3>
-        <ul>
-          <li>Patients, with the conversation</li>
-          <li>Goldie follows up, politely</li>
-          <li>Checked against criteria you agree</li>
-          <li>No upfront pilot fee</li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot">
-      <p class="small">Happy with your agency? Keep them. Goldie works on what happens after the enquiry arrives.</p>
-      <p class="small">Themes from our calls with practice owners, in our words.</p>
-    </div>
-  </div>
-</section>
-
-<!-- 6 FRONT DESK -->
-<section class="desk" id="desk" aria-labelledby="desk-h">
-  <div class="desk-grid">
-    <div class="desk-media"><img src="img/reception.webp" width="1800" height="1718" loading="lazy" decoding="async" alt="A receptionist helping a patient at a dental clinic front desk"></div>
-    <div class="desk-copy">
-      <div class="desk-screen">
-        <span class="eyebrow">What we keep hearing · 2</span>
-        <h2 class="h-lg" id="desk-h">Your front desk isn’t the problem. <em>Their day is.</em></h2>
-        <p class="lead">Chasing old enquiries isn’t anyone’s job. So Goldie does that part.</p>
-      </div>
-      <div class="desk-screen">
-        <div class="phone" aria-label="Illustrative follow-up conversation">
-          <div class="phone-head"><span class="av">M</span><div><strong>Meadow Lane Dental</strong><span>AI-assisted follow-up</span></div><span class="ex">Example</span></div>
-          <div class="msgs">
-            <span class="meta">Sam · Clear aligners · Enquired in April</span>
-            <div class="b">Hi, is this the same Sam that was looking into clear aligners in April?</div>
-            <div class="b me">Yes it is</div>
-            <div class="b">Thank god, I didn’t want to spam you just in case I have the wrong details. Have you sorted that out or are you still considering?</div>
-            <div class="b me">I’m actually looking again...</div>
-            <div class="handoff"><strong>Ready for your treatment coordinator</strong>Conversation attached. Your team takes it from here.</div>
-          </div>
-        </div>
-        <p class="small cap">Illustrative conversation, not a real patient or result.</p>
-      </div>
+    </figure>
+    <div class="busy-copy">
+      <h2 class="h-lg" id="team-h">Your team<br> isn’t <em>the leak.</em></h2>
+      <p class="reveal" data-reveal>They’re checking a patient in, the phone is ringing and someone wants to pay. The enquiry from Tuesday can wait. It always can.</p>
+      <p class="aside">Chasing old enquiries isn’t anyone’s job, and nobody’s rewarded for doing it.</p>
     </div>
   </div>
 </section>
@@ -598,36 +480,14 @@ footer .logo{color:var(--white);font-size:24px}
       <figure class="c3" data-speed="1"><img src="img/practi-team-dentistry-show.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Ari and colleagues at the Practi stand"></figure>
     </div>
     <div>
-      <span class="eyebrow">Who’s behind it</span>
       <h2 class="h-lg" id="about-h">Close to the teams. <em>Close to the problem.</em></h2>
-      <p class="lead">I’m Ari. I worked with UK dental teams at Practi. I set up and look after every Goldie workflow myself.</p>
-      <div class="creds"><span>Practi · UK dental</span><span>HotDoc · 4 years, AU</span><span>Live AI workflow in finance</span></div>
-      <p class="sig">Ari <small>Founder, Goldie</small></p>
-      <details class="more">
-        <summary>More about Ari</summary>
+      <div class="more">
         <p>At Practi I worked with owners, practice managers, reception teams and treatment coordinators across the UK. One small change, letting teams see whether a patient had opened their treatment guide and resend it, resonated strongly with teams.</p>
         <p>Before that, four years at HotDoc helping GP practices across Australia with patient engagement. Today I run AI workflows in production, including one that handles inbound enquiries and calendar work for an Australian finance broker.</p>
-      </details>
-    </div>
-  </div>
-</section>
-
-<!-- 9 COMPLIANCE -->
-<section class="trust" id="trust" aria-labelledby="trust-h">
-  <div class="wrap">
-    <div class="trust-head">
-      <div>
-        <span class="eyebrow">Built for healthcare</span>
-        <h2 class="h-lg" id="trust-h" style="margin-top:18px">Built for dental. <em>Not gyms.</em></h2>
       </div>
+      <div class="creds"><span>Practi · UK dental</span><span>HotDoc · 4 years, AU</span><span>Live AI workflow in finance</span></div>
+      <p class="sig">Ari <small>Founder, Goldie</small></p>
     </div>
-    <div class="icons">
-      <div class="icon-item"><div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Permission first</h3><p>Easy opt-out, always respected.</p></div>
-      <div class="icon-item"><div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>Honest reviews</h3><p>Same ask for everyone. No incentives, no filtering.</p></div>
-      <div class="icon-item"><div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Clinicians in charge</h3><p>No clinical advice. Urgent questions go to a person.</p></div>
-      <div class="icon-item"><div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h3>Your team books</h3><p>We propose. Your team confirms.</p></div>
-    </div>
-    <p class="small fine">Messaging set up with UK PECR, NZ’s Unsolicited Electronic Messages Act 2007 and Australia’s Spam Act 2003 in mind. Reviews designed with Google’s review policies and GDC, AHPRA and Dental Council of New Zealand guidance in mind. This describes how Goldie works, not legal advice.</p>
   </div>
 </section>
 
@@ -635,8 +495,7 @@ footer .logo{color:var(--white);font-size:24px}
 <section class="faq" id="faq" aria-labelledby="faq-h">
   <div class="wrap faq-grid">
     <div>
-      <span class="eyebrow">Questions</span>
-      <h2 class="h-lg" id="faq-h" style="margin-top:18px">Fair <em>questions.</em></h2>
+      <h2 class="h-lg" id="faq-h">Fair <em>questions.</em></h2>
     </div>
     <div>
       <details><summary>What does the pilot cost?</summary><p>No upfront fee. You pay when a re-engaged patient meets the agreed criteria and pays for treatment. Fee, criteria and attribution are agreed first. Anything after the pilot is scoped separately.</p><span class="ph">[Confirm how post-pilot work is priced]</span></details>
@@ -650,26 +509,28 @@ footer .logo{color:var(--white);font-size:24px}
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta" id="book" aria-labelledby="cta-h">
-  <div class="cta-bg"><img src="img/conversation.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A patient chatting with a dental professional in a treatment room"></div>
-  <div class="wrap">
-    <span class="eyebrow">Discovery call</span>
-    <h2 id="cta-h" data-words>Find the leak<br><em>before you fix it.</em></h2>
-    <div class="cta-row">
-      <div>
-        <a class="btn light" href="#book" data-book>Book a discovery call <span class="arr" aria-hidden="true">→</span></a>
-        <p class="micro">No clear need? No useful fit? We’ll say so.</p>
-        <span class="ph">[Booking link: set BOOKING_URL at the bottom of this file. Add a contact email.]</span>
-      </div>
-      <div>
-        <p class="olh">On the call</p>
-        <ol>
-          <li>We trace one real enquiry through your practice</li>
-          <li>What happens after “I’ll have a think”</li>
-          <li>Where calls and after-hours enquiries go</li>
-        </ol>
-      </div>
+<!-- LEAK CHECK (from Ari's artifact) -->
+<section class="check" id="book" aria-labelledby="check-h">
+  <div class="wrap check-grid">
+    <figure class="check-photo">
+      <img src="img/full-chair.webp" width="1200" height="1800" alt="A dentist laughing with a patient in the chair" loading="lazy" decoding="async">
+      <figcaption>Back in the chair.</figcaption>
+    </figure>
+    <div class="check-tool">
+      <h2 class="h-lg" id="check-h">Where is your<br> practice <em>leaking?</em></h2>
+      <p class="check-sub">Tick what you already do.</p>
+      <ul class="ticks">
+        <li><button type="button" class="tick" id="tick-1" data-i="1" aria-pressed="false"><span class="box" aria-hidden="true"></span>We follow up old enquiries<span class="tn" aria-hidden="true">1</span></button></li>
+        <li><button type="button" class="tick" id="tick-2" data-i="2" aria-pressed="false"><span class="box" aria-hidden="true"></span>We reply to new enquiries within the hour<span class="tn" aria-hidden="true">2</span></button></li>
+        <li><button type="button" class="tick" id="tick-3" data-i="3" aria-pressed="false"><span class="box" aria-hidden="true"></span>Every missed call gets a call or text back<span class="tn" aria-hidden="true">3</span></button></li>
+        <li><button type="button" class="tick" id="tick-4" data-i="4" aria-pressed="false"><span class="box" aria-hidden="true"></span>We follow up consults that don’t book<span class="tn" aria-hidden="true">4</span></button></li>
+        <li><button type="button" class="tick" id="tick-5" data-i="5" aria-pressed="false"><span class="box" aria-hidden="true"></span>We ask every happy patient for a review<span class="tn" aria-hidden="true">5</span></button></li>
+        <li><button type="button" class="tick" id="tick-6" data-i="6" aria-pressed="false"><span class="box" aria-hidden="true"></span>Our site is quick and easy on a phone<span class="tn" aria-hidden="true">6</span></button></li>
+      </ul>
+      <p class="result" aria-live="polite"><span id="advice">Start with old enquiries. That’s where Goldie starts.</span></p>
+      <!-- Booking link: set BOOKING_URL at the bottom of this file (Calendly, Cal.com). -->
+      <div class="actions"><a class="btn gold" href="#book" data-book>Book a leak check</a></div>
+      <p class="aside">We’ll trace one real enquiry through your practice and show you where it slips away. No clear need? We’ll say so.</p>
     </div>
   </div>
 </section>
@@ -678,9 +539,9 @@ footer .logo{color:var(--white);font-size:24px}
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#top">goldie<i aria-hidden="true"></i></a>
+    <a class="logo" href="#top">goldie<span>.</span></a>
     <span>Thoughtful follow-up. Human next steps.</span>
-    <span>© 2026 Goldie · getgoldie.ai · Photography via Pexels</span>
+    <span>© 2026 Goldie · getgoldie.ai · Photography via Pexels and Unsplash</span>
   </div>
 </footer>
 
@@ -705,6 +566,23 @@ if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href 
     bucket.querySelectorAll('.num').forEach(h => { const j = +h.dataset.i; h.classList.toggle('on', j === i); h.classList.toggle('done', j < i); });
     const lc = document.querySelector('.lc'); if (lc) lc.textContent = String(i + 1).padStart(2, '0');
   }
+
+  // LEAK CHECK ticks (from Ari's artifact; the "X of 6 holes open" count is removed)
+  const ticks = document.querySelectorAll('.tick');
+  const advice = document.getElementById('advice');
+  function paintCheck() {
+    const plugged = {}; let count = 0;
+    ticks.forEach(t => { const on = t.getAttribute('aria-pressed') === 'true'; plugged[t.dataset.i] = on; if (on) count++; });
+    const open = ticks.length - count;
+    if (open === 0) advice.textContent = 'Watertight. A leak check will confirm it.';
+    else if (!plugged[1]) advice.textContent = 'Start with old enquiries. That’s where Goldie starts.';
+    else advice.textContent = 'Old enquiries are covered. A leak check shows what to fix next.';
+  }
+  ticks.forEach(t => t.addEventListener('click', () => {
+    t.setAttribute('aria-pressed', t.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    paintCheck();
+  }));
+  paintCheck();
 
   if (!window.gsap || !window.ScrollTrigger || reduce || staticMode) { root.classList.add('no-motion'); return; }
 
@@ -746,11 +624,22 @@ if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href 
 
   // HERO intro
   gsap.from('.hero h1 .line > span', { yPercent: 110, duration: 1.2, ease: 'power4.out', stagger: 0.1, delay: 0.1 });
-  gsap.from('.hero .eyebrow, .hero-row > *', { opacity: 0, y: 24, duration: 1, ease: 'power3.out', stagger: 0.1, delay: 0.55 });
+  gsap.from('.hero-row > *', { opacity: 0, y: 24, duration: 1, ease: 'power3.out', stagger: 0.1, delay: 0.55 });
   gsap.fromTo('.hero-bg', { scale: 1.12 }, { scale: 1, duration: 2.4, ease: 'power2.out' });
 
-  const words = {};
-  document.querySelectorAll('[data-words]').forEach((el, k) => { words[k] = splitWords(el); el._w = words[k]; });
+  // TEAM ISN'T THE LEAK: same progress maths as Ari's artifact
+  const busy = document.querySelector('.busy');
+  const revealWords = splitWords(document.querySelector('[data-reveal]'));
+  const busyNotes = document.querySelectorAll('.note');
+  const clamp01 = n => Math.max(0, Math.min(1, n));
+  function paintBusy(p) {
+    busy.style.setProperty('--rv', clamp01(p / 0.35).toFixed(3));
+    const lit = Math.round(clamp01((p - 0.18) / 0.36) * revealWords.length);
+    revealWords.forEach((w, k) => w.classList.toggle('lit', k < lit));
+    busyNotes.forEach(n => n.classList.toggle('in', p >= Number(n.dataset.at)));
+  }
+  ScrollTrigger.create({ trigger: busy, start: 'top bottom', end: 'bottom top', refreshPriority: -1, onUpdate: self => paintBusy(self.progress), onRefresh: self => paintBusy(self.progress) });
+  paintBusy(0);
 
   const mm = gsap.matchMedia();
 
@@ -764,13 +653,8 @@ if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href 
       .to('.hero-copy', { scale: desk ? 1.14 : 1.05, opacity: 0, y: desk ? -60 : -30, ease: 'power1.in' }, 0)
       .to('.cue', { opacity: 0, ease: 'none' }, 0);
 
-    // STATEMENT word-by-word
-    const st = document.querySelector('.statement [data-words]');
-    gsap.fromTo(st._w, { opacity: 0.12 }, { opacity: 1, stagger: 0.12, ease: 'none',
-      scrollTrigger: { trigger: '.statement', start: desk ? 'top top' : 'top 70%', end: desk ? '+=110%' : 'bottom 60%', scrub: true, pin: desk } });
-
     // LEAKY BUCKET
-    const panels = gsap.utils.toArray('.leak');
+    const panels = gsap.utils.toArray('.leaks-list > .leak');
     const n = panels.length;
     if (desk) {
       setActive(0);
@@ -807,23 +691,6 @@ if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href 
        .from('.stat-copy > *', { y: 40, opacity: 0, stagger: 0.15, duration: 0.5 }, 0.55);
     if (desk) stl.to({}, { duration: 0.4 });
 
-    // SHRINK: giant type shrinks into place
-    gsap.fromTo('.shrink-h', { scale: desk ? 2.4 : 1.5, opacity: 0.25 }, { scale: 1, opacity: 1, ease: 'power2.out',
-      scrollTrigger: { trigger: '.shrink', start: 'top bottom', end: 'center 55%', scrub: true } });
-    gsap.from('.shrink-p', { opacity: 0, y: 20, scrollTrigger: { trigger: '.shrink', start: 'center 60%', end: 'center 40%', scrub: true } });
-
-    // AGENCY: strike the old way, bring in the new
-    const atl = gsap.timeline({ scrollTrigger: { trigger: '.split', start: desk ? 'top 75%' : 'top 85%', end: desk ? 'bottom 88%' : 'bottom 95%', scrub: 0.5 } });
-    gsap.utils.toArray('.side-them li span').forEach((s, i) => atl.fromTo(s, { '--x': 0 }, { '--x': 1, duration: 0.3 }, i * 0.3));
-    atl.fromTo('.side-them li', { color: '#4a4844' }, { color: '#9a978f', stagger: 0.3, duration: 0.3 }, 0)
-       .from('.side-us li', { x: 60, opacity: 0, stagger: 0.3, duration: 0.3 }, 0.15);
-
-    // FRONT DESK
-    if (desk) gsap.fromTo('.desk-media img', { scale: 1.18 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.desk', start: 'top bottom', end: 'bottom bottom', scrub: true } });
-    gsap.from('.desk-screen:first-child > *', { y: 50, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.desk-screen', start: 'top 70%' } });
-    gsap.from('.msgs > *', { y: 24, opacity: 0, scale: 0.96, transformOrigin: '0% 100%', stagger: 0.5, ease: 'power2.out',
-      scrollTrigger: { trigger: '.phone', start: 'top 85%', end: 'bottom 80%', scrub: 0.5 } });
-
     // PILOT horizontal
     if (desk) {
       const track = document.querySelector('.pilot-track');
@@ -839,16 +706,11 @@ if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href 
     // FOUNDER parallax collage
     gsap.utils.toArray('.collage figure').forEach(f => gsap.fromTo(f, { y: 60 * f.dataset.speed }, { y: -60 * f.dataset.speed, ease: 'none', scrollTrigger: { trigger: '.collage', start: 'top bottom', end: 'bottom top', scrub: true } }));
 
-    // TRUST icons
-    gsap.from('.icon-item', { y: 40, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.icons', start: 'top 80%' } });
-
-    // CTA words + image push
-    const ct = document.querySelector('.cta [data-words]');
-    gsap.fromTo(ct._w, { opacity: 0.1, y: 30 }, { opacity: 1, y: 0, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: '.cta', start: 'top 65%', end: 'top 10%', scrub: true } });
-    gsap.fromTo('.cta-bg img', { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'top bottom', end: 'bottom bottom', scrub: true } });
+    // LEAK CHECK photo
+    gsap.fromTo('.check-photo img', { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.check', start: 'top bottom', end: 'center center', scrub: true } });
 
     // section headings
-    gsap.utils.toArray('.agency-head, .trust-head, .faq-grid > div:first-child, .founder-grid > div:last-child > *').forEach(el =>
+    gsap.utils.toArray('.faq-grid > div:first-child, .founder-grid > div:last-child > *, .busy-copy > h2, .check-tool > h2, .check-tool > .check-sub').forEach(el =>
       gsap.from(el, { y: 50, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } }));
 
     return () => setActive(-1);
