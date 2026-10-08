@@ -1,0 +1,861 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goldie · Your appointment book isn’t empty. It’s leaking.</title>
+<meta name="description" content="Goldie restarts quiet treatment enquiries for dental practices and hands interested patients to your team. Pilot first, no upfront pilot fee.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-chair.webp" fetchpriority="high">
+<style>
+:root{
+  --cream:#f4ede1; --paper:#fbf8f2; --white:#fffdf9;
+  --ink:#141618; --ink-2:#2a2d31; --muted:#6a6e75; --line:#e2d9c8;
+  --rust:#ad4a20; --rust-lt:#ec9a6f; --sage:#3d6a56; --sage-d:#244638; --sage-lt:#bcd0c1; --sage-bg:#e6eee7;
+  --gold:#b98a2f; --gold-lt:#dcb96f; --water:#8ab6c8;
+  --serif:"Instrument Serif", "Times New Roman", serif;
+  --sans:Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --pad:clamp(20px, 5vw, 72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+em{font-style:italic}
+.serif{font-family:var(--serif);font-weight:400}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
+.small{font-size:13px;color:var(--muted);line-height:1.5}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;background:var(--ink);color:var(--white);text-decoration:none;font-weight:500;font-size:15px;transition:transform .3s ease, background .3s ease}
+.btn:hover{transform:translateY(-2px);background:var(--rust)}
+.btn .arr{transition:transform .3s ease}.btn:hover .arr{transform:translateX(4px)}
+.btn.light{background:var(--white);color:var(--ink)}
+.btn.light:hover{background:var(--gold-lt)}
+.btn.ghost{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.h-xl{font-family:var(--serif);font-weight:400;line-height:.95;letter-spacing:-.02em;font-size:clamp(46px, 7.4vw, 124px)}
+.h-lg{font-family:var(--serif);font-weight:400;line-height:.98;letter-spacing:-.015em;font-size:clamp(40px, 5.6vw, 92px)}
+.h-md{font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:-.01em;font-size:clamp(32px, 3.6vw, 56px)}
+.lead{font-size:clamp(17px, 1.35vw, 20px);color:var(--ink-2);max-width:34em}
+.ph{display:inline-block;margin-top:10px;padding:6px 10px;border:1px dashed var(--gold);border-radius:8px;font-size:12px;color:#8a6a24;background:#fbf3df}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+.no-motion .progress{display:none}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:28px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(251,248,242,.78);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 1px 0 rgba(20,22,24,.06), 0 8px 30px rgba(20,22,24,.08);width:max-content;max-width:calc(100% - 24px)}
+.logo{font-family:var(--serif);font-size:28px;line-height:1;text-decoration:none;letter-spacing:-.01em;display:flex;align-items:baseline}
+.logo i{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:2px}
+.nav ul{display:flex;gap:22px;list-style:none;font-size:14px}
+.nav ul a{text-decoration:none;color:var(--ink-2)}
+.nav ul a:hover{color:var(--rust)}
+.nav .btn{padding:11px 18px;font-size:14px}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:620px;color:var(--white);overflow:hidden;background:var(--ink)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero-bg::before{content:"";position:absolute;inset:0;background:#7a5536;mix-blend-mode:multiply;opacity:.35;z-index:1}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(20,22,24,.35) 0%, rgba(20,22,24,.1) 35%, rgba(20,22,24,.82) 100%), linear-gradient(90deg, rgba(20,22,24,.55) 0%, rgba(20,22,24,0) 65%);z-index:2}
+.hero-bg .veil{position:absolute;inset:0;background:var(--ink);opacity:0;z-index:3}
+.hero-copy{position:absolute;left:0;right:0;bottom:0;z-index:4;padding:0 var(--pad) clamp(40px, 8vh, 90px);max-width:1500px;margin:0 auto;transform-origin:0% 100%}
+.hero .eyebrow{color:rgba(255,253,249,.8)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(50px, 9.4vw, 164px);line-height:.92;letter-spacing:-.025em;margin:22px 0 28px}
+.hero h1 .line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hero h1 .line > span{display:inline-block}
+.hero h1 em{color:var(--rust-lt)}
+.hero-row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px 40px}
+.hero-sub{font-size:clamp(17px, 1.4vw, 20px);max-width:28em;color:rgba(255,253,249,.88)}
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{font-size:13px;color:rgba(255,253,249,.7);margin-top:14px}
+.cue{position:absolute;right:var(--pad);top:50%;z-index:4;writing-mode:vertical-rl;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,253,249,.7);display:flex;align-items:center;gap:12px}
+.cue::after{content:"";width:1px;height:60px;background:linear-gradient(rgba(255,253,249,.8), transparent);animation:cue 2.2s ease-in-out infinite}
+@keyframes cue{0%,100%{transform:scaleY(.4);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
+
+/* STATEMENT */
+.statement{min-height:100vh;display:flex;align-items:center;background:var(--paper)}
+.statement .wrap{width:100%}
+.statement p.big{font-family:var(--serif);font-size:clamp(48px, 8.6vw, 150px);line-height:.95;letter-spacing:-.025em;max-width:11em}
+.statement p.big em{color:var(--rust)}
+.statement .eyebrow{margin-bottom:34px}
+
+/* LEAKS */
+.leaks{background:var(--cream);position:relative;padding:clamp(80px, 12vh, 140px) 0}
+.leaks-grid{display:grid;grid-template-columns:minmax(260px, .8fr) 2fr;gap:clamp(32px, 4vw, 72px);align-items:start}
+.leaks-side h2{margin:18px 0 26px}
+.leaks-side h2 em{color:var(--rust)}
+.bucket{width:100%;max-width:360px;color:var(--ink);overflow:visible}
+.bucket .water{fill:var(--water);opacity:.55;transform:translateY(var(--lvl, 120px));transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.bucket[data-active="0"]{--lvl:150px}.bucket[data-active="1"]{--lvl:115px}.bucket[data-active="2"]{--lvl:80px}.bucket[data-active="3"]{--lvl:45px}.bucket[data-active="4"]{--lvl:10px}
+.bucket .hole{fill:var(--rust);transition:fill .4s, r .4s}
+.bucket .hole.fixed{fill:var(--sage)}
+.bucket .jet{fill:none;stroke:var(--water);stroke-width:5;stroke-linecap:round;stroke-dasharray:8 10;animation:flow 1s linear infinite;transition:opacity .4s}
+.bucket .jet.off{opacity:0}
+.bucket .hole.active{animation:pulse 1.4s ease-in-out infinite}
+.bucket .num circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.5;transition:fill .4s, stroke .4s}
+.bucket .num text{font:600 14px var(--sans);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.bucket .num.on circle{fill:var(--rust);stroke:var(--rust)}.bucket .num.on text{fill:#fff}
+.bucket .num.done circle{fill:var(--sage);stroke:var(--sage)}.bucket .num.done text{fill:#fff}
+.bucket .stream{stroke:var(--water);stroke-width:7;stroke-linecap:round;stroke-dasharray:6 16;animation:flow 1.2s linear infinite;opacity:.35;transition:opacity .5s, stroke-width .5s}
+.bucket[data-active="4"] .stream{opacity:1;stroke-width:12;stroke-dasharray:none}
+.bucket .tap-label{font:600 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;fill:var(--muted)}
+@keyframes flow{to{stroke-dashoffset:-36}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.leak-count{margin-top:18px;font-size:13px;color:var(--muted);letter-spacing:.08em}
+.leak-count b{color:var(--ink);font-weight:600}
+.no-motion .leak-count, html:not(.motion) .leak-count{display:none}
+
+.leak{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px, 3.5vw, 56px);align-items:center;padding:56px 0;border-top:1px solid var(--line)}
+.leak:first-child{border-top:0;padding-top:0}
+.leak-num{font-family:var(--serif);font-size:clamp(96px, 12vw, 200px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--rust);letter-spacing:-.04em;display:block;transform-origin:0% 80%}
+.leak h3{font-family:var(--serif);font-weight:400;font-size:clamp(38px, 4.4vw, 72px);line-height:.95;letter-spacing:-.015em;margin:18px 0 16px}
+.leak p{font-size:clamp(17px, 1.3vw, 20px);color:var(--ink-2);max-width:22em}
+.tag{display:inline-block;margin-top:22px;padding:7px 14px;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;background:var(--white);color:var(--muted);box-shadow:inset 0 0 0 1px var(--line)}
+.tag.go{background:var(--sage);color:#fff;box-shadow:none}
+.leak-media{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#ddd;max-height:72vh}
+.leak-media img{width:100%;height:100%;object-fit:cover}
+.leak.tap .leak-num{-webkit-text-stroke-color:var(--gold)}
+.tap-card{border-radius:28px;aspect-ratio:4/5;max-height:72vh;background:var(--ink);color:var(--white);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(28px, 3vw, 48px);position:relative;overflow:hidden}
+.tap-card::before{content:"";position:absolute;width:140%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle, rgba(185,138,47,.35), transparent 60%);top:-40%;right:-50%}
+.tap-card .serif{font-size:clamp(34px, 3.4vw, 54px);line-height:1;position:relative}
+.tap-card .serif em{color:var(--gold-lt)}
+.tap-card p{color:rgba(255,253,249,.75);margin-top:16px;position:relative;font-size:16px}
+
+@media (min-width:900px){
+  .motion .leaks{height:100vh;padding:0;overflow:hidden}
+  .motion .leaks > .wrap{height:100%}
+  .motion .leaks-grid{height:100%;align-items:center}
+  .motion .leaks-list{position:relative;height:min(76vh, 720px)}
+  .motion .leak{position:absolute;inset:0;padding:0;border:0;visibility:hidden}
+  .motion .leak:first-child{visibility:visible}
+  .motion .leak-media, .motion .tap-card{height:min(76vh, 720px);max-height:none;aspect-ratio:auto}
+}
+
+/* STAT */
+.stat{background:var(--ink);color:var(--white);min-height:100vh;display:flex;align-items:center;overflow:hidden;position:relative}
+.stat .wrap{width:100%;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px, 4vw, 64px);align-items:center}
+.stat-num{font-family:var(--serif);font-size:clamp(150px, 27vw, 460px);line-height:.8;letter-spacing:-.05em;color:var(--gold-lt);transform-origin:20% 60%;white-space:nowrap}
+.stat-num sup{font-size:.42em;vertical-align:.95em;margin-left:.02em;color:var(--rust-lt)}
+.stat-copy .serif{font-size:clamp(30px, 3vw, 48px);line-height:1.05}
+.stat-copy .src{margin-top:26px;font-size:13px;color:rgba(255,253,249,.6);max-width:30em}
+.stat-copy .src a{color:rgba(255,253,249,.85)}
+.stat .eyebrow{color:rgba(255,253,249,.6);margin-bottom:22px}
+
+/* SHRINK STATEMENT */
+.shrink{background:var(--paper);min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:120px 0}
+.shrink h2{font-family:var(--serif);font-weight:400;font-size:clamp(46px, 7.6vw, 132px);line-height:.95;letter-spacing:-.025em;max-width:10em;margin:0 auto}
+.shrink h2 em{color:var(--rust)}
+.shrink p{margin-top:28px;font-size:clamp(18px, 1.5vw, 22px);color:var(--ink-2)}
+
+/* AGENCY */
+.agency{background:var(--paper);padding:clamp(40px, 8vh, 100px) 0 clamp(90px, 14vh, 160px)}
+.agency h2 em{color:var(--sage)}
+.agency-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px, 6vh, 64px)}
+.split{display:grid;grid-template-columns:1fr 1fr;border-radius:32px;overflow:hidden;min-height:60vh}
+.side{padding:clamp(32px, 4vw, 64px)}
+.side h3{font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:clamp(24px, 4vh, 44px)}
+.side ul{list-style:none}
+.side li{font-family:var(--serif);font-size:clamp(28px, 2.7vw, 44px);line-height:1.05;padding:18px 0;border-top:1px solid}
+.side-them{background:#ebe4d7;color:#7c7a74}
+.side-them h3{color:#8d8a83}
+.side-them li{border-color:#d9d0c0;position:relative}
+.side-them li span{position:relative;display:inline}
+.side-them li span::after{content:"";position:absolute;left:-2px;right:-2px;top:55%;height:2px;background:var(--rust);transform-origin:0 50%;transform:scaleX(var(--x,1))}
+.side-us{background:var(--sage-d);color:var(--white)}
+.side-us h3{color:var(--sage-lt)}
+.side-us li{border-color:rgba(255,255,255,.14)}
+.side-us li::before{content:"✓";font-family:var(--sans);font-size:.5em;color:var(--gold-lt);margin-right:14px;vertical-align:.25em}
+.agency .foot{margin-top:22px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* DESK */
+.desk{background:var(--cream);position:relative}
+.desk-grid{display:grid;grid-template-columns:1fr 1fr}
+.desk-media{position:sticky;top:0;height:100vh;overflow:hidden}
+.no-motion .desk-media{position:relative;height:100%;min-height:100vh}
+.no-motion .desk-media img{object-position:85% 50%}
+.desk-media img{width:100%;height:100%;object-fit:cover;object-position:68% 50%}
+.desk-copy{padding:0 var(--pad)}
+.desk-screen{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:80px 0;max-width:600px}
+.desk-screen h2{margin:20px 0 26px}
+.desk-screen h2 em{color:var(--rust)}
+.phone{background:var(--white);border-radius:34px;box-shadow:0 30px 80px rgba(20,22,24,.14), 0 0 0 1px rgba(20,22,24,.05);overflow:hidden;max-width:420px}
+.phone-head{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--line)}
+.av{width:36px;height:36px;border-radius:50%;background:var(--sage);color:#fff;display:grid;place-items:center;font-weight:600}
+.phone-head strong{display:block;font-size:15px}
+.phone-head span{font-size:12px;color:var(--muted)}
+.ex{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:999px;background:var(--cream);color:var(--muted)}
+.msgs{padding:20px;display:flex;flex-direction:column;gap:10px;font-size:15px;line-height:1.4}
+.meta{font-size:11px;color:var(--muted);text-align:center;margin-bottom:4px}
+.b{max-width:82%;padding:11px 15px;border-radius:18px 18px 18px 6px;background:#efeae0;align-self:flex-start}
+.b.me{align-self:flex-end;background:var(--sage);color:#fff;border-radius:18px 18px 6px 18px}
+.handoff{margin-top:8px;padding:14px 16px;border-radius:16px;background:#fbf3df;border:1px solid #ecd9a8;font-size:14px}
+.handoff strong{display:block;color:#7a5a17;margin-bottom:2px}
+.cap{margin-top:16px}
+
+/* PILOT */
+.pilot{background:var(--ink);color:var(--white);overflow:hidden}
+.pilot-track{display:grid;gap:0;padding:clamp(80px, 12vh, 140px) var(--pad)}
+.panel{padding:40px 0;border-top:1px solid rgba(255,255,255,.12)}
+.panel:first-child{border-top:0;padding-top:0}
+.pilot .eyebrow{color:rgba(255,253,249,.6)}
+.pilot h2{margin:20px 0 24px}
+.pilot h2 em{color:var(--gold-lt)}
+.pilot .lead{color:rgba(255,253,249,.8)}
+.p-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.p-intro .img{border-radius:24px;overflow:hidden;aspect-ratio:3/4;max-height:64vh}
+.p-intro .img img{width:100%;height:100%;object-fit:cover}
+.step-n{font-family:var(--serif);font-size:clamp(120px, 14vw, 240px);line-height:.8;color:var(--gold-lt);letter-spacing:-.04em;display:block}
+.step h3{font-family:var(--serif);font-weight:400;font-size:clamp(40px, 4.4vw, 72px);line-height:.95;margin:20px 0 18px}
+.step p{color:rgba(255,253,249,.75);max-width:22em;font-size:18px}
+.terms{background:var(--gold-lt);color:var(--ink);border-radius:28px;padding:clamp(28px, 3.4vw, 52px)}
+.terms .serif{font-size:clamp(38px, 4vw, 64px);line-height:.95}
+.terms p{margin-top:18px;max-width:26em;color:var(--ink-2)}
+.terms .micro{margin-top:22px;font-weight:600}
+.pilot-bar{display:none}
+@media (min-width:900px){
+  .motion .pilot{height:100vh}
+  .motion .pilot-track{display:flex;flex-wrap:nowrap;width:max-content;height:100vh;align-items:center;padding:0 var(--pad);gap:clamp(48px, 6vw, 110px)}
+  .motion .panel{border:0;padding:0;flex:0 0 auto}
+  .motion .p-intro{width:min(78vw, 1100px)}
+  .motion .step{width:min(36vw, 520px)}
+  .motion .terms{width:min(40vw, 560px);padding:clamp(32px, 3.4vw, 52px)}
+  .motion .pilot-bar{display:block;position:absolute;left:var(--pad);right:var(--pad);bottom:40px;height:1px;background:rgba(255,255,255,.15)}
+  .motion .pilot-bar i{display:block;height:100%;background:var(--gold-lt);transform-origin:0 50%;transform:scaleX(0)}
+  .pilot{position:relative}
+}
+
+/* FOUNDER */
+.founder{background:var(--paper);padding:clamp(100px, 16vh, 180px) 0;overflow:hidden}
+.founder-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px, 6vw, 100px);align-items:center}
+.collage{position:relative;height:clamp(380px, 38vw, 560px)}
+.collage figure{position:absolute;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(20,22,24,.14)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .c1{left:0;top:13%;width:64%;aspect-ratio:1179/863;z-index:2}
+.collage .c2{right:0;top:0;width:46%;aspect-ratio:3/2}
+.collage .c3{right:3%;bottom:0;width:50%;aspect-ratio:3/2;z-index:3}
+.founder h2{margin:20px 0 26px}
+.founder h2 em{color:var(--rust)}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0}
+.creds span{padding:8px 14px;border-radius:999px;background:var(--cream);font-size:13px;font-weight:500}
+.sig{font-family:var(--serif);font-size:34px;line-height:1}
+.sig small{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:6px}
+details.more{margin-top:22px;border-top:1px solid var(--line);padding-top:14px}
+details.more summary{cursor:pointer;font-size:14px;font-weight:600;list-style:none;display:flex;align-items:center;gap:8px}
+details.more summary::after{content:"+";font-size:18px;font-weight:400;color:var(--rust)}
+details.more[open] summary::after{content:"–"}
+details.more p{margin-top:12px;font-size:15px;color:var(--ink-2)}
+
+/* TRUST */
+.trust{background:var(--cream);padding:clamp(90px, 14vh, 150px) 0}
+.trust-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.trust h2 em{color:var(--sage)}
+.icons{display:grid;grid-template-columns:repeat(4, 1fr);gap:0;margin-top:clamp(40px, 7vh, 72px);border-top:1px solid var(--line)}
+.icon-item{padding:30px 26px 10px 0}
+.icon-item + .icon-item{padding-left:26px;border-left:1px solid var(--line)}
+.ic{width:52px;height:52px;border-radius:50%;background:var(--white);display:grid;place-items:center;color:var(--sage);box-shadow:inset 0 0 0 1px var(--line);margin-bottom:20px}
+.icon-item h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px, 2.2vw, 34px);line-height:1}
+.icon-item p{font-size:15px;color:var(--muted);margin-top:8px}
+.trust .fine{margin-top:40px;max-width:60em}
+
+/* FAQ */
+.faq{background:var(--paper);padding:clamp(90px, 14vh, 150px) 0}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px, 6vw, 100px)}
+.faq details{border-top:1px solid var(--line);padding:22px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--serif);font-size:clamp(24px, 2vw, 30px);line-height:1.1}
+.faq summary::-webkit-details-marker, details.more summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--rust);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:12px;color:var(--ink-2);max-width:36em}
+
+/* CTA */
+.cta{position:relative;min-height:100vh;color:var(--white);display:flex;align-items:center;overflow:hidden;background:var(--ink)}
+.cta-bg{position:absolute;inset:0}
+.cta-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.cta-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg, rgba(20,22,24,.92) 0%, rgba(20,22,24,.8) 50%, rgba(20,22,24,.62) 100%)}
+.cta .wrap{position:relative;z-index:2;width:100%;padding-top:120px;padding-bottom:120px}
+.cta h2{font-family:var(--serif);font-weight:400;font-size:clamp(52px, 8.4vw, 144px);line-height:.92;letter-spacing:-.025em;margin:22px 0 40px}
+.cta h2 em{color:var(--gold-lt)}
+.cta .eyebrow{color:rgba(255,253,249,.7)}
+.cta-row{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;justify-content:space-between}
+.cta .micro{margin-top:16px;font-size:14px;color:rgba(255,253,249,.75)}
+.cta ol{list-style:none;counter-reset:c;max-width:420px;font-size:15px;color:rgba(255,253,249,.85)}
+.cta ol li{counter-increment:c;padding:12px 0;border-top:1px solid rgba(255,255,255,.16);display:flex;gap:14px}
+.cta ol li::before{content:counter(c, decimal-leading-zero);font-family:var(--serif);font-size:20px;color:var(--gold-lt);line-height:1.1}
+.cta .olh{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,253,249,.6);margin-bottom:10px}
+.cta .ph{background:rgba(251,243,223,.1);color:var(--gold-lt);border-color:rgba(220,185,111,.5)}
+
+footer{background:var(--ink);color:rgba(255,253,249,.6);padding:36px 0;font-size:13px;border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .logo{color:var(--white);font-size:24px}
+
+/* word split */
+.w{display:inline-block}
+
+/* RESPONSIVE */
+@media (max-width:1100px){ .nav ul{display:none} }
+@media (max-width:899px){
+  .nav{gap:14px;padding-left:18px}
+  .cue{display:none}
+  .hero h1{font-size:clamp(46px, 13.4vw, 90px)}
+  .leaks-grid,.stat .wrap,.desk-grid,.p-intro,.founder-grid,.faq-grid{grid-template-columns:1fr}
+  .leaks-side{display:grid;grid-template-columns:1fr;gap:10px}
+  .bucket{max-width:260px;margin:0 auto}
+  .leak{grid-template-columns:1fr;padding:44px 0}
+  .leak-media,.tap-card{aspect-ratio:4/3}
+  .split{grid-template-columns:1fr;min-height:0}
+  .desk-media, .no-motion .desk-media{position:relative;height:62vh;min-height:0}
+  .desk-screen{min-height:0;padding:64px 0}
+  .desk-screen + .desk-screen{padding-top:0}
+  .p-intro .img{aspect-ratio:4/3}
+  .collage{height:110vw}
+  .collage .c1{width:80%}.collage .c2{width:56%}.collage .c3{width:66%;right:0}
+  .icons{grid-template-columns:1fr 1fr;border-top:0}
+  .icon-item, .icon-item + .icon-item{padding:24px 14px 18px 0;border-top:1px solid var(--line);border-left:0}
+  .icon-item:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+  .icon-item h3{font-size:24px}
+  .icon-item p{font-size:14px}
+  .ic{width:44px;height:44px;margin-bottom:14px}
+  .stat{min-height:auto;padding:100px 0}
+  .stat-num{font-size:clamp(150px, 46vw, 260px)}
+  .shrink{min-height:0}
+  .statement{min-height:70vh}
+}
+@media (max-width:520px){
+  .hero-ctas .btn{flex:1 1 auto;justify-content:center}
+  .nav .btn{padding:10px 14px;font-size:13px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="logo" href="#top" aria-label="Goldie home">goldie<i aria-hidden="true"></i></a>
+  <ul>
+    <li><a href="#leaks">The leaks</a></li>
+    <li><a href="#pilot">The pilot</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">Questions</a></li>
+  </ul>
+  <a class="btn" href="#book" data-book>Book a call</a>
+</nav>
+
+<main id="top">
+
+<!-- 1 HOOK -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-bg">
+    <img src="img/hero-chair.webp" width="2200" height="1466" alt="An empty dental chair in a bright, modern treatment room" fetchpriority="high">
+    <div class="veil"></div>
+  </div>
+  <div class="hero-copy">
+    <span class="eyebrow">For dental practices with busy front desks</span>
+    <h1 id="h1"><span class="line"><span>Your appointment</span></span><span class="line"><span>book isn’t empty.</span></span><span class="line"><span><em>It’s leaking.</em></span></span></h1>
+    <div class="hero-row">
+      <div>
+        <p class="hero-sub">Goldie restarts quiet treatment enquiries and hands interested patients to your team.</p>
+        <p class="hero-note">Pilot first. No upfront pilot fee.</p>
+      </div>
+      <div class="hero-ctas">
+        <a class="btn light" href="#book" data-book>Book a discovery call <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn ghost" href="#leaks">See the leaks</a>
+      </div>
+    </div>
+  </div>
+  <div class="cue" aria-hidden="true">Scroll</div>
+</section>
+
+<!-- 2 STATEMENT -->
+<section class="statement" aria-label="The problem">
+  <div class="wrap">
+    <span class="eyebrow">The real problem</span>
+    <p class="big" data-words>Not a patient problem.<br>A <em>leak</em> problem.</p>
+  </div>
+</section>
+
+<!-- 3 LEAKY BUCKET -->
+<section class="leaks" id="leaks" aria-labelledby="leaks-h">
+  <div class="wrap">
+    <div class="leaks-grid">
+      <div class="leaks-side">
+        <span class="eyebrow">The leaky bucket</span>
+        <h2 class="h-md" id="leaks-h">Fix the leaks. <em>Then</em> turn up the tap.</h2>
+        <svg class="bucket" viewBox="0 0 400 450" data-active="none" role="img" aria-label="A bucket with four leaks, fixed in order, and a tap above it for marketing spend">
+          <defs><clipPath id="bk"><path d="M84 130 L316 130 L292 420 Q200 440 108 420 Z"/></clipPath></defs>
+          <text class="tap-label" x="40" y="22">Tap · marketing</text>
+          <path d="M40 50 H196 a14 14 0 0 1 14 14 V82" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+          <rect x="100" y="30" width="26" height="10" rx="3" fill="currentColor"/><rect x="110" y="38" width="6" height="10" fill="currentColor"/>
+          <line class="stream" x1="210" y1="96" x2="210" y2="300"/>
+          <g clip-path="url(#bk)"><rect class="water" x="60" y="130" width="280" height="330"/></g>
+          <path d="M84 130 L316 130 L292 420 Q200 440 108 420 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <ellipse cx="200" cy="130" rx="116" ry="13" fill="var(--cream)" fill-opacity=".001" stroke="currentColor" stroke-width="3"/>
+          <path class="jet" data-i="0" d="M93 236 q -26 4 -40 58"/>
+          <path class="jet" data-i="1" d="M307 236 q 26 4 40 58"/>
+          <path class="jet" data-i="2" d="M100 330 q -26 4 -40 58"/>
+          <path class="jet" data-i="3" d="M300 330 q 26 4 40 58"/>
+          <circle class="hole" data-i="0" cx="93" cy="236" r="7"/>
+          <circle class="hole" data-i="1" cx="307" cy="236" r="7"/>
+          <circle class="hole" data-i="2" cx="100" cy="330" r="7"/>
+          <circle class="hole" data-i="3" cx="300" cy="330" r="7"/>
+          <g class="num" data-i="0"><circle cx="40" cy="214" r="14"/><text x="40" y="214">1</text></g>
+          <g class="num" data-i="1"><circle cx="360" cy="214" r="14"/><text x="360" y="214">2</text></g>
+          <g class="num" data-i="2"><circle cx="46" cy="308" r="14"/><text x="46" y="308">3</text></g>
+          <g class="num" data-i="3"><circle cx="354" cy="308" r="14"/><text x="354" y="308">4</text></g>
+          <g class="num" data-i="4"><circle cx="20" cy="50" r="14"/><text x="20" y="50">5</text></g>
+        </svg>
+        <p class="leak-count" aria-hidden="true"><b class="lc">01</b> / 05</p>
+      </div>
+
+      <div class="leaks-list">
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num">01</span>
+            <h3>Quiet enquiries</h3>
+            <p>They asked about aligners or implants. Then went quiet.</p>
+            <span class="tag go">Where we start · the pilot</span>
+          </div>
+          <div class="leak-media"><img src="img/leak-quiet.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A woman looking at her phone at home in the evening"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num">02</span>
+            <h3>Reviews not asked</h3>
+            <p>Happy patients leave without being asked.</p>
+            <span class="tag">Scoped with you later</span>
+          </div>
+          <div class="leak-media"><img src="img/leak-reviews.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A smiling patient checks her teeth in a hand mirror beside a dental professional"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num">03</span>
+            <h3>Missed calls, slow replies</h3>
+            <p>The morning rush. The 8.40pm enquiry.</p>
+            <span class="tag">Scoped with you later</span>
+          </div>
+          <div class="leak-media"><img src="img/leak-calls.webp" width="1200" height="1800" loading="lazy" decoding="async" alt="A hand holding a phone showing a message thread"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num">04</span>
+            <h3>Consults that don’t convert</h3>
+            <p>“I’ll have a think.” Then nothing.</p>
+            <span class="tag">Scoped with you later</span>
+          </div>
+          <div class="leak-media"><img src="img/leak-consult.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A patient sitting in a dental chair, looking thoughtful"></div>
+        </article>
+        <article class="leak tap">
+          <div class="leak-copy">
+            <span class="leak-num">05</span>
+            <h3>Marketing spend</h3>
+            <p>The tap. Turn it up last, not first.</p>
+            <span class="tag">We don’t run ads</span>
+          </div>
+          <div class="tap-card">
+            <p class="serif">More water in a leaking bucket <em>just costs more.</em></p>
+            <p>Happy with your agency? Keep them.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4 STAT -->
+<section class="stat" id="stat" aria-labelledby="stat-h">
+  <div class="wrap">
+    <div class="stat-num" aria-hidden="true"><b class="count">54</b><sup>%</sup></div>
+    <div class="stat-copy">
+      <span class="eyebrow">“I’ll have a think”</span>
+      <p class="serif" id="stat-h"><span class="sr" style="position:absolute;left:-9999px">54% </span>of 500+ patients surveyed about high-value treatment considered it, then didn’t go ahead.</p>
+      <p class="src">Source: Practi’s 2022 research with BCG, reported in <a href="https://dentistry.co.uk/2024/01/16/the-case-acceptance-problem/" target="_blank" rel="noopener">Dentistry, January 2024</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4b SHRINK -->
+<section class="shrink" aria-label="Marketing">
+  <div class="wrap">
+    <h2 class="shrink-h">More marketing won’t fix a <em>leaking bucket.</em></h2>
+    <p class="shrink-p">It just costs more to fill.</p>
+  </div>
+</section>
+
+<!-- 5 NOT ANOTHER AGENCY -->
+<section class="agency" id="agency" aria-labelledby="agency-h">
+  <div class="wrap">
+    <div class="agency-head">
+      <div>
+        <span class="eyebrow">What we keep hearing · 1</span>
+        <h2 class="h-lg" id="agency-h" style="margin-top:18px">We don’t send leads.<br><em>We have the conversations.</em></h2>
+      </div>
+    </div>
+    <div class="split">
+      <div class="side side-them">
+        <h3>Typical lead-gen agency</h3>
+        <ul>
+          <li><span>Names and numbers</span></li>
+          <li><span>Your desk does the chasing</span></li>
+          <li><span>Every form fill is a “lead”</span></li>
+          <li><span>Monthly fee, whatever happens</span></li>
+        </ul>
+      </div>
+      <div class="side side-us">
+        <h3>Goldie</h3>
+        <ul>
+          <li>Patients, with the conversation</li>
+          <li>Goldie follows up, politely</li>
+          <li>Checked against criteria you agree</li>
+          <li>No upfront pilot fee</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot">
+      <p class="small">Happy with your agency? Keep them. Goldie works on what happens after the enquiry arrives.</p>
+      <p class="small">Themes from our calls with practice owners, in our words.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 FRONT DESK -->
+<section class="desk" id="desk" aria-labelledby="desk-h">
+  <div class="desk-grid">
+    <div class="desk-media"><img src="img/reception.webp" width="1800" height="1718" loading="lazy" decoding="async" alt="A receptionist helping a patient at a dental clinic front desk"></div>
+    <div class="desk-copy">
+      <div class="desk-screen">
+        <span class="eyebrow">What we keep hearing · 2</span>
+        <h2 class="h-lg" id="desk-h">Your front desk isn’t the problem. <em>Their day is.</em></h2>
+        <p class="lead">Chasing old enquiries isn’t anyone’s job. So Goldie does that part.</p>
+      </div>
+      <div class="desk-screen">
+        <div class="phone" aria-label="Illustrative follow-up conversation">
+          <div class="phone-head"><span class="av">M</span><div><strong>Meadow Lane Dental</strong><span>AI-assisted follow-up</span></div><span class="ex">Example</span></div>
+          <div class="msgs">
+            <span class="meta">Sam · Clear aligners · Enquired in April</span>
+            <div class="b">Hi, is this the same Sam that was looking into clear aligners in April?</div>
+            <div class="b me">Yes it is</div>
+            <div class="b">Thank god, I didn’t want to spam you just in case I have the wrong details. Have you sorted that out or are you still considering?</div>
+            <div class="b me">I’m actually looking again...</div>
+            <div class="handoff"><strong>Ready for your treatment coordinator</strong>Conversation attached. Your team takes it from here.</div>
+          </div>
+        </div>
+        <p class="small cap">Illustrative conversation, not a real patient or result.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 PILOT -->
+<section class="pilot" id="pilot" aria-labelledby="pilot-h">
+  <div class="pilot-track">
+    <div class="panel p-intro">
+      <div>
+        <span class="eyebrow">The pilot</span>
+        <h2 class="h-xl" id="pilot-h">Start with enquiries <em>you already have.</em></h2>
+        <p class="lead">Three steps. No upfront pilot fee.</p>
+      </div>
+      <div class="img"><img src="img/aligners.webp" width="1200" height="1800" loading="lazy" decoding="async" alt="Hands holding clear aligners next to a dental model"></div>
+    </div>
+    <div class="panel step">
+      <span class="step-n">1</span>
+      <h3>Pick the enquiries.</h3>
+      <p>Suitable aligner and implant enquiries, 3+ months old. Permissions and exclusions checked first.</p>
+    </div>
+    <div class="panel step">
+      <span class="step-n">2</span>
+      <h3>Restart the conversation.</h3>
+      <p>Friendly two-way SMS, AI-assisted. Easy to opt out. No clinical advice.</p>
+    </div>
+    <div class="panel step">
+      <span class="step-n">3</span>
+      <h3>Hand over, with context.</h3>
+      <p>Interested patients go to your team with a short summary. Your team books.</p>
+    </div>
+    <div class="panel terms">
+      <p class="serif">Pay when a patient goes ahead.</p>
+      <p>You pay when a re-engaged patient meets the agreed criteria and pays for treatment. Fee, criteria and attribution agreed before we start.</p>
+      <p class="micro">No clear need? No useful fit? We’ll say so.</p>
+    </div>
+  </div>
+  <div class="pilot-bar" aria-hidden="true"><i></i></div>
+</section>
+
+<!-- 8 FOUNDER -->
+<section class="founder" id="about" aria-labelledby="about-h">
+  <div class="wrap founder-grid">
+    <div class="collage" aria-label="Ari with the Practi team in the UK">
+      <figure class="c2" data-speed="0.6"><img src="img/practi-dentistry-show.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Ari and colleagues at a dentistry show"></figure>
+      <figure class="c1" data-speed="0.25"><img src="img/practi-uk-team.webp" width="1179" height="863" loading="lazy" decoding="async" alt="Ari with the Practi UK team"></figure>
+      <figure class="c3" data-speed="1"><img src="img/practi-team-dentistry-show.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Ari and colleagues at the Practi stand"></figure>
+    </div>
+    <div>
+      <span class="eyebrow">Who’s behind it</span>
+      <h2 class="h-lg" id="about-h">Close to the teams. <em>Close to the problem.</em></h2>
+      <p class="lead">I’m Ari. I worked with UK dental teams at Practi. I set up and look after every Goldie workflow myself.</p>
+      <div class="creds"><span>Practi · UK dental</span><span>HotDoc · 4 years, AU</span><span>Live AI workflow in finance</span></div>
+      <p class="sig">Ari <small>Founder, Goldie</small></p>
+      <details class="more">
+        <summary>More about Ari</summary>
+        <p>At Practi I worked with owners, practice managers, reception teams and treatment coordinators across the UK. One small change, letting teams see whether a patient had opened their treatment guide and resend it, resonated strongly with teams.</p>
+        <p>Before that, four years at HotDoc helping GP practices across Australia with patient engagement. Today I run AI workflows in production, including one that handles inbound enquiries and calendar work for an Australian finance broker.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- 9 COMPLIANCE -->
+<section class="trust" id="trust" aria-labelledby="trust-h">
+  <div class="wrap">
+    <div class="trust-head">
+      <div>
+        <span class="eyebrow">Built for healthcare</span>
+        <h2 class="h-lg" id="trust-h" style="margin-top:18px">Built for dental. <em>Not gyms.</em></h2>
+      </div>
+    </div>
+    <div class="icons">
+      <div class="icon-item"><div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Permission first</h3><p>Easy opt-out, always respected.</p></div>
+      <div class="icon-item"><div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div><h3>Honest reviews</h3><p>Same ask for everyone. No incentives, no filtering.</p></div>
+      <div class="icon-item"><div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><h3>Clinicians in charge</h3><p>No clinical advice. Urgent questions go to a person.</p></div>
+      <div class="icon-item"><div class="ic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div><h3>Your team books</h3><p>We propose. Your team confirms.</p></div>
+    </div>
+    <p class="small fine">Messaging set up with UK PECR, NZ’s Unsolicited Electronic Messages Act 2007 and Australia’s Spam Act 2003 in mind. Reviews designed with Google’s review policies and GDC, AHPRA and Dental Council of New Zealand guidance in mind. This describes how Goldie works, not legal advice.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow">Questions</span>
+      <h2 class="h-lg" id="faq-h" style="margin-top:18px">Fair <em>questions.</em></h2>
+    </div>
+    <div>
+      <details><summary>What does the pilot cost?</summary><p>No upfront fee. You pay when a re-engaged patient meets the agreed criteria and pays for treatment. Fee, criteria and attribution are agreed first. Anything after the pilot is scoped separately.</p><span class="ph">[Confirm how post-pilot work is priced]</span></details>
+      <details><summary>Will patients be talking to AI?</summary><p>AI-assisted SMS may be part of it. We agree the wording, how it’s introduced and when a person steps in.</p></details>
+      <details><summary>Will this add work for reception?</summary><p>No call lists. Your team gets interested patients with a short summary.</p></details>
+      <details><summary>Can you message our whole database?</summary><p>No. We agree which enquiries are suitable and check permissions and exclusions first.</p></details>
+      <details><summary>Does it work with our software?</summary><p>Goldie works alongside your tools. We check compatibility before you commit.</p></details>
+      <details><summary>What about clinical or urgent questions?</summary><p>They go to a person. Goldie gives no clinical advice and doesn’t decide urgency.</p></details>
+      <details><summary>Do we have to fix every leak?</summary><p>No. Start with the pilot. Decide on the next leak once you’ve seen the first one work.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="book" aria-labelledby="cta-h">
+  <div class="cta-bg"><img src="img/conversation.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A patient chatting with a dental professional in a treatment room"></div>
+  <div class="wrap">
+    <span class="eyebrow">Discovery call</span>
+    <h2 id="cta-h" data-words>Find the leak<br><em>before you fix it.</em></h2>
+    <div class="cta-row">
+      <div>
+        <a class="btn light" href="#book" data-book>Book a discovery call <span class="arr" aria-hidden="true">→</span></a>
+        <p class="micro">No clear need? No useful fit? We’ll say so.</p>
+        <span class="ph">[Booking link: set BOOKING_URL at the bottom of this file. Add a contact email.]</span>
+      </div>
+      <div>
+        <p class="olh">On the call</p>
+        <ol>
+          <li>We trace one real enquiry through your practice</li>
+          <li>What happens after “I’ll have a think”</li>
+          <li>Where calls and after-hours enquiries go</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">goldie<i aria-hidden="true"></i></a>
+    <span>Thoughtful follow-up. Human next steps.</span>
+    <span>© 2026 Goldie · getgoldie.ai · Photography via Pexels</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script>
+const BOOKING_URL = '';
+if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener'; });
+
+(function () {
+  const root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const staticMode = /[?&]static=1/.test(location.search);
+  const bucket = document.querySelector('.bucket');
+
+  function setActive(i) {
+    if (!bucket) return;
+    bucket.dataset.active = i;
+    bucket.querySelectorAll('.hole').forEach(h => { const j = +h.dataset.i; h.classList.toggle('fixed', j < i); h.classList.toggle('active', j === i); h.setAttribute('r', j === i ? 10 : 7); });
+    bucket.querySelectorAll('.jet').forEach(h => { const j = +h.dataset.i; h.classList.toggle('off', j < i); });
+    bucket.querySelectorAll('.num').forEach(h => { const j = +h.dataset.i; h.classList.toggle('on', j === i); h.classList.toggle('done', j < i); });
+    const lc = document.querySelector('.lc'); if (lc) lc.textContent = String(i + 1).padStart(2, '0');
+  }
+
+  if (!window.gsap || !window.ScrollTrigger || reduce || staticMode) { root.classList.add('no-motion'); return; }
+
+  gsap.registerPlugin(ScrollTrigger);
+  root.classList.add('motion');
+
+  if (window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.9 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+    window.__lenis = lenis;
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); const el = id.length > 1 && document.querySelector(id);
+      if (el) { e.preventDefault(); lenis.scrollTo(el, { duration: 1.6 }); }
+    }));
+  }
+
+  // split helper: wraps words in spans, keeps inline tags
+  function splitWords(el) {
+    const out = [];
+    (function walk(node) {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            const s = document.createElement('span'); s.className = 'w'; s.textContent = part; frag.appendChild(s); out.push(s);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) walk(n);
+      });
+    })(el);
+    return out;
+  }
+
+  gsap.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
+
+  // HERO intro
+  gsap.from('.hero h1 .line > span', { yPercent: 110, duration: 1.2, ease: 'power4.out', stagger: 0.1, delay: 0.1 });
+  gsap.from('.hero .eyebrow, .hero-row > *', { opacity: 0, y: 24, duration: 1, ease: 'power3.out', stagger: 0.1, delay: 0.55 });
+  gsap.fromTo('.hero-bg', { scale: 1.12 }, { scale: 1, duration: 2.4, ease: 'power2.out' });
+
+  const words = {};
+  document.querySelectorAll('[data-words]').forEach((el, k) => { words[k] = splitWords(el); el._w = words[k]; });
+
+  const mm = gsap.matchMedia();
+
+  mm.add({ desk: '(min-width: 900px)', mob: '(max-width: 899px)' }, ctx => {
+    const { desk } = ctx.conditions;
+
+    // HERO scroll-out: type magnifies away, image pushes in
+    gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: desk ? '+=90%' : 'bottom top', scrub: true, pin: desk } })
+      .to('.hero-bg img', { scale: 1.22, ease: 'none' }, 0)
+      .to('.hero-bg .veil', { opacity: 0.85, ease: 'none' }, 0)
+      .to('.hero-copy', { scale: desk ? 1.14 : 1.05, opacity: 0, y: desk ? -60 : -30, ease: 'power1.in' }, 0)
+      .to('.cue', { opacity: 0, ease: 'none' }, 0);
+
+    // STATEMENT word-by-word
+    const st = document.querySelector('.statement [data-words]');
+    gsap.fromTo(st._w, { opacity: 0.12 }, { opacity: 1, stagger: 0.12, ease: 'none',
+      scrollTrigger: { trigger: '.statement', start: desk ? 'top top' : 'top 70%', end: desk ? '+=110%' : 'bottom 60%', scrub: true, pin: desk } });
+
+    // LEAKY BUCKET
+    const panels = gsap.utils.toArray('.leak');
+    const n = panels.length;
+    if (desk) {
+      setActive(0);
+      const tl = gsap.timeline({ defaults: { ease: 'power2.out' }, scrollTrigger: {
+        trigger: '#leaks', start: 'top top', end: () => '+=' + Math.round(window.innerHeight * 0.95 * n), pin: true, scrub: 0.7,
+        onUpdate: self => { const t = self.progress * tl.duration(); setActive(Math.max(0, Math.min(n - 1, Math.floor(t + 0.12)))); }
+      } });
+      panels.forEach((p, i) => {
+        const num = p.querySelector('.leak-num'), media = p.querySelector('.leak-media, .tap-card'), img = p.querySelector('.leak-media img'), txt = p.querySelectorAll('.leak-copy > :not(.leak-num)');
+        const at = i === 0 ? 0 : i - 0.15;
+        if (i > 0) tl.fromTo(p, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12 }, at);
+        tl.fromTo(num, { scale: 0.35, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'power3.out' }, at)
+          .fromTo(media, { clipPath: 'inset(18% 22% 18% 22% round 28px)' }, { clipPath: 'inset(0% 0% 0% 0% round 28px)', duration: 0.5 }, at);
+        if (img) tl.fromTo(img, { scale: 1.3 }, { scale: 1, duration: 0.7 }, at);
+        tl.fromTo(txt, { y: 40, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.06, duration: 0.35 }, at + 0.08);
+        if (i < n - 1) tl.to(p, { autoAlpha: 0, scale: 1.06, duration: 0.18, ease: 'power1.in' }, i + 0.68);
+      });
+      tl.to({}, { duration: 0.35 });
+    } else {
+      setActive(-1);
+      panels.forEach(p => {
+        gsap.from(p.querySelector('.leak-num'), { scale: 0.5, opacity: 0, transformOrigin: '0% 80%', scrollTrigger: { trigger: p, start: 'top 85%', end: 'top 45%', scrub: true } });
+        const m = p.querySelector('.leak-media img'); if (m) gsap.fromTo(m, { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: p, start: 'top bottom', end: 'bottom top', scrub: true } });
+      });
+    }
+
+    // STAT count-up
+    const cEl = document.querySelector('.count'); const o = { v: 0 };
+    const stl = gsap.timeline({ scrollTrigger: desk
+      ? { trigger: '#stat', start: 'top top', end: '+=120%', pin: true, scrub: 0.6 }
+      : { trigger: '#stat', start: 'top 70%', toggleActions: 'play none none none' } });
+    stl.fromTo('.stat-num', { scale: 0.3, opacity: 0.15 }, { scale: 1, opacity: 1, duration: 1, ease: 'power3.out' }, 0)
+       .fromTo(o, { v: 0 }, { v: 54, duration: 1, ease: 'power2.out', onUpdate: () => { cEl.textContent = Math.round(o.v); } }, 0)
+       .from('.stat-copy > *', { y: 40, opacity: 0, stagger: 0.15, duration: 0.5 }, 0.55);
+    if (desk) stl.to({}, { duration: 0.4 });
+
+    // SHRINK: giant type shrinks into place
+    gsap.fromTo('.shrink-h', { scale: desk ? 2.4 : 1.5, opacity: 0.25 }, { scale: 1, opacity: 1, ease: 'power2.out',
+      scrollTrigger: { trigger: '.shrink', start: 'top bottom', end: 'center 55%', scrub: true } });
+    gsap.from('.shrink-p', { opacity: 0, y: 20, scrollTrigger: { trigger: '.shrink', start: 'center 60%', end: 'center 40%', scrub: true } });
+
+    // AGENCY: strike the old way, bring in the new
+    const atl = gsap.timeline({ scrollTrigger: { trigger: '.split', start: desk ? 'top 75%' : 'top 85%', end: desk ? 'bottom 88%' : 'bottom 95%', scrub: 0.5 } });
+    gsap.utils.toArray('.side-them li span').forEach((s, i) => atl.fromTo(s, { '--x': 0 }, { '--x': 1, duration: 0.3 }, i * 0.3));
+    atl.fromTo('.side-them li', { color: '#4a4844' }, { color: '#9a978f', stagger: 0.3, duration: 0.3 }, 0)
+       .from('.side-us li', { x: 60, opacity: 0, stagger: 0.3, duration: 0.3 }, 0.15);
+
+    // FRONT DESK
+    if (desk) gsap.fromTo('.desk-media img', { scale: 1.18 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.desk', start: 'top bottom', end: 'bottom bottom', scrub: true } });
+    gsap.from('.desk-screen:first-child > *', { y: 50, opacity: 0, stagger: 0.12, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: '.desk-screen', start: 'top 70%' } });
+    gsap.from('.msgs > *', { y: 24, opacity: 0, scale: 0.96, transformOrigin: '0% 100%', stagger: 0.5, ease: 'power2.out',
+      scrollTrigger: { trigger: '.phone', start: 'top 85%', end: 'bottom 80%', scrub: 0.5 } });
+
+    // PILOT horizontal
+    if (desk) {
+      const track = document.querySelector('.pilot-track');
+      const dist = () => Math.max(0, track.scrollWidth - window.innerWidth);
+      const ptl = gsap.timeline({ scrollTrigger: { trigger: '#pilot', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.7, invalidateOnRefresh: true } });
+      ptl.to(track, { x: () => -dist(), ease: 'none' }, 0).to('.pilot-bar i', { scaleX: 1, ease: 'none' }, 0);
+      gsap.utils.toArray('.step-n').forEach(s => gsap.fromTo(s, { scale: 0.4, opacity: 0.2 }, { scale: 1, opacity: 1, ease: 'power2.out', transformOrigin: '0% 80%',
+        scrollTrigger: { trigger: s, containerAnimation: ptl.getChildren()[0], start: 'left 95%', end: 'left 55%', scrub: true } }));
+    } else {
+      gsap.utils.toArray('.step-n').forEach(s => gsap.from(s, { scale: 0.5, opacity: 0.2, transformOrigin: '0% 80%', scrollTrigger: { trigger: s, start: 'top 90%', end: 'top 55%', scrub: true } }));
+    }
+
+    // FOUNDER parallax collage
+    gsap.utils.toArray('.collage figure').forEach(f => gsap.fromTo(f, { y: 60 * f.dataset.speed }, { y: -60 * f.dataset.speed, ease: 'none', scrollTrigger: { trigger: '.collage', start: 'top bottom', end: 'bottom top', scrub: true } }));
+
+    // TRUST icons
+    gsap.from('.icon-item', { y: 40, opacity: 0, stagger: 0.12, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.icons', start: 'top 80%' } });
+
+    // CTA words + image push
+    const ct = document.querySelector('.cta [data-words]');
+    gsap.fromTo(ct._w, { opacity: 0.1, y: 30 }, { opacity: 1, y: 0, stagger: 0.1, ease: 'power2.out', scrollTrigger: { trigger: '.cta', start: 'top 65%', end: 'top 10%', scrub: true } });
+    gsap.fromTo('.cta-bg img', { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'top bottom', end: 'bottom bottom', scrub: true } });
+
+    // section headings
+    gsap.utils.toArray('.agency-head, .trust-head, .faq-grid > div:first-child, .founder-grid > div:last-child > *').forEach(el =>
+      gsap.from(el, { y: 50, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } }));
+
+    return () => setActive(-1);
+  });
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
