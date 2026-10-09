@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goldie · The patients who’d fill this chair already enquired.</title>
+<meta name="description" content="Goldie restarts quiet treatment enquiries for dental practices and hands interested patients to your team. Pilot first, no upfront pilot fee.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-wide.webp" fetchpriority="high">
+<style>
+:root{
+  --cream:#f4ede1; --paper:#fbf8f2; --white:#fffdf9;
+  --ink:#141618; --ink-2:#2a2d31; --muted:#6a6e75; --line:#e2d9c8;
+  --acc:#a9792a; --acc-ink:#7a5b17; --sage:#3d6a56; --sage-d:#244638; --sage-lt:#bcd0c1; --sage-bg:#e6eee7;
+  --gold:#d9ae52; --gold-lt:#f1d48b; --water:#8ab6c8;
+  --gold-a:#d9ae52; --gold-hi:#f1d48b; --off-white:#f3eee4; --logo-ink:#17191c;
+  --serif:"Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans:"Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --surgery:#0d1f25; --on-surgery:#f3eee4; --on-surgery-muted:#9fb2b6; --ease:cubic-bezier(.2,.7,.1,1);
+  --pad:clamp(20px, 5vw, 72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+em{font-style:italic}
+.serif{font-family:var(--serif);font-weight:400}
+.wrap{max-width:1360px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:999px;background:var(--ink);color:var(--white);text-decoration:none;font-weight:500;font-size:15px;transition:transform .3s ease, background .3s ease}
+.btn:hover{transform:translateY(-2px);background:var(--acc-ink)}
+.h-xl{font-family:var(--serif);font-weight:400;line-height:.98;letter-spacing:-.025em;font-size:clamp(46px, 7.4vw, 124px)}
+.h-lg{font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:-.025em;font-size:clamp(2.1rem, 5vw, 4.3rem)}
+.h-md{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.025em;font-size:clamp(30px, 3.2vw, 50px)}
+.lead{font-size:clamp(17px, 1.35vw, 20px);color:var(--ink-2);max-width:34em}
+
+/* progress + nav */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+.no-motion .progress{display:none}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:28px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(251,248,242,.78);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 1px 0 rgba(20,22,24,.06), 0 8px 30px rgba(20,22,24,.08);width:max-content;max-width:calc(100% - 24px)}
+.logo{font-family:"Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;font-size:1.65rem;letter-spacing:-0.02em;line-height:1;text-decoration:none;color:var(--logo-ink)}
+.logo span{color:var(--gold-a)}
+.nav ul{display:flex;gap:22px;list-style:none;font-size:14px}
+.nav ul a{text-decoration:none;color:var(--ink-2)}
+.nav ul a:hover{color:var(--acc-ink)}
+.nav .btn{padding:11px 18px;font-size:14px}
+
+/* HERO (matches Ari's artifact; v5 nav kept) */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:92vh;min-height:92svh;display:grid;align-items:end;background:var(--surgery);color:var(--on-surgery)}
+.hero-img{position:absolute;inset:0;z-index:-2;transform-origin:62% 60%}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:64% 50%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg, color-mix(in srgb, var(--surgery) 86%, transparent) 0%, color-mix(in srgb, var(--surgery) 34%, transparent) 52%, transparent 78%), linear-gradient(180deg, color-mix(in srgb, var(--surgery) 60%, transparent) 0%, transparent 24%, transparent 62%, var(--surgery) 100%)}
+.hero-copy{width:100%;max-width:1240px;margin-inline:auto;padding-inline:clamp(16px, 4vw, 48px);display:grid;gap:22px;justify-items:start;padding-block:140px 13vh;transform-origin:left bottom}
+.hero h1{font-family:var(--serif);font-optical-sizing:auto;font-size:clamp(2.8rem, 7.2vw, 6.6rem);font-weight:350;line-height:.98;letter-spacing:-0.025em;max-width:10.5em;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--gold-hi)}
+.hero-sub{font-size:clamp(1.06rem, 1.35vw, 1.28rem);color:color-mix(in srgb, var(--on-surgery) 84%, transparent);max-width:34ch}
+.hbtn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 24px;border-radius:999px;border:1px solid transparent;font:600 .95rem/1 var(--sans);text-decoration:none;white-space:nowrap;cursor:pointer;transition:transform .25s var(--ease), background-color .25s, box-shadow .25s}
+.hbtn:hover{transform:translateY(-2px)}
+.hbtn-gold{background:var(--gold-a);color:var(--logo-ink);box-shadow:0 14px 34px -16px var(--gold-a)}
+.hbtn-gold:hover{background:var(--gold-hi)}
+.hbtn-glass{color:var(--on-surgery);border-color:color-mix(in srgb, var(--on-surgery) 35%, transparent);background:color-mix(in srgb, var(--on-surgery) 8%, transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:grid;justify-items:center;gap:8px;text-decoration:none;font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-surgery-muted)}
+.cue i{width:1px;height:34px;background:linear-gradient(var(--gold-a), transparent);transform-origin:top}
+.motion .hero-img{transform:scale(calc(1 + var(--p, 0) * .14))}
+.motion .hero-img img{animation:settle 2.6s var(--ease) both}
+.motion .hero-copy{transform:translateY(calc(var(--p, 0) * -14vh)) scale(calc(1 + var(--p, 0) * .08));opacity:calc(1 - var(--p, 0) * 1.4)}
+.motion .hero-copy > *{animation:rise-in 1s var(--ease) both}
+.motion .hero-copy > :nth-child(2){animation-delay:.1s}
+.motion .hero-copy > :nth-child(3){animation-delay:.25s}
+.motion .cue i{animation:cue 2s ease-in-out infinite}
+@keyframes settle{from{transform:scale(1.12)}to{transform:scale(1.02)}}
+@keyframes rise-in{from{opacity:0;transform:translateY(30px)}}
+@keyframes cue{0%{transform:scaleY(0)}55%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+@media (max-width:860px){
+  .hero{align-items:start}
+  .hero::after{background:linear-gradient(180deg, color-mix(in srgb, var(--surgery) 88%, transparent) 0%, color-mix(in srgb, var(--surgery) 55%, transparent) 42%, transparent 64%, color-mix(in srgb, var(--surgery) 70%, transparent) 100%)}
+  .hero-copy{padding-block:104px 120px}
+}
+
+/* LEAKS */
+.leaks{background:var(--cream);position:relative;padding:clamp(80px, 12vh, 140px) 0}
+.leaks-grid{display:grid;grid-template-columns:minmax(260px, .8fr) 2fr;gap:clamp(32px, 4vw, 72px);align-items:start}
+.leaks-side h2{margin:18px 0 26px}
+.leaks-side h2 em{color:var(--acc)}
+.bucket{width:100%;max-width:360px;color:var(--ink);overflow:visible}
+.bucket .water{fill:var(--water);opacity:.55;transform:translateY(var(--lvl, 120px));transition:transform 1s cubic-bezier(.2,.7,.2,1)}
+.bucket[data-active="0"]{--lvl:170px}.bucket[data-active="1"]{--lvl:140px}.bucket[data-active="2"]{--lvl:110px}.bucket[data-active="3"]{--lvl:80px}.bucket[data-active="4"]{--lvl:50px}.bucket[data-active="5"]{--lvl:20px}
+.bucket .hole{fill:var(--acc);transition:fill .4s, r .4s}
+.bucket .hole.fixed{fill:var(--sage)}
+.bucket .jet{fill:none;stroke:var(--water);stroke-width:5;stroke-linecap:round;stroke-dasharray:8 10;animation:flow 1s linear infinite;transition:opacity .4s}
+.bucket .jet.off{opacity:0}
+.bucket .hole.active{animation:pulse 1.4s ease-in-out infinite}
+.bucket .num circle{fill:var(--paper);stroke:var(--ink);stroke-width:1.5;transition:fill .4s, stroke .4s}
+.bucket .num text{font:600 14px var(--sans);fill:var(--ink);text-anchor:middle;dominant-baseline:central}
+.bucket .num.on circle{fill:var(--gold-a);stroke:var(--gold-a)}.bucket .num.on text{fill:var(--logo-ink)}
+.bucket .num.done circle{fill:var(--sage);stroke:var(--sage)}.bucket .num.done text{fill:#fff}
+.bucket .stream{stroke:var(--water);stroke-width:7;stroke-linecap:round;stroke-dasharray:6 16;animation:flow 1.2s linear infinite;opacity:.35;transition:opacity .5s, stroke-width .5s}
+.bucket .tap-label{font:500 11px var(--mono);letter-spacing:.14em;text-transform:uppercase;fill:var(--muted)}
+@keyframes flow{to{stroke-dashoffset:-36}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+.leak-count{margin-top:18px;font-family:var(--mono);font-size:.78rem;color:var(--muted);letter-spacing:.08em}
+.leak-count b{color:var(--ink);font-weight:600}
+.no-motion .leak-count, html:not(.motion) .leak-count{display:none}
+
+.leak{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px, 3.5vw, 56px);align-items:center;padding:56px 0;border-top:1px solid var(--line)}
+.leak:first-child{border-top:0;padding-top:0}
+.leak-num{font-family:var(--serif);font-weight:400;font-size:clamp(96px, 12vw, 200px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--acc);letter-spacing:-.04em;display:block;transform-origin:0% 80%}
+.leak-big{font-family:var(--serif);font-weight:400;font-size:clamp(56px, 5.6vw, 92px);line-height:.9;letter-spacing:-.03em;color:var(--acc);margin:22px 0 16px;display:block;transform-origin:0% 80%;white-space:nowrap}
+.leak-big small{font-size:.5em;font-style:italic;letter-spacing:0;margin-left:.06em}
+.leak p{font-size:clamp(17px, 1.3vw, 20px);line-height:1.4;color:var(--ink-2);max-width:21em}
+.leak .src{margin-top:18px;font-family:var(--mono);font-size:.7rem;letter-spacing:.02em;line-height:1.45;color:var(--muted);max-width:30em}
+.leak .src a{color:var(--muted);text-underline-offset:2px}.leak .src a:hover{color:var(--acc-ink)}
+.need{display:inline-block;margin-left:2px;padding:1px 6px;border:1px dashed currentColor;border-radius:6px;font-family:var(--mono);font-size:.7rem;font-weight:500;letter-spacing:.02em;color:var(--acc-ink);white-space:nowrap}
+.leak-media{border-radius:28px;overflow:hidden;aspect-ratio:4/5;background:#ddd;max-height:72vh}
+.leak-media img{width:100%;height:100%;object-fit:cover}
+.leak-media img.op-r{object-position:68% 50%}.leak-media img.op-rr{object-position:80% 50%}
+
+@media (min-width:900px){
+  .motion .leaks{height:100vh;padding:0;overflow:hidden}
+  .motion .leaks > .wrap{height:100%}
+  .motion .leaks-grid{height:100%;align-items:center}
+  .motion .leaks-list{position:relative;height:min(76vh, 720px)}
+  .motion .leak{position:absolute;inset:0;padding:0;border:0;visibility:hidden}
+  .motion .leak:first-child{visibility:visible}
+  .motion .leak-media{height:min(76vh, 720px);max-height:none;aspect-ratio:auto}
+}
+
+/* TEAM ISN'T THE LEAK (from Ari's artifact, in v3's palette) */
+.busy{background:var(--paper);padding:clamp(96px, 16vh, 180px) 0}
+.busy-grid{display:grid;grid-template-columns:minmax(0, 5fr) minmax(0, 6fr);gap:clamp(32px, 6vw, 96px);align-items:center}
+.busy-photo{position:relative;margin:0}
+.frame{border-radius:28px;overflow:hidden;aspect-ratio:4 / 5;background:var(--line)}
+.frame img{width:100%;height:100%;object-fit:cover}
+.notes{position:absolute;bottom:9%;right:-7%;width:min(300px, 80%);display:grid;gap:10px}
+.note{display:grid;grid-template-columns:auto minmax(0, 1fr) auto;align-items:center;gap:10px;padding:12px 14px;border-radius:16px;font-size:.9rem;color:var(--ink);background:rgba(255,253,249,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 18px 40px -18px rgba(20,22,24,.32), 0 0 0 1px rgba(20,22,24,.07)}
+.note b{font-weight:600}
+.note span{font-family:var(--mono);font-size:.7rem;color:var(--muted);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--gold-a)}
+.dot.is-leak{background:var(--acc)}
+.busy-copy{display:grid;gap:24px}
+.busy h2 em{color:var(--acc)}
+.reveal{font-family:var(--serif);font-size:clamp(1.5rem, 2.9vw, 2.45rem);line-height:1.22;letter-spacing:-0.01em;max-width:25ch}
+.aside{font-size:.875rem;color:var(--muted);max-width:50ch}
+.motion .reveal .w{color:rgba(20,22,24,.28);transition:color .35s}
+.motion .reveal .w.lit{color:var(--ink)}
+.motion .frame{clip-path:inset(calc((1 - var(--rv, 1)) * 9%) round 28px)}
+.motion .frame img{transform:scale(calc(1.16 - var(--rv, 1) * .16))}
+.motion .note{opacity:0;transform:translateX(28px) scale(.9);transition:opacity .45s, transform .7s cubic-bezier(.3, 1.5, .5, 1)}
+.motion .note.in{opacity:1;transform:none}
+
+/* PILOT */
+.pilot{background:var(--ink);color:var(--white);overflow:hidden}
+.pilot-track{display:grid;gap:0;padding:clamp(80px, 12vh, 140px) var(--pad)}
+.panel{padding:40px 0;border-top:1px solid rgba(255,255,255,.12)}
+.panel:first-child{border-top:0;padding-top:0}
+.pilot .eyebrow{color:rgba(255,253,249,.6)}
+.pilot h2{margin:20px 0 24px}
+.pilot h2 em{color:var(--gold-lt)}
+.pilot .lead{color:rgba(255,253,249,.8)}
+.p-intro{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.p-intro .img{border-radius:24px;overflow:hidden;aspect-ratio:3/4;max-height:64vh}
+.p-intro .img img{width:100%;height:100%;object-fit:cover}
+.step-n{font-family:var(--serif);font-weight:300;font-size:clamp(110px, 12vw, 200px);line-height:.8;color:var(--gold-lt);letter-spacing:-.04em;display:block}
+.step h3{font-family:var(--serif);font-weight:400;font-size:clamp(34px, 3.6vw, 58px);line-height:1;letter-spacing:-.02em;margin:20px 0 18px}
+.step p{color:rgba(255,253,249,.75);max-width:22em;font-size:18px}
+.terms{background:var(--gold-a);color:var(--ink);border-radius:28px;padding:clamp(28px, 3.4vw, 52px)}
+.terms .serif{font-size:clamp(32px, 3.4vw, 52px);line-height:1;letter-spacing:-.02em}
+.terms p{margin-top:18px;max-width:26em;color:var(--ink-2)}
+.terms .micro{margin-top:22px;font-weight:600}
+.pilot-bar{display:none}
+@media (min-width:900px){
+  .motion .pilot{height:100vh}
+  .motion .pilot-track{display:flex;flex-wrap:nowrap;width:max-content;height:100vh;align-items:center;padding:0 var(--pad);gap:clamp(48px, 6vw, 110px)}
+  .motion .panel{border:0;padding:0;flex:0 0 auto}
+  .motion .p-intro{width:min(78vw, 1100px)}
+  .motion .step{width:min(36vw, 520px)}
+  .motion .terms{width:min(40vw, 560px);padding:clamp(32px, 3.4vw, 52px)}
+  .motion .pilot-bar{display:block;position:absolute;left:var(--pad);right:var(--pad);bottom:40px;height:1px;background:rgba(255,255,255,.15)}
+  .motion .pilot-bar i{display:block;height:100%;background:var(--gold-lt);transform-origin:0 50%;transform:scaleX(0)}
+  .pilot{position:relative}
+}
+
+/* FOUNDER */
+.founder{background:var(--paper);padding:clamp(100px, 16vh, 180px) 0;overflow:hidden}
+.founder-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(40px, 6vw, 100px);align-items:center}
+.collage{position:relative;height:clamp(380px, 38vw, 560px)}
+.collage figure{position:absolute;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(20,22,24,.14)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .c1{left:0;top:13%;width:64%;aspect-ratio:1179/863;z-index:2}
+.collage .c2{right:0;top:0;width:46%;aspect-ratio:3/2}
+.collage .c3{right:3%;bottom:0;width:50%;aspect-ratio:3/2;z-index:3}
+.founder h2{margin:20px 0 26px}
+.founder h2 em{color:var(--acc)}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0}
+.creds span{padding:8px 14px;border-radius:999px;background:var(--cream);font-size:13px;font-weight:500}
+.founder .more p{font-size:clamp(17px, 1.3vw, 19px);color:var(--ink-2);max-width:34em}
+.founder .more p + p{margin-top:14px}
+.sig{font-family:var(--serif);font-size:34px;line-height:1}
+.sig small{display:block;font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:6px}
+/* FAQ */
+.faq{background:var(--cream);padding:clamp(90px, 14vh, 150px) 0}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(32px, 6vw, 100px)}
+.faq details{border-top:1px solid var(--line);padding:22px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--serif);font-size:clamp(21px, 1.7vw, 25px);line-height:1.25}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--acc-ink);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:12px;color:var(--ink-2);max-width:36em}
+
+/* LEAK CHECK (from Ari's artifact, in v3's palette) */
+.check{position:relative;isolation:isolate;background:var(--ink);color:var(--off-white);padding:clamp(96px, 14vh, 160px) 0}
+.check::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.check-grid{display:grid;grid-template-columns:minmax(0, 5fr) minmax(0, 7fr);gap:clamp(32px, 5vw, 80px);align-items:center}
+.check-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4 / 5.2;margin:0}
+.check-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.check-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 18px;font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.1;color:var(--off-white);background:linear-gradient(transparent, rgba(20,22,24,.8))}
+.check-tool{display:grid;gap:20px}
+.check h2 em{color:var(--gold-hi)}
+.check-sub{color:rgba(243,238,228,.68);font-size:clamp(1.06rem, 1.35vw, 1.28rem)}
+.ticks{list-style:none;display:grid;gap:8px}
+.tick{width:100%;display:flex;align-items:center;gap:12px;text-align:left;cursor:pointer;padding:11px 14px;border-radius:14px;color:var(--off-white);font:500 .95rem/1.3 var(--sans);border:1px solid rgba(243,238,228,.16);background:rgba(243,238,228,.04);transition:background-color .25s, border-color .25s}
+.tick:hover{border-color:rgba(217,174,82,.6)}
+.tick:focus-visible{outline:2px solid var(--gold-a);outline-offset:3px}
+.tick .box{flex:none;width:22px;height:22px;border-radius:7px;display:grid;place-items:center;border:1.5px solid rgba(243,238,228,.45)}
+.tick .tn{margin-left:auto;font-family:var(--mono);font-size:.7rem;color:rgba(243,238,228,.55);font-variant-numeric:tabular-nums}
+.tick[aria-pressed="true"]{background:rgba(217,174,82,.14);border-color:rgba(217,174,82,.6)}
+.tick[aria-pressed="true"] .box{background:var(--gold-a);border-color:var(--gold-a)}
+.tick[aria-pressed="true"] .box::after{content:"";width:10px;height:5px;border-left:2px solid var(--logo-ink);border-bottom:2px solid var(--logo-ink);transform:translateY(-1px) rotate(-45deg)}
+.result{font-size:clamp(1.06rem, 1.35vw, 1.28rem)}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn.gold{background:var(--gold-a);color:var(--logo-ink);box-shadow:0 14px 34px -16px var(--gold-a)}
+.btn.gold:hover{background:var(--gold-hi)}
+.check .aside{color:rgba(243,238,228,.6)}
+
+footer{background:var(--ink);color:rgba(255,253,249,.6);padding:36px 0;font-size:13px;border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .logo{color:var(--off-white)}
+
+/* word split */
+.w{display:inline-block}
+
+/* RESPONSIVE */
+@media (max-width:1100px){ .nav ul{display:none} }
+@media (max-width:899px){
+  .nav{gap:14px;padding-left:18px}
+  .leaks-grid,.busy-grid,.check-grid,.p-intro,.founder-grid,.faq-grid{grid-template-columns:1fr}
+  .notes{top:auto;bottom:14px;right:10px;width:min(280px, 84%)}
+  .check-photo{aspect-ratio:16 / 10}
+  .leaks-side{display:grid;grid-template-columns:1fr;gap:10px}
+  .bucket{max-width:260px;margin:0 auto}
+  .leak{grid-template-columns:1fr;padding:44px 0}
+  .leak-media{aspect-ratio:4/3}
+  .p-intro .img{aspect-ratio:4/3}
+  .collage{height:110vw}
+  .collage .c1{width:80%}.collage .c2{width:56%}.collage .c3{width:66%;right:0}
+}
+@media (max-width:520px){
+  .nav .btn{padding:10px 14px;font-size:13px}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="logo" href="#top">goldie<span>.</span></a>
+  <ul>
+    <li><a href="#leaks">The leaks</a></li>
+    <li><a href="#pilot">The pilot</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#faq">Questions</a></li>
+  </ul>
+  <a class="btn" href="#book" data-book>Book a call</a>
+</nav>
+
+<main id="top">
+
+<!-- 1 HOOK -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-img"><img src="img/hero-wide.webp" width="2000" height="1506" alt="An empty dental chair under the surgery light" fetchpriority="high" decoding="async"></div>
+  <div class="hero-copy">
+    <h1 id="h1">The patients<br> who’d fill this chair<br> <em>already enquired.</em></h1>
+    <p class="hero-sub">Then they went quiet, and nobody followed up.</p>
+    <div class="actions">
+      <a class="hbtn hbtn-gold" href="#book" data-book>Book a leak check</a>
+      <a class="hbtn hbtn-glass" href="#leaks">See where they went <span aria-hidden="true">↓</span></a>
+    </div>
+  </div>
+  <a class="cue" href="#leaks"><span>Scroll</span><i></i></a>
+</section>
+
+<!-- 3 LEAKY BUCKET -->
+<section class="leaks" id="leaks" aria-labelledby="leaks-h">
+  <div class="wrap">
+    <div class="leaks-grid">
+      <div class="leaks-side">
+        <h2 class="h-md" id="leaks-h">Fix the leaks.<br> <em>Then</em> turn up<br> the tap.</h2>
+        <svg class="bucket" viewBox="0 0 400 450" data-active="none" role="img" aria-label="A bucket with six leaks, fixed in order, and a tap above it for marketing spend">
+          <defs><clipPath id="bk"><path d="M84 130 L316 130 L292 420 Q200 440 108 420 Z"/></clipPath></defs>
+          <text class="tap-label" x="40" y="22">Tap · marketing</text>
+          <path d="M40 50 H196 a14 14 0 0 1 14 14 V82" fill="none" stroke="currentColor" stroke-width="13" stroke-linecap="round"/>
+          <rect x="100" y="30" width="26" height="10" rx="3" fill="currentColor"/><rect x="110" y="38" width="6" height="10" fill="currentColor"/>
+          <line class="stream" x1="210" y1="96" x2="210" y2="300"/>
+          <g clip-path="url(#bk)"><rect class="water" x="60" y="130" width="280" height="330"/></g>
+          <path d="M84 130 L316 130 L292 420 Q200 440 108 420 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+          <ellipse cx="200" cy="130" rx="116" ry="13" fill="var(--cream)" fill-opacity=".001" stroke="currentColor" stroke-width="3"/>
+          <path class="jet" data-i="0" d="M91.0 215 q -18 4 -26 40"/>
+          <path class="jet" data-i="1" d="M309.0 215 q 18 4 26 40"/>
+          <path class="jet" data-i="2" d="M97.2 290 q -18 4 -26 40"/>
+          <path class="jet" data-i="3" d="M302.8 290 q 18 4 26 40"/>
+          <path class="jet" data-i="4" d="M103.4 365 q -18 4 -26 40"/>
+          <path class="jet" data-i="5" d="M296.6 365 q 18 4 26 40"/>
+          <circle class="hole" data-i="0" cx="91.0" cy="215" r="7"/>
+          <circle class="hole" data-i="1" cx="309.0" cy="215" r="7"/>
+          <circle class="hole" data-i="2" cx="97.2" cy="290" r="7"/>
+          <circle class="hole" data-i="3" cx="302.8" cy="290" r="7"/>
+          <circle class="hole" data-i="4" cx="103.4" cy="365" r="7"/>
+          <circle class="hole" data-i="5" cx="296.6" cy="365" r="7"/>
+          <g class="num" data-i="0"><circle cx="40" cy="197" r="14"/><text x="40" y="197">1</text></g>
+          <g class="num" data-i="1"><circle cx="360" cy="197" r="14"/><text x="360" y="197">2</text></g>
+          <g class="num" data-i="2"><circle cx="40" cy="272" r="14"/><text x="40" y="272">3</text></g>
+          <g class="num" data-i="3"><circle cx="360" cy="272" r="14"/><text x="360" y="272">4</text></g>
+          <g class="num" data-i="4"><circle cx="40" cy="347" r="14"/><text x="40" y="347">5</text></g>
+          <g class="num" data-i="5"><circle cx="360" cy="347" r="14"/><text x="360" y="347">6</text></g>
+        </svg>
+        <p class="leak-count" aria-hidden="true"><b class="lc">01</b> / 06</p>
+      </div>
+
+      <div class="leaks-list">
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num" aria-hidden="true">01</span>
+            <h3 class="leak-big">97<small>%</small></h3>
+            <p>of consumers read reviews for local businesses. How often are you asking your happy patients?</p>
+            <p class="src">Source: BrightLocal, <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener">Local Consumer Review Survey 2026</a> (1,002 US adults).</p>
+          </div>
+          <div class="leak-media"><img src="img/leak-reviews.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A smiling patient checks her teeth in a hand mirror beside a dental professional"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num" aria-hidden="true">02</span>
+            <h3 class="leak-big">62<small>%</small></h3>
+            <p>of calls to small businesses went unanswered.</p>
+            <p class="src">Source: 411 Locals, <a href="https://411locals.us/small-business-owners-dont-answer-62-of-phone-calls/" target="_blank" rel="noopener">2016 study</a> of 85 US small businesses.</p>
+          </div>
+          <div class="leak-media"><img class="op-rr" src="img/reception.webp" width="1800" height="1718" loading="lazy" decoding="async" alt="A receptionist talking with a man at a clinic front desk"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num" aria-hidden="true">03</span>
+            <h3 class="leak-big">42<small>hrs</small></h3>
+            <p>Average wait for a reply to an online enquiry, where one came. 23% never got one.</p>
+            <p class="src">Source: <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">Harvard Business Review, 2011</a>. Test enquiries to 2,241 US companies.</p>
+          </div>
+          <div class="leak-media"><img src="img/leak-calls.webp" width="1200" height="1800" loading="lazy" decoding="async" alt="A hand holding a phone showing a message thread"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num" aria-hidden="true">04</span>
+            <h3 class="leak-big">54<small>%</small></h3>
+            <p>of patients considered high-value treatment, then didn’t go ahead.</p>
+            <p class="src">Source: Practi’s 2022 research with BCG (500+ patients), reported in <a href="https://dentistry.co.uk/2024/01/16/the-case-acceptance-problem/" target="_blank" rel="noopener">Dentistry, January 2024</a>.</p>
+          </div>
+          <div class="leak-media"><img src="img/leak-consult.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A patient sitting in a dental chair, looking thoughtful"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num" aria-hidden="true">05</span>
+            <h3 class="leak-big">70<small>%</small></h3>
+            <p>of dental teams reported not receiving any formal training, but ongoing training is linked with 50% more conversion in sales.</p>
+            <p class="src"><span class="need" title="Source not yet verified">[source needed]</span></p>
+          </div>
+          <div class="leak-media"><img src="img/consult.webp" width="1400" height="1050" loading="lazy" decoding="async" alt="A treatment coordinator and a dentist talking through a smile design on screen"></div>
+        </article>
+        <article class="leak">
+          <div class="leak-copy">
+            <span class="leak-num" aria-hidden="true">06</span>
+            <h3 class="leak-big">Website</h3>
+            <p>A slow, fiddly site loses them before they enquire.</p>
+          </div>
+          <div class="leak-media"><img class="op-r" src="img/leak-website.webp" width="1200" height="1500" loading="lazy" decoding="async" alt="Illustration: a phone showing a half-loaded dental clinic page with a spinner, and a back-swipe away from it, in front of a woman on her phone at home"></div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 YOUR TEAM ISN'T THE LEAK (from Ari's artifact) -->
+<section class="busy" id="team" aria-labelledby="team-h">
+  <div class="wrap busy-grid">
+    <figure class="busy-photo">
+      <div class="frame"><img src="img/busy-team.webp" width="1200" height="1500" alt="A dentist mid-treatment, a patient in the chair" loading="lazy" decoding="async"></div>
+      <div class="notes" aria-label="Notifications waiting at reception">
+        <p class="note" data-at="0.2"><i class="dot is-leak"></i><b>Missed call</b><span>10:42</span></p>
+        <p class="note" data-at="0.28"><i class="dot"></i><b>Web enquiry · Implants</b><span>Unread</span></p>
+        <p class="note" data-at="0.36"><i class="dot is-leak"></i><b>Missed call</b><span>10:51</span></p>
+      </div>
+    </figure>
+    <div class="busy-copy">
+      <h2 class="h-lg" id="team-h">Your team<br> isn’t <em>the leak.</em></h2>
+      <p class="reveal" data-reveal>They’re checking a patient in, the phone is ringing and someone wants to pay. The enquiry from Tuesday can wait. It always can.</p>
+      <p class="aside">Chasing old enquiries isn’t anyone’s job, and nobody’s rewarded for doing it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 7 PILOT -->
+<section class="pilot" id="pilot" aria-labelledby="pilot-h">
+  <div class="pilot-track">
+    <div class="panel p-intro">
+      <div>
+        <span class="eyebrow">The pilot</span>
+        <h2 class="h-xl" id="pilot-h">Start with enquiries <em>you already have.</em></h2>
+        <p class="lead">Three steps. No upfront pilot fee.</p>
+      </div>
+      <div class="img"><img src="img/aligners.webp" width="1200" height="1800" loading="lazy" decoding="async" alt="Hands holding clear aligners next to a dental model"></div>
+    </div>
+    <div class="panel step">
+      <span class="step-n">1</span>
+      <h3>Pick the enquiries.</h3>
+      <p>Suitable aligner and implant enquiries, 3+ months old. Permissions and exclusions checked first.</p>
+    </div>
+    <div class="panel step">
+      <span class="step-n">2</span>
+      <h3>Restart the conversation.</h3>
+      <p>Friendly two-way SMS, AI-assisted. Easy to opt out. No clinical advice.</p>
+    </div>
+    <div class="panel step">
+      <span class="step-n">3</span>
+      <h3>Hand over, with context.</h3>
+      <p>Interested patients go to your team with a short summary. Your team books.</p>
+    </div>
+    <div class="panel terms">
+      <p class="serif">Pay when a patient goes ahead.</p>
+      <p>You pay when a re-engaged patient meets the agreed criteria and pays for treatment. Fee, criteria and attribution agreed before we start.</p>
+      <p class="micro">No clear need? No useful fit? We’ll say so.</p>
+    </div>
+  </div>
+  <div class="pilot-bar" aria-hidden="true"><i></i></div>
+</section>
+
+<!-- 8 FOUNDER -->
+<section class="founder" id="about" aria-labelledby="about-h">
+  <div class="wrap founder-grid">
+    <div class="collage" aria-label="Ari with the Practi team in the UK">
+      <figure class="c2" data-speed="0.6"><img src="img/practi-dentistry-show.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Ari and colleagues at a dentistry show"></figure>
+      <figure class="c1" data-speed="0.25"><img src="img/practi-uk-team.webp" width="1179" height="863" loading="lazy" decoding="async" alt="Ari with the Practi UK team"></figure>
+      <figure class="c3" data-speed="1"><img src="img/practi-team-dentistry-show.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Ari and colleagues at the Practi stand"></figure>
+    </div>
+    <div>
+      <h2 class="h-lg" id="about-h">Close to the teams. <em>Close to the problem.</em></h2>
+      <div class="more">
+        <p>At Practi I worked with owners, practice managers, reception teams and treatment coordinators across the UK. One small change, letting teams see whether a patient had opened their treatment guide and resend it, resonated strongly with teams.</p>
+        <p>Before that, four years at HotDoc helping GP practices across Australia with patient engagement. Today I run AI workflows in production, including one that handles inbound enquiries and calendar work for an Australian finance broker.</p>
+      </div>
+      <div class="creds"><span>Practi · UK dental</span><span>HotDoc · 4 years, AU</span><span>Live AI workflow in finance</span></div>
+      <p class="sig">Ari <small>Founder, Goldie</small></p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div>
+      <h2 class="h-lg" id="faq-h">Questions</h2>
+    </div>
+    <div>
+      <details><summary>Will patients be talking to AI?</summary><p>AI-assisted SMS may be part of it. We agree the wording, how it’s introduced and when a person steps in.</p></details>
+      <details><summary>Will this add work for reception?</summary><p>No call lists. Your team gets interested patients with a short summary.</p></details>
+      <details><summary>Can you message our whole database?</summary><p>No. We agree which enquiries are suitable and check permissions and exclusions first.</p></details>
+      <details><summary>Does it work with our software?</summary><p>Goldie works alongside your tools. We check compatibility before you commit.</p></details>
+      <details><summary>What about clinical or urgent questions?</summary><p>They go to a person. Goldie gives no clinical advice and doesn’t decide urgency.</p></details>
+      <details><summary>Do we have to fix every leak?</summary><p>No. Start with the pilot. Decide on the next leak once you’ve seen the first one work.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- LEAK CHECK (from Ari's artifact) -->
+<section class="check" id="book" aria-labelledby="check-h">
+  <div class="wrap check-grid">
+    <figure class="check-photo">
+      <img src="img/full-chair.webp" width="1200" height="1800" alt="A dentist laughing with a patient in the chair" loading="lazy" decoding="async">
+      <figcaption>Back in the chair.</figcaption>
+    </figure>
+    <div class="check-tool">
+      <h2 class="h-lg" id="check-h">Where is your<br> practice <em>leaking?</em></h2>
+      <p class="check-sub">Tick what you already do.</p>
+      <ul class="ticks">
+        <li><button type="button" class="tick" id="tick-1" data-i="1" aria-pressed="false"><span class="box" aria-hidden="true"></span>We follow up old enquiries<span class="tn" aria-hidden="true">1</span></button></li>
+        <li><button type="button" class="tick" id="tick-2" data-i="2" aria-pressed="false"><span class="box" aria-hidden="true"></span>We reply to new enquiries within the hour<span class="tn" aria-hidden="true">2</span></button></li>
+        <li><button type="button" class="tick" id="tick-3" data-i="3" aria-pressed="false"><span class="box" aria-hidden="true"></span>Every missed call gets a call or text back<span class="tn" aria-hidden="true">3</span></button></li>
+        <li><button type="button" class="tick" id="tick-4" data-i="4" aria-pressed="false"><span class="box" aria-hidden="true"></span>We follow up consults that don’t book<span class="tn" aria-hidden="true">4</span></button></li>
+        <li><button type="button" class="tick" id="tick-5" data-i="5" aria-pressed="false"><span class="box" aria-hidden="true"></span>We ask every happy patient for a review<span class="tn" aria-hidden="true">5</span></button></li>
+        <li><button type="button" class="tick" id="tick-6" data-i="6" aria-pressed="false"><span class="box" aria-hidden="true"></span>Our site is quick and easy on a phone<span class="tn" aria-hidden="true">6</span></button></li>
+      </ul>
+      <p class="result" aria-live="polite"><span id="advice">Start with old enquiries. That’s where Goldie starts.</span></p>
+      <!-- Booking link: set BOOKING_URL at the bottom of this file (Calendly, Cal.com). -->
+      <div class="actions"><a class="btn gold" href="#book" data-book>Book a leak check</a></div>
+      <p class="aside">We’ll trace one real enquiry through your practice and show you where it slips away. No clear need? We’ll say so.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">goldie<span>.</span></a>
+    <span>Thoughtful follow-up. Human next steps.</span>
+    <span>© 2026 Goldie · getgoldie.ai · Photography via Pexels and Unsplash</span>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script>
+const BOOKING_URL = '';
+if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener'; });
+
+(function () {
+  const root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const staticMode = /[?&]static=1/.test(location.search);
+  const bucket = document.querySelector('.bucket');
+
+  function setActive(i) {
+    if (!bucket) return;
+    bucket.dataset.active = i;
+    bucket.querySelectorAll('.hole').forEach(h => { const j = +h.dataset.i; h.classList.toggle('fixed', j < i); h.classList.toggle('active', j === i); h.setAttribute('r', j === i ? 10 : 7); });
+    bucket.querySelectorAll('.jet').forEach(h => { const j = +h.dataset.i; h.classList.toggle('off', j < i); });
+    bucket.querySelectorAll('.num').forEach(h => { const j = +h.dataset.i; h.classList.toggle('on', j === i); h.classList.toggle('done', j < i); });
+    const lc = document.querySelector('.lc'); if (lc) lc.textContent = String(i + 1).padStart(2, '0');
+  }
+
+  // LEAK CHECK ticks (from Ari's artifact; the "X of 6 holes open" count is removed)
+  const ticks = document.querySelectorAll('.tick');
+  const advice = document.getElementById('advice');
+  function paintCheck() {
+    const plugged = {}; let count = 0;
+    ticks.forEach(t => { const on = t.getAttribute('aria-pressed') === 'true'; plugged[t.dataset.i] = on; if (on) count++; });
+    const open = ticks.length - count;
+    if (open === 0) advice.textContent = 'Watertight. A leak check will confirm it.';
+    else if (!plugged[1]) advice.textContent = 'Start with old enquiries. That’s where Goldie starts.';
+    else advice.textContent = 'Old enquiries are covered. A leak check shows what to fix next.';
+  }
+  ticks.forEach(t => t.addEventListener('click', () => {
+    t.setAttribute('aria-pressed', t.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    paintCheck();
+  }));
+  paintCheck();
+
+  if (!window.gsap || !window.ScrollTrigger || reduce || staticMode) { root.classList.add('no-motion'); return; }
+
+  gsap.registerPlugin(ScrollTrigger);
+  root.classList.add('motion');
+
+  if (window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.9 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+    window.__lenis = lenis;
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); const el = id.length > 1 && document.querySelector(id);
+      if (el) { e.preventDefault(); lenis.scrollTo(el, { duration: 1.6 }); }
+    }));
+  }
+
+  // split helper: wraps words in spans, keeps inline tags
+  function splitWords(el) {
+    const out = [];
+    (function walk(node) {
+      [...node.childNodes].forEach(n => {
+        if (n.nodeType === 3) {
+          const frag = document.createDocumentFragment();
+          n.textContent.split(/(\s+)/).forEach(part => {
+            if (!part) return;
+            if (/^\s+$/.test(part)) { frag.appendChild(document.createTextNode(part)); return; }
+            const s = document.createElement('span'); s.className = 'w'; s.textContent = part; frag.appendChild(s); out.push(s);
+          });
+          n.replaceWith(frag);
+        } else if (n.nodeType === 1) walk(n);
+      });
+    })(el);
+    return out;
+  }
+
+  gsap.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
+
+  // HERO intro
+  // HERO: same scroll-out as Ari's artifact (--p goes 0 to 1 as the hero leaves)
+  const heroEl = document.querySelector('.hero');
+  ScrollTrigger.create({ trigger: heroEl, start: 'top top', end: 'bottom top', onUpdate: self => heroEl.style.setProperty('--p', self.progress.toFixed(4)) });
+
+  // TEAM ISN'T THE LEAK: same progress maths as Ari's artifact
+  const busy = document.querySelector('.busy');
+  const revealWords = splitWords(document.querySelector('[data-reveal]'));
+  const busyNotes = document.querySelectorAll('.note');
+  const clamp01 = n => Math.max(0, Math.min(1, n));
+  function paintBusy(p) {
+    busy.style.setProperty('--rv', clamp01(p / 0.35).toFixed(3));
+    const lit = Math.round(clamp01((p - 0.18) / 0.36) * revealWords.length);
+    revealWords.forEach((w, k) => w.classList.toggle('lit', k < lit));
+    busyNotes.forEach(n => n.classList.toggle('in', p >= Number(n.dataset.at)));
+  }
+  ScrollTrigger.create({ trigger: busy, start: 'top bottom', end: 'bottom top', refreshPriority: -1, onUpdate: self => paintBusy(self.progress), onRefresh: self => paintBusy(self.progress) });
+  paintBusy(0);
+
+  const mm = gsap.matchMedia();
+
+  mm.add({ desk: '(min-width: 900px)', mob: '(max-width: 899px)' }, ctx => {
+    const { desk } = ctx.conditions;
+
+
+    // LEAKY BUCKET
+    const panels = gsap.utils.toArray('.leaks-list > .leak');
+    const n = panels.length;
+    if (desk) {
+      setActive(0);
+      const tl = gsap.timeline({ defaults: { ease: 'power2.out' }, scrollTrigger: {
+        trigger: '#leaks', start: 'top top', end: () => '+=' + Math.round(window.innerHeight * 0.95 * n), pin: true, scrub: 0.7,
+        onUpdate: self => { const t = self.progress * tl.duration(); setActive(Math.max(0, Math.min(n - 1, Math.floor(t + 0.12)))); }
+      } });
+      panels.forEach((p, i) => {
+        const num = p.querySelector('.leak-num'), media = p.querySelector('.leak-media'), img = p.querySelector('.leak-media img'), txt = p.querySelectorAll('.leak-copy > :not(.leak-num)');
+        const at = i === 0 ? 0 : i - 0.15;
+        if (i > 0) tl.fromTo(p, { autoAlpha: 0 }, { autoAlpha: 1, duration: 0.12 }, at);
+        tl.fromTo(num, { scale: 0.35, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: 'power3.out' }, at)
+          .fromTo(media, { clipPath: 'inset(18% 22% 18% 22% round 28px)' }, { clipPath: 'inset(0% 0% 0% 0% round 28px)', duration: 0.5 }, at);
+        if (img) tl.fromTo(img, { scale: 1.3 }, { scale: 1, duration: 0.7 }, at);
+        tl.fromTo(txt, { y: 40, opacity: 0 }, { y: 0, opacity: 1, stagger: 0.06, duration: 0.35 }, at + 0.08);
+        if (i < n - 1) tl.to(p, { autoAlpha: 0, scale: 1.06, duration: 0.18, ease: 'power1.in' }, i + 0.68);
+      });
+      tl.to({}, { duration: 0.35 });
+    } else {
+      setActive(-1);
+      panels.forEach(p => {
+        gsap.from(p.querySelector('.leak-num'), { scale: 0.5, opacity: 0, transformOrigin: '0% 80%', scrollTrigger: { trigger: p, start: 'top 85%', end: 'top 45%', scrub: true } });
+        const m = p.querySelector('.leak-media img'); if (m) gsap.fromTo(m, { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: p, start: 'top bottom', end: 'bottom top', scrub: true } });
+      });
+    }
+
+
+    // PILOT horizontal
+    if (desk) {
+      const track = document.querySelector('.pilot-track');
+      const dist = () => Math.max(0, track.scrollWidth - window.innerWidth);
+      const ptl = gsap.timeline({ scrollTrigger: { trigger: '#pilot', start: 'top top', end: () => '+=' + dist(), pin: true, scrub: 0.7, invalidateOnRefresh: true } });
+      ptl.to(track, { x: () => -dist(), ease: 'none' }, 0).to('.pilot-bar i', { scaleX: 1, ease: 'none' }, 0);
+      gsap.utils.toArray('.step-n').forEach(s => gsap.fromTo(s, { scale: 0.4, opacity: 0.2 }, { scale: 1, opacity: 1, ease: 'power2.out', transformOrigin: '0% 80%',
+        scrollTrigger: { trigger: s, containerAnimation: ptl.getChildren()[0], start: 'left 95%', end: 'left 55%', scrub: true } }));
+    } else {
+      gsap.utils.toArray('.step-n').forEach(s => gsap.from(s, { scale: 0.5, opacity: 0.2, transformOrigin: '0% 80%', scrollTrigger: { trigger: s, start: 'top 90%', end: 'top 55%', scrub: true } }));
+    }
+
+    // FOUNDER parallax collage
+    gsap.utils.toArray('.collage figure').forEach(f => gsap.fromTo(f, { y: 60 * f.dataset.speed }, { y: -60 * f.dataset.speed, ease: 'none', scrollTrigger: { trigger: '.collage', start: 'top bottom', end: 'bottom top', scrub: true } }));
+
+    // LEAK CHECK photo
+    gsap.fromTo('.check-photo img', { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.check', start: 'top bottom', end: 'center center', scrub: true } });
+
+    // section headings
+    gsap.utils.toArray('.faq-grid > div:first-child, .founder-grid > div:last-child > *, .busy-copy > h2, .check-tool > h2, .check-tool > .check-sub').forEach(el =>
+      gsap.from(el, { y: 50, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 85%' } }));
+
+    return () => setActive(-1);
+  });
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
