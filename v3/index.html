@@ -8,7 +8,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="img/hero-wide.webp" fetchpriority="high">
 <style>
 :root{
@@ -19,6 +19,7 @@
   --gold-a:#d9ae52; --gold-hi:#f1d48b; --off-white:#f3eee4; --logo-ink:#17191c;
   --serif:"Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   --sans:"Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --serif-v1:"Instrument Serif", "Times New Roman", serif;
   --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --surgery:#0d1f25; --on-surgery:#f3eee4; --on-surgery-muted:#9fb2b6; --ease:cubic-bezier(.2,.7,.1,1);
   --pad:clamp(20px, 5vw, 72px);
@@ -112,9 +113,9 @@ em{font-style:italic}
 
 .leak{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px, 3.5vw, 56px);align-items:center;padding:56px 0;border-top:1px solid var(--line)}
 .leak:first-child{border-top:0;padding-top:0}
-.leak-num{font-family:var(--serif);font-weight:400;font-size:clamp(96px, 12vw, 200px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--acc);letter-spacing:-.04em;display:block;transform-origin:0% 80%}
-.leak-big{font-family:var(--serif);font-weight:400;font-size:clamp(56px, 5.6vw, 92px);line-height:.9;letter-spacing:-.03em;color:var(--acc);margin:22px 0 16px;display:block;transform-origin:0% 80%;white-space:nowrap}
-.leak-big small{font-size:.5em;font-style:italic;letter-spacing:0;margin-left:.06em}
+.leak-num{font-family:var(--serif-v1);font-weight:400;font-size:clamp(96px, 12vw, 200px);line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--acc);letter-spacing:-.04em;display:block;transform-origin:0% 80%}
+.leak-big{font-family:var(--serif-v1);font-weight:400;font-size:clamp(38px, 4.4vw, 72px);line-height:.95;letter-spacing:-.015em;color:var(--ink);margin:18px 0 16px;display:block;transform-origin:0% 80%;white-space:nowrap}
+.leak-big small{font-size:inherit;font-style:normal;font-weight:inherit;letter-spacing:inherit;margin-left:0}
 .leak p{font-size:clamp(17px, 1.3vw, 20px);line-height:1.4;color:var(--ink-2);max-width:21em}
 .leak .src{margin-top:18px;font-family:var(--mono);font-size:.7rem;letter-spacing:.02em;line-height:1.45;color:var(--muted);max-width:30em}
 .leak .src a{color:var(--muted);text-underline-offset:2px}.leak .src a:hover{color:var(--acc-ink)}
@@ -343,8 +344,8 @@ footer .logo{color:var(--off-white)}
           <div class="leak-copy">
             <span class="leak-num" aria-hidden="true">01</span>
             <h3 class="leak-big">97<small>%</small></h3>
-            <p>of consumers read reviews for local businesses. How often are you asking your happy patients?</p>
-            <p class="src">Source: BrightLocal, <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener">Local Consumer Review Survey 2026</a> (1,002 US adults).</p>
+            <p>of consumers read reviews for local businesses, but only 14% of businesses ask for reviews by text.</p>
+            <p class="src">Sources: BrightLocal, <a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener">Local Consumer Review Survey 2026</a> (1,002 US adults); Podium, <a href="https://www.podium.com/guides/enterprise-review-trends" target="_blank" rel="noopener">Enterprise Online Review Trends 2021</a> (US).</p>
           </div>
           <div class="leak-media"><img src="img/leak-reviews.webp" width="1800" height="1200" loading="lazy" decoding="async" alt="A smiling patient checks her teeth in a hand mirror beside a dental professional"></div>
         </article>
