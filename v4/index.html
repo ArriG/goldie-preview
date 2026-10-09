@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Goldie · Your next implant patients already enquired.</title>
+<meta name="description" content="Goldie restarts quiet aligner and implant enquiries for NZ and AU dental practices. No upfront fee. You pay only when a patient pays for treatment.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="img/hero-wide.webp" fetchpriority="high">
+<style>
+:root{
+  --cream:#f4ede1; --paper:#fbf8f2; --white:#fffdf9;
+  --ink:#141618; --ink-2:#2a2d31; --muted:#6a6e75; --line:#e2d9c8;
+  --acc:#a9792a; --acc-ink:#7a5b17; --gold-a:#d9ae52; --gold-hi:#f1d48b; --off-white:#f3eee4; --logo-ink:#17191c;
+  --serif:"Newsreader", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  --sans:"Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  --serif-v1:"Instrument Serif", "Times New Roman", serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --surgery:#0d1f25; --on-surgery:#f3eee4; --on-surgery-muted:#9fb2b6; --ease:cubic-bezier(.2,.7,.1,1);
+  --pad:clamp(20px, 5vw, 72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis, html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto !important}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+.wrap{max-width:1280px;margin:0 auto;padding:0 var(--pad)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
+.h-lg{font-family:var(--serif);font-weight:400;line-height:1;letter-spacing:-.025em;font-size:clamp(2.2rem, 5vw, 4.3rem)}
+.h-lg em{font-style:italic;color:var(--acc)}
+.ph{display:inline-block;padding:0 6px;border:1px dashed currentColor;border-radius:6px;font-family:var(--mono);font-size:.78em;font-weight:500;letter-spacing:0;color:var(--acc-ink);background:rgba(217,174,82,.12);white-space:nowrap;font-style:normal;line-height:1.5;vertical-align:.08em}
+.dark .ph,.hero .ph{color:var(--gold-hi);background:rgba(241,212,139,.08)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:0 24px;border-radius:999px;border:1px solid transparent;font:600 .95rem/1 var(--sans);text-decoration:none;white-space:nowrap;cursor:pointer;transition:transform .25s var(--ease), background-color .25s, box-shadow .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold-a);color:var(--logo-ink);box-shadow:0 14px 34px -16px var(--gold-a)}
+.btn-gold:hover{background:var(--gold-hi)}
+.btn-glass{color:var(--on-surgery);border-color:color-mix(in srgb, var(--on-surgery) 35%, transparent);background:color-mix(in srgb, var(--on-surgery) 8%, transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.btn-ink{background:var(--ink);color:var(--white)}
+.btn-ink:hover{background:var(--acc-ink)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.micro{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--muted)}
+.num-o{font-family:var(--serif-v1);font-weight:400;line-height:.8;color:transparent;-webkit-text-stroke:1.5px var(--acc);letter-spacing:-.04em;display:block}
+
+/* progress + nav (v7 top bar) */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold-a);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+.no-motion .progress{display:none}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:28px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(251,248,242,.78);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 1px 0 rgba(20,22,24,.06), 0 8px 30px rgba(20,22,24,.08);width:max-content;max-width:calc(100% - 24px)}
+.logo{font-family:var(--serif);font-size:1.65rem;letter-spacing:-0.02em;line-height:1;text-decoration:none;color:var(--logo-ink)}
+.logo span{color:var(--gold-a)}
+.nav ul{display:flex;gap:22px;list-style:none;font-size:14px}
+.nav ul a{text-decoration:none;color:var(--ink-2)}
+.nav ul a:hover{color:var(--acc-ink)}
+.nav .btn{min-height:0;padding:11px 18px;font-size:14px;font-weight:500}
+
+/* HERO (artifact style) */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:92vh;min-height:92svh;display:grid;align-items:end;background:var(--surgery);color:var(--on-surgery)}
+.hero-img{position:absolute;inset:0;z-index:-2;transform-origin:62% 60%}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:64% 50%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg, color-mix(in srgb, var(--surgery) 88%, transparent) 0%, color-mix(in srgb, var(--surgery) 40%, transparent) 55%, transparent 80%), linear-gradient(180deg, color-mix(in srgb, var(--surgery) 60%, transparent) 0%, transparent 24%, transparent 62%, var(--surgery) 100%)}
+.hero-copy{width:100%;max-width:1240px;margin-inline:auto;padding-inline:clamp(16px, 4vw, 48px);display:grid;gap:22px;justify-items:start;padding-block:140px 12vh;transform-origin:left bottom}
+.hero h1{font-family:var(--serif);font-optical-sizing:auto;font-size:clamp(2.8rem, 7.2vw, 6.6rem);font-weight:350;line-height:.98;letter-spacing:-0.025em;max-width:10.5em;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--gold-hi)}
+.hero-sub{font-size:clamp(1.06rem, 1.35vw, 1.28rem);color:color-mix(in srgb, var(--on-surgery) 86%, transparent);max-width:38ch}
+.hero-sub b{color:var(--on-surgery);font-weight:600}
+.hero .micro{color:rgba(243,238,228,.78);text-shadow:0 1px 8px rgba(13,31,37,.9)}
+.motion .hero-img{transform:scale(calc(1 + var(--p, 0) * .14))}
+.motion .hero-img img{animation:settle 2.6s var(--ease) both}
+.motion .hero-copy{transform:translateY(calc(var(--p, 0) * -14vh)) scale(calc(1 + var(--p, 0) * .08));opacity:calc(1 - var(--p, 0) * 1.4)}
+.motion .hero-copy > *{animation:rise-in 1s var(--ease) both}
+.motion .hero-copy > :nth-child(2){animation-delay:.1s}
+.motion .hero-copy > :nth-child(3){animation-delay:.2s}
+.motion .hero-copy > :nth-child(4){animation-delay:.3s}
+@keyframes settle{from{transform:scale(1.12)}to{transform:scale(1.02)}}
+@keyframes rise-in{from{opacity:0;transform:translateY(30px)}}
+@media (max-width:860px){
+  .hero{align-items:start}
+  .hero::after{background:linear-gradient(180deg, color-mix(in srgb, var(--surgery) 90%, transparent) 0%, color-mix(in srgb, var(--surgery) 62%, transparent) 50%, color-mix(in srgb, var(--surgery) 30%, transparent) 70%, color-mix(in srgb, var(--surgery) 80%, transparent) 100%)}
+  .hero-copy{padding-block:104px 72px}
+}
+
+/* THE DEAL */
+.deal{background:var(--cream);padding:clamp(80px, 13vh, 150px) 0}
+.deal-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px, 5vw, 64px)}
+.deal-head h2{margin-top:18px}
+.terms{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:clamp(14px, 2vw, 24px)}
+.term{background:var(--white);border-radius:28px;padding:clamp(26px, 3vw, 40px);display:grid;align-content:start;gap:14px;box-shadow:0 1px 0 rgba(20,22,24,.04)}
+.term.feat{background:var(--gold-a)}
+.term .big{font-family:var(--serif-v1);font-size:clamp(52px, 5.4vw, 84px);line-height:.9;letter-spacing:-.015em;color:var(--ink)}
+.term .big .ph{font-size:.3em;vertical-align:middle;color:var(--logo-ink);background:rgba(255,253,249,.35)}
+.term h3{font-family:var(--serif);font-weight:400;font-size:clamp(22px, 1.9vw, 28px);line-height:1.1;letter-spacing:-.01em}
+.term p{color:var(--ink-2);font-size:16px;max-width:24em}
+
+/* HOW IT WORKS */
+.how{background:var(--paper);padding:clamp(80px, 13vh, 150px) 0}
+.how-grid{display:grid;grid-template-columns:minmax(0, 5fr) minmax(0, 7fr);gap:clamp(32px, 6vw, 96px);align-items:start}
+.how-side{position:sticky;top:110px;display:grid;gap:22px}
+.how-side .img{border-radius:28px;overflow:hidden;aspect-ratio:4/4.4}
+.how-side .img img{width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.steps{list-style:none;position:relative}
+.steps::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--line)}
+.steps .rail{position:absolute;left:0;top:0;width:1px;height:100%;background:var(--gold-a);transform-origin:top;transform:scaleY(var(--rail, 1))}
+.how h2{font-size:clamp(2.1rem, 4vw, 3.5rem)}
+.st{display:grid;grid-template-columns:clamp(84px, 9vw, 130px) minmax(0, 1fr);gap:clamp(14px, 2vw, 28px);padding:28px 0 28px clamp(18px, 2.4vw, 32px);border-top:1px solid var(--line)}
+.st:first-of-type{border-top:0;padding-top:0}
+.st .num-o{font-size:clamp(64px, 7vw, 112px)}
+.st .day{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-ink)}
+.st h3{font-family:var(--serif);font-weight:400;font-size:clamp(25px, 2.3vw, 34px);line-height:1.05;letter-spacing:-.015em;margin:6px 0 10px}
+.st p{color:var(--ink-2);max-width:30em}
+.st .who{font-weight:600;color:var(--ink)}
+
+/* AFTER THE PILOT */
+.next{background:var(--ink);color:var(--off-white);padding:clamp(80px, 13vh, 150px) 0}
+.next .eyebrow{color:rgba(243,238,228,.6)}
+.next h2{margin:18px 0 clamp(36px, 5vw, 60px);max-width:14em}
+.next h2 em{color:var(--gold-hi)}
+.paths{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));gap:clamp(14px, 2vw, 24px)}
+.path{border:1px solid rgba(243,238,228,.16);border-radius:28px;padding:clamp(26px, 3vw, 40px);display:grid;align-content:start;gap:14px;background:rgba(243,238,228,.03)}
+.path.feat{border-color:rgba(217,174,82,.7);background:rgba(217,174,82,.1)}
+.path .num-o{font-size:clamp(64px, 6vw, 96px);-webkit-text-stroke-color:var(--gold-a)}
+.path h3{font-family:var(--serif);font-weight:400;font-size:clamp(26px, 2.3vw, 34px);line-height:1.05;letter-spacing:-.015em}
+.path p{color:rgba(243,238,228,.74);font-size:16px}
+.path .price{margin-top:6px;padding-top:14px;border-top:1px solid rgba(243,238,228,.14);font-size:15px;line-height:1.45;color:var(--gold-hi)}
+.next-foot{margin-top:32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.next .note{color:rgba(243,238,228,.6);font-size:15px;max-width:44em}
+
+/* WHY (leaky bucket nod) */
+.why{background:var(--cream);padding:clamp(80px, 13vh, 150px) 0}
+.why h2{margin:18px 0 clamp(36px, 5vw, 60px);max-width:13em}
+.stats{display:grid;grid-template-columns:repeat(3, minmax(0, 1fr));align-items:end;gap:clamp(20px, 3vw, 44px)}
+.stat{border-top:1px solid var(--ink);padding-top:22px;display:grid;align-content:start;gap:12px}
+.stat .big{font-family:var(--serif-v1);font-size:clamp(56px, 5.6vw, 92px);line-height:.9;letter-spacing:-.015em;white-space:nowrap}
+.stat p{color:var(--ink-2);font-size:16px;line-height:1.4}
+.stat .src{font-family:var(--mono);font-size:.68rem;line-height:1.45;color:var(--muted)}
+.stat .src a{color:var(--muted);text-underline-offset:2px}
+.why .lead em{font-style:italic;color:var(--acc)}
+.why .lead{align-self:center;font-family:var(--serif);font-size:clamp(1.4rem, 2.4vw, 2.1rem);line-height:1.2;letter-spacing:-.01em;max-width:28ch}
+
+/* OBJECTIONS */
+.obj{background:var(--paper);padding:clamp(80px, 13vh, 150px) 0}
+.obj-grid{display:grid;grid-template-columns:minmax(0, 4fr) minmax(0, 8fr);gap:clamp(32px, 6vw, 96px);align-items:start}
+.obj-side{display:grid;gap:22px;position:sticky;top:110px}
+.obj-side .img{border-radius:28px;overflow:hidden;aspect-ratio:4/5}
+.obj-side .img img{width:100%;height:100%;object-fit:cover}
+.qa{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:clamp(14px, 2vw, 24px)}
+.q{background:var(--cream);border-radius:24px;padding:clamp(24px, 2.6vw, 34px);display:grid;align-content:start;gap:10px}
+.q .num-o{font-size:clamp(54px, 5vw, 80px)}
+.q h3{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(22px, 1.9vw, 27px);line-height:1.15}
+.q p{color:var(--ink-2);font-size:16px}
+.faq{margin-top:clamp(28px, 4vw, 44px)}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:20px;font-family:var(--serif);font-size:clamp(20px, 1.6vw, 24px);line-height:1.25}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--sans);font-size:22px;color:var(--acc-ink);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin-top:10px;color:var(--ink-2);max-width:40em}
+
+/* FOUNDER */
+.founder{background:var(--cream);padding:clamp(80px, 13vh, 150px) 0;overflow:hidden}
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px, 6vw, 96px);align-items:center}
+.pics{position:relative;aspect-ratio:1.15}
+.pics figure{position:absolute;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(20,22,24,.14)}
+.pics img{width:100%;height:100%;object-fit:cover}
+.pics .p1{left:0;top:6%;width:74%;aspect-ratio:1179/863;z-index:2}
+.pics .p2{right:0;bottom:0;width:54%;aspect-ratio:3/2;z-index:3}
+.founder h2{margin:18px 0 22px}
+.founder p.body{font-size:clamp(17px, 1.3vw, 19px);color:var(--ink-2);max-width:32em}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0}
+.creds span{padding:8px 14px;border-radius:999px;background:var(--white);font-size:13px;font-weight:500}
+.limit{display:flex;gap:14px;align-items:center;padding:16px 20px;border-radius:18px;background:var(--ink);color:var(--off-white);font-size:15px;max-width:32em}
+.limit .dot{flex:none;width:10px;height:10px;border-radius:50%;background:var(--gold-a);box-shadow:0 0 0 6px rgba(217,174,82,.2)}
+.quote{margin-top:22px;padding:20px 22px;border-left:2px solid var(--gold-a);font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--ink-2);max-width:32em}
+.quote cite{display:block;margin-top:8px;font-family:var(--mono);font-style:normal;font-size:.72rem;color:var(--muted)}
+
+/* FINAL CTA */
+.cta{position:relative;isolation:isolate;background:var(--ink);color:var(--off-white);padding:clamp(90px, 14vh, 160px) 0}
+.cta::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.cta-grid{display:grid;grid-template-columns:minmax(0, 5fr) minmax(0, 7fr);gap:clamp(32px, 5vw, 80px);align-items:center}
+.cta-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4 / 5;margin:0}
+.cta-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.cta-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 20px 18px;font-family:var(--serif);font-style:italic;font-size:1.7rem;line-height:1.1;color:var(--off-white);background:linear-gradient(transparent, rgba(20,22,24,.8))}
+.cta-copy{display:grid;gap:22px;justify-items:start}
+.cta h2 em{color:var(--gold-hi)}
+.cta-sub{color:rgba(243,238,228,.74);font-size:clamp(1.06rem, 1.35vw, 1.28rem);max-width:34em}
+.agenda{list-style:none;display:grid;gap:10px}
+.agenda li{display:flex;gap:12px;align-items:baseline;font-size:16px;color:var(--off-white)}
+.agenda li::before{content:"";flex:none;width:8px;height:8px;border-radius:50%;background:var(--gold-a);transform:translateY(-2px)}
+.cta .micro{color:rgba(243,238,228,.55)}
+.mail{color:rgba(243,238,228,.75);font-size:15px}
+.mail[hidden]{display:none}
+
+footer{background:var(--ink);color:rgba(255,253,249,.6);padding:36px 0 calc(36px + env(safe-area-inset-bottom));font-size:13px;border-top:1px solid rgba(255,255,255,.08)}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer .logo{color:var(--off-white)}
+
+/* sticky mobile CTA */
+.sticky{display:none}
+@media (max-width:899px){
+  .sticky{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:55;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 18px;border-radius:999px;background:rgba(20,22,24,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--off-white);box-shadow:0 14px 40px -12px rgba(0,0,0,.5);transform:translateY(160%);transition:transform .45s var(--ease)}
+  .sticky.on{transform:none}
+  .sticky span{font-size:13px;line-height:1.25;color:rgba(243,238,228,.8)}
+  .sticky .btn{min-height:44px;padding:0 18px;font-size:14px}
+  footer{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+}
+
+.w{display:inline-block}
+
+/* RESPONSIVE */
+@media (max-width:1100px){ .nav ul{display:none} }
+@media (max-width:899px){ .stats{grid-template-columns:1fr 1fr}
+.why .lead{grid-column:1 / -1} }
+@media (max-width:899px){
+  .nav{gap:14px;padding-left:18px}
+  .terms,.paths,.qa{grid-template-columns:1fr}
+  .how-grid,.obj-grid,.founder-grid,.cta-grid{grid-template-columns:1fr}
+  .how-side,.obj-side{position:static}
+  .how-side .img{aspect-ratio:16/10}
+  .obj-side .img{display:none}
+  .cta-photo{aspect-ratio:16/10}
+  .cta-grid .cta-photo{order:2}
+}
+@media (max-width:520px){
+  .nav .btn{padding:10px 14px;font-size:13px}
+  .stats{grid-template-columns:1fr 1fr;gap:28px 18px}
+  .stat .big{font-size:52px}
+  .st{grid-template-columns:64px minmax(0, 1fr)}
+  .st .num-o{font-size:60px}
+  .hero .actions .btn{width:100%}
+  .cta .actions,.cta .actions .btn,.deal-head .btn,.next-foot .btn{width:100%}
+}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .sticky{transform:none}
+}
+</style>
+</head>
+<body>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="logo" href="#top">goldie<span>.</span></a>
+  <ul>
+    <li><a href="#pilot">The pilot</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#after">After the pilot</a></li>
+    <li><a href="#faq">Questions</a></li>
+  </ul>
+  <a class="btn btn-ink" href="#book" data-book>Book 15 min</a>
+</nav>
+
+<main id="top">
+
+<!-- 1 HERO: the money + the risk-free pilot -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-img"><img src="img/hero-wide.webp" width="2000" height="1506" alt="An empty dental chair under the surgery light" fetchpriority="high" decoding="async"></div>
+  <div class="hero-copy">
+    <h1 id="h1">Your next implant patients <em>already enquired.</em></h1>
+    <p class="hero-sub">We restart your quiet aligner and implant enquiries. <b>No upfront fee. You pay only when a patient pays for treatment.</b></p>
+    <div class="actions">
+      <a class="btn btn-gold" href="#book" data-book>Book a 15-minute leak check</a>
+      <a class="btn btn-glass" href="#how">How the pilot works <span aria-hidden="true">↓</span></a>
+    </div>
+    <p class="micro">NZ &amp; AU dental · Run by Ari personally · 10 pilot spots open</p>
+  </div>
+</section>
+
+<!-- 2 THE DEAL -->
+<section class="deal" id="pilot" aria-labelledby="deal-h">
+  <div class="wrap">
+    <div class="deal-head">
+      <div>
+        <span class="eyebrow">The pilot</span>
+        <h2 class="h-lg" id="deal-h">Nothing upfront.<br> <em>Paid on treatment.</em></h2>
+      </div>
+      <a class="btn btn-ink" href="#book" data-book>Book a 15-minute leak check</a>
+    </div>
+    <div class="terms">
+      <div class="term">
+        <span class="big">$0</span>
+        <h3>To start.</h3>
+        <p>No upfront pilot fee.</p>
+      </div>
+      <div class="term feat">
+        <span class="big">Per patient</span>
+        <h3>A per-patient fee set for your clinic.</h3>
+        <p>Paid only when a re-engaged patient meets the agreed criteria and pays for treatment.</p>
+      </div>
+      <div class="term">
+        <span class="big">1 page</span>
+        <h3>Agreed before we start.</h3>
+        <p>Fee, criteria and what counts as “went ahead”. In writing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3 HOW IT WORKS: timeline in days -->
+<section class="how" id="how" aria-labelledby="how-h">
+  <div class="wrap how-grid">
+    <div class="how-side">
+      <span class="eyebrow">How it works</span>
+      <h2 class="h-lg" id="how-h">Live in a week. <em>Reviewed at day 30.</em></h2>
+      <div class="img"><img src="img/aligners.webp" width="1200" height="1800" loading="lazy" decoding="async" alt="Hands holding clear aligners next to a dental model"></div>
+    </div>
+    <ol class="steps">
+      <i class="rail" aria-hidden="true"></i>
+      <li class="st"><span class="num-o" aria-hidden="true">01</span><div><span class="day">Day 0</span><h3>15-minute leak check.</h3><p>We size your old list. No fit? We’ll say so.</p></div></li>
+      <li class="st"><span class="num-o" aria-hidden="true">02</span><div><span class="day">Days 1–3</span><h3>You send one list.</h3><p><span class="who">You give:</span> aligner and implant enquiries over 3 months old. We check consent and exclusions together.</p></div></li>
+      <li class="st"><span class="num-o" aria-hidden="true">03</span><div><span class="day">Days 4–7</span><h3>You approve the wording.</h3><p>Nothing goes out until you sign off.</p></div></li>
+      <li class="st"><span class="num-o" aria-hidden="true">04</span><div><span class="day">Days 7–30</span><h3>We restart the conversations.</h3><p><span class="who">We do:</span> two-way SMS, AI-assisted, a person behind it. Interested patients reach your team with a summary.</p></div></li>
+      <li class="st"><span class="num-o" aria-hidden="true">05</span><div><span class="day">Day 30</span><h3>You see every number.</h3><p><span class="who">You see:</span> replies, bookings, opt-outs, who went ahead. <span class="who">You pay:</span> for patients who paid for treatment.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 4 PILOT TO PAID -->
+<section class="next dark" id="after" aria-labelledby="after-h">
+  <div class="wrap">
+    <span class="eyebrow">After the pilot</span>
+    <h2 class="h-lg" id="after-h">Worked? <em>Keep it running.</em></h2>
+    <div class="paths">
+      <div class="path feat">
+        <span class="num-o" aria-hidden="true">01</span>
+        <h3>Keep reactivating.</h3>
+        <p>Every quiet enquiry followed up, every month.</p>
+        <p class="price">Priced around what you already spend on marketing, built to get more from it. Quoted for your clinic at day 30.</p>
+      </div>
+      <div class="path">
+        <span class="num-o" aria-hidden="true">02</span>
+        <h3>Fix the next leak.</h3>
+        <p>Fast replies to new enquiries and after-hours cover, on your existing tools.</p>
+        <p class="price">Set-up plus monthly care, priced around your current marketing spend. Quoted for your clinic at day 30.</p>
+      </div>
+      <div class="path">
+        <span class="num-o" aria-hidden="true">03</span>
+        <h3>Or stop.</h3>
+        <p>Nothing more to pay.</p>
+        <p class="price">$0 from here.</p>
+      </div>
+    </div>
+    <div class="next-foot"><p class="note">At day 30 we recommend one next step, or none.</p><a class="btn btn-gold" href="#book" data-book>Book a 15-minute leak check</a></div>
+  </div>
+</section>
+
+<!-- 5 WHY: leaky bucket nod, verified stats only -->
+<section class="why" aria-labelledby="why-h">
+  <div class="wrap">
+    <span class="eyebrow">Why it leaks</span>
+    <h2 class="h-lg" id="why-h">More ads won’t fix <em>a leaking bucket.</em></h2>
+    <div class="stats">
+      <div class="stat"><span class="big">54%</span><p>considered high-value treatment, then didn’t go ahead.</p><p class="src">Practi with BCG, 2022 (500+ patients), in <a href="https://dentistry.co.uk/2024/01/16/the-case-acceptance-problem/" target="_blank" rel="noopener">Dentistry, Jan 2024</a>.</p></div>
+      <div class="stat"><span class="big">42hrs</span><p>average reply to an online enquiry. 23% got none.</p><p class="src"><a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">Harvard Business Review, 2011</a> (2,241 US companies).</p></div>
+      <p class="lead">You already paid for these enquiries. <em>Start there.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- 6 OBJECTIONS (from Ari's calls) -->
+<section class="obj" id="faq" aria-labelledby="obj-h">
+  <div class="wrap obj-grid">
+    <div class="obj-side">
+      <span class="eyebrow">Straight answers</span>
+      <h2 class="h-lg" id="obj-h">What practices <em>ask us first.</em></h2>
+      <div class="img"><img src="img/busy-team.webp" width="1200" height="1500" loading="lazy" decoding="async" alt="A dentist mid-treatment, a patient in the chair"></div>
+    </div>
+    <div>
+      <div class="qa">
+        <div class="q"><span class="num-o" aria-hidden="true">01</span><h3>“My front desk has no time.”</h3><p>They don’t chase. We do. They get a patient who wants to book.</p></div>
+        <div class="q"><span class="num-o" aria-hidden="true">02</span><h3>“Agencies send us junk leads.”</h3><p>We don’t sell leads. Only your own enquirers who say they’re still keen. You pay when they pay.</p></div>
+        <div class="q"><span class="num-o" aria-hidden="true">03</span><h3>“Is this allowed?”</h3><p>Only people who enquired, consent checked first. Every message names your practice and has an opt-out (AU Spam Act 2003, NZ UEMA 2007). No clinical advice. No discounts. We never gate or incentivise reviews (AHPRA, DCNZ).</p></div>
+        <div class="q"><span class="num-o" aria-hidden="true">04</span><h3>“We’re not changing systems.”</h3><p>You don’t. One export, one sign-off. You book in your own diary.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 FOUNDER + genuine limit -->
+<section class="founder" id="about" aria-labelledby="about-h">
+  <div class="wrap founder-grid">
+    <div class="pics" aria-label="Ari with the Practi team in the UK">
+      <figure class="p1" data-speed="0.3"><img src="img/practi-uk-team.webp" width="1179" height="863" loading="lazy" decoding="async" alt="Ari with the Practi UK team"></figure>
+      <figure class="p2" data-speed="0.9"><img src="img/practi-dentistry-show.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Ari and colleagues at a dentistry show"></figure>
+    </div>
+    <div>
+      <span class="eyebrow">Who runs it</span>
+      <h2 class="h-lg" id="about-h">You deal with Ari. <em>Start to finish.</em></h2>
+      <p class="body">Ex-Practi, working with dental owners, managers and front desks. Four years at HotDoc with AU GP practices. He runs every pilot himself.</p>
+      <div class="creds"><span>Practi · UK dental</span><span>HotDoc · 4 years, AU</span><span>Live AI workflow in finance</span></div>
+      <p class="limit"><i class="dot" aria-hidden="true"></i><span>So only 10 pilots at a time.</span></p>
+      <!-- TESTIMONIAL (hidden until Pete Freeman's text and written OK arrive). To restore, uncomment:
+      <blockquote class="quote">[TESTIMONIAL TEXT]<cite>Pete Freeman, Freeman Finance</cite></blockquote>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- 8 FINAL CTA -->
+<section class="cta dark" id="book" aria-labelledby="cta-h">
+  <div class="wrap cta-grid">
+    <figure class="cta-photo">
+      <img src="img/full-chair.webp" width="1200" height="1800" alt="A dentist laughing with a patient in the chair" loading="lazy" decoding="async">
+      <figcaption>Back in the chair.</figcaption>
+    </figure>
+    <div class="cta-copy">
+      <h2 class="h-lg" id="cta-h">Find out who’s <em>still keen.</em></h2>
+      <ul class="agenda">
+        <li>We trace one real enquiry.</li>
+        <li>We size your old list.</li>
+        <li>You get a straight yes or no.</li>
+      </ul>
+      <!-- Booking link: set BOOKING_URL at the bottom of this file (Calendly, Cal.com). Email fallback: set CONTACT_EMAIL. -->
+      <div class="actions"><a class="btn btn-gold" href="#book" data-book>Book a 15-minute leak check</a></div>
+      <p class="mail" hidden>Or email <a data-mail href="#"></a></p>
+      <p class="micro">15 minutes · no prep · 10 pilot spots open</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#top">goldie<span>.</span></a>
+    <span>Thoughtful follow-up. Human next steps.</span>
+    <span>© 2026 Goldie · getgoldie.ai · Photography via Pexels and Unsplash</span>
+  </div>
+</footer>
+
+<div class="sticky" aria-hidden="false">
+  <span>No upfront fee.<br>Paid on treatment.</span>
+  <a class="btn btn-gold" href="#book" data-book>Book 15 min</a>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+<script>
+const BOOKING_URL = '';   // [BOOKING_URL: confirm]
+const CONTACT_EMAIL = ''; // [EMAIL: confirm] shows an "Or email" line under the final button when set
+if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener'; });
+if (CONTACT_EMAIL) { const m = document.querySelector('[data-mail]'); m.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Leak check'); m.textContent = CONTACT_EMAIL; m.closest('.mail').hidden = false; }
+
+(function () {
+  const root = document.documentElement;
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const staticMode = /[?&]static=1/.test(location.search);
+
+  // Sticky mobile CTA: show after the hero, hide while the final CTA is on screen (no GSAP needed)
+  const sticky = document.querySelector('.sticky');
+  const heroEl = document.querySelector('.hero'), ctaEl = document.querySelector('.cta');
+  if (staticMode) sticky.style.display = 'none';
+  if ('IntersectionObserver' in window) {
+    let pastHero = false, atCta = false;
+    const paint = () => sticky.classList.toggle('on', pastHero && !atCta);
+    new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; paint(); }, { threshold: 0.15 }).observe(heroEl);
+    new IntersectionObserver(([e]) => { atCta = e.isIntersecting; paint(); }, { threshold: 0.2 }).observe(ctaEl);
+  } else sticky.classList.add('on');
+
+  if (!window.gsap || !window.ScrollTrigger || reduce || staticMode) { root.classList.add('no-motion'); return; }
+
+  gsap.registerPlugin(ScrollTrigger);
+  root.classList.add('motion');
+
+  if (window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.09, wheelMultiplier: 0.9 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000));
+    gsap.ticker.lagSmoothing(0);
+    window.__lenis = lenis;
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const id = a.getAttribute('href'); const el = id.length > 1 && document.querySelector(id);
+      if (el) { e.preventDefault(); lenis.scrollTo(el, { duration: 1.4 }); }
+    }));
+  }
+
+  gsap.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
+
+  // HERO scroll-out (artifact maths)
+  ScrollTrigger.create({ trigger: heroEl, start: 'top top', end: 'bottom top', onUpdate: self => heroEl.style.setProperty('--p', self.progress.toFixed(4)) });
+
+  // outlined numbers scale in (v1 style)
+  gsap.utils.toArray('.num-o').forEach(n => gsap.from(n, { scale: 0.4, opacity: 0, transformOrigin: '0% 80%', ease: 'power3.out', scrollTrigger: { trigger: n, start: 'top 92%', end: 'top 60%', scrub: true } }));
+
+  // timeline rail draws as you read
+  gsap.fromTo('.steps .rail', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.steps', start: 'top 70%', end: 'bottom 70%', scrub: true } });
+
+  // cards + headings rise in
+  gsap.utils.toArray('.term, .path, .stat, .q, .deal-head, .next h2, .why h2, .cta-copy > *, .founder-grid > div:last-child > *').forEach(el =>
+    gsap.from(el, { y: 40, opacity: 0, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 88%' } }));
+
+  // photo parallax
+  gsap.utils.toArray('.pics figure').forEach(f => gsap.fromTo(f, { y: 50 * f.dataset.speed }, { y: -50 * f.dataset.speed, ease: 'none', scrollTrigger: { trigger: '.pics', start: 'top bottom', end: 'bottom top', scrub: true } }));
+  gsap.fromTo('.cta-photo img', { scale: 1.12 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.cta', start: 'top bottom', end: 'center center', scrub: true } });
+  gsap.fromTo('.how-side .img img', { scale: 1.15 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: '.how', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+})();
+</script>
+</body>
+</html>
