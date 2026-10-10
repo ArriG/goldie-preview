@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Goldie · Your next implant patients already enquired.</title>
+<meta name="description" content="Goldie restarts quiet aligner and implant enquiries for NZ and AU dental practices. No upfront fee. You pay only when a patient pays for treatment.">
+<meta name="theme-color" content="#0d1f25">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img/hero-wide.webp" fetchpriority="high">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap">
+<link media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap" rel="stylesheet">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..500&display=swap"></noscript>
+<style>
+:root{
+  --cream:#f4ede1; --paper:#fbf8f2; --white:#fffdf9;
+  --ink:#141618; --ink-2:#2a2d31; --muted:#5f636a; --line:#e2d9c8;
+  --acc:#a9792a; --acc-ink:#7a5b17; --gold-a:#d9ae52; --gold-hi:#f1d48b; --off-white:#f3eee4; --logo-ink:#17191c;
+  --surgery:#0d1f25; --surgery-2:#132a31; --on-s:#f3eee4; --on-s-m:#a9babd;
+  --serif:"Newsreader","Iowan Old Style",Georgia,serif;
+  --sans:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.1,1); --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);font-size:17px;line-height:1.55;overflow-x:clip;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold-a);outline-offset:3px;border-radius:6px}
+.skip{position:absolute;left:12px;top:-60px;z-index:99;background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px}
+.skip:focus{top:12px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+section{scroll-margin-top:80px}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--acc-ink)}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor;opacity:.6}
+.dark .eyebrow{color:var(--gold-hi)}
+.h-lg{font-family:var(--serif);font-weight:400;line-height:1.02;letter-spacing:-.025em;font-size:clamp(2.1rem,4.6vw,4rem);text-wrap:balance}
+.h-lg em{font-style:italic;color:var(--acc)}
+.dark .h-lg em{color:var(--gold-hi)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:50px;padding:0 24px;border-radius:999px;border:1px solid transparent;font:600 .97rem/1 var(--sans);text-decoration:none;white-space:nowrap;cursor:pointer;transition:transform .25s var(--ease),background-color .25s}
+.btn:hover{transform:translateY(-2px)}
+.btn-gold{background:var(--gold-a);color:var(--logo-ink);box-shadow:0 14px 34px -16px var(--gold-a)}
+.btn-gold:hover{background:var(--gold-hi)}
+.btn-glass{color:var(--on-s);border-color:rgba(243,238,228,.35);background:rgba(243,238,228,.08)}
+.btn-ink{background:var(--ink);color:var(--white)}
+.btn-ink:hover{background:var(--acc-ink)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.micro{font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;color:var(--muted)}
+.dark{background:var(--surgery);color:var(--on-s)}
+.dark .micro{color:var(--on-s-m)}
+.pad{padding:clamp(76px,12vh,140px) 0}
+
+/* top bar (v7/v8) */
+.progress{position:fixed;top:0;left:0;right:0;height:2px;background:var(--gold-a);transform-origin:0 50%;transform:scaleX(0);z-index:60}
+.no-motion .progress{display:none}
+.nav{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:28px;padding:8px 8px 8px 22px;border-radius:999px;background:rgba(251,248,242,.82);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:0 1px 0 rgba(20,22,24,.06),0 8px 30px rgba(20,22,24,.08);width:max-content;max-width:calc(100% - 24px)}
+.logo{font-family:var(--serif);font-size:1.65rem;letter-spacing:-.02em;line-height:1;text-decoration:none;color:var(--logo-ink)}
+.logo span{color:var(--gold-a)}
+.nav ul{display:flex;gap:22px;list-style:none;font-size:14px}
+.nav ul a{text-decoration:none;color:var(--ink-2)}
+.nav ul a:hover{color:var(--acc-ink)}
+.nav .btn{min-height:0;padding:11px 18px;font-size:14px;font-weight:500}
+
+/* HERO */
+.hero{position:relative;isolation:isolate;overflow:hidden;min-height:100vh;min-height:100svh;display:flex;align-items:center;background:var(--surgery);color:var(--on-s)}
+.hero-img{position:absolute;inset:0;z-index:-2}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:60% 50%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(13,31,37,.94) 0%,rgba(13,31,37,.7) 45%,rgba(13,31,37,.5) 100%),linear-gradient(180deg,rgba(13,31,37,.5),transparent 30%,transparent 70%,var(--surgery))}
+.hero-grid{width:100%;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,72px);align-items:center;padding-block:120px 72px}
+.hero-copy{display:grid;gap:22px;justify-items:start}
+.hero h1{font-family:var(--serif);font-size:clamp(2.6rem,6.2vw,5.8rem);font-weight:350;line-height:.98;letter-spacing:-.025em;text-wrap:balance}
+.hero h1 em{font-style:italic;color:var(--gold-hi)}
+.hero-sub{font-size:clamp(1.05rem,1.3vw,1.24rem);color:rgba(243,238,228,.88);max-width:34ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none}
+.chips li{display:flex;align-items:center;gap:8px;padding:7px 13px;border-radius:999px;border:1px solid rgba(241,212,139,.35);background:rgba(13,31,37,.5);font-size:.86rem;color:var(--on-s)}
+.chips li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold-a)}
+.hero .micro{color:rgba(243,238,228,.75)}
+/* phone demo */
+.demo{justify-self:center;width:min(340px,100%);display:grid;gap:10px}
+.demo-cap{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi)}
+.steps4{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;list-style:none}
+.steps4 li{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(243,238,228,.5);padding-top:7px;border-top:2px solid rgba(243,238,228,.18);transition:color .3s,border-color .3s}
+.steps4 li.on{color:var(--gold-hi);border-color:var(--gold-a)}
+.phone{background:#fff;color:#1b1d20;border-radius:34px;border:7px solid #0a0c0d;box-shadow:0 40px 80px -30px rgba(0,0,0,.8);overflow:hidden}
+.ph-top{display:grid;justify-items:center;gap:2px;padding:12px 10px 9px;border-bottom:1px solid #eee;font-size:.78rem}
+.ph-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--gold-hi),var(--gold-a));display:grid;place-items:center;font-family:var(--serif);font-weight:500}
+.ph-top b{font-weight:600}
+.ph-top small{color:#777;font-size:.68rem}
+.thread{height:268px;padding:10px 12px;display:flex;flex-direction:column;justify-content:flex-end;gap:7px;font-size:.82rem;line-height:1.35;overflow:hidden}
+.b{max-width:82%;padding:8px 11px;border-radius:16px;opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s}
+.b.in{opacity:1;transform:none}
+.b.us{align-self:flex-start;background:#eceef0;border-bottom-left-radius:5px}
+.b.them{align-self:flex-end;background:#1f7a4d;color:#fff;border-bottom-right-radius:5px}
+.b.sys{align-self:center;background:none;font-family:var(--mono);font-size:.64rem;color:#888;padding:2px}
+.b.typing{letter-spacing:2px;color:#888}
+.handoff{border:1px solid rgba(241,212,139,.45);background:rgba(13,31,37,.92);border-radius:16px;padding:12px 14px;font-size:.82rem;display:grid;gap:4px;opacity:.35;transition:opacity .4s,border-color .4s}
+.handoff.in{opacity:1}
+.handoff .h3{font-family:var(--mono);font-size:.66rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-hi);display:flex;justify-content:space-between}
+.handoff dl{display:grid;grid-template-columns:auto 1fr;gap:3px 12px}
+.handoff dt{color:var(--on-s-m)}
+.booked{display:inline-flex;gap:6px;align-items:center;padding:3px 9px;border-radius:999px;background:var(--gold-a);color:var(--logo-ink);font-weight:600;font-size:.72rem;opacity:0;transition:opacity .4s}
+.booked.in{opacity:1}
+.demo-note{font-size:.72rem;color:rgba(243,238,228,.62);display:flex;justify-content:space-between;gap:10px}
+.demo-note button{background:none;border:0;color:var(--gold-hi);font:inherit;text-decoration:underline;cursor:pointer;min-height:24px}
+
+/* CONTROL STRIP */
+.control{background:var(--cream);border-bottom:1px solid var(--line)}
+.control ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr)}
+.control li{padding:26px clamp(14px,2vw,26px);border-left:1px solid var(--line);display:grid;gap:4px}
+.control li:first-child{border-left:0;padding-left:0}
+.control b{font-family:var(--serif);font-weight:400;font-size:1.3rem;line-height:1.15}
+.control span{font-size:.92rem;color:var(--ink-2)}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:center}
+.why-img{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/4.6}
+.why-img img{width:100%;height:100%;object-fit:cover}
+.notes{position:absolute;right:14px;bottom:16px;display:grid;gap:8px;width:min(260px,80%)}
+.note{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(255,253,249,.95);font-size:.84rem;font-weight:500;box-shadow:0 10px 30px -10px rgba(0,0,0,.35)}
+.note i{width:8px;height:8px;border-radius:50%;background:#c4422b;flex:none}
+.note i.y{background:var(--gold-a)}
+.note small{margin-left:auto;font-family:var(--mono);font-size:.66rem;color:var(--muted)}
+.why p.lede{font-size:1.1rem;color:var(--ink-2);max-width:32em;margin:20px 0 30px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;border-top:1px solid var(--ink);padding-top:20px}
+.stat .big{font-family:var(--serif);font-weight:300;font-size:clamp(3.2rem,5vw,4.6rem);line-height:.9;letter-spacing:-.03em;white-space:nowrap}
+.stat .big small{font-size:.42em;font-style:italic;color:var(--acc-ink)}
+.stat p{font-size:.95rem;color:var(--ink-2);line-height:1.4;margin-top:10px}
+.src{margin-top:18px;font-family:var(--mono);font-size:.7rem;line-height:1.5;color:var(--muted)}
+.src a{text-underline-offset:2px}
+
+/* CALCULATOR */
+.calc-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,90px);align-items:start}
+.calc h2{margin:16px 0 10px}
+.calc .lede{color:var(--on-s-m);margin-bottom:28px;max-width:30em}
+.field{display:grid;gap:10px;padding:16px 0;border-top:1px solid rgba(243,238,228,.12)}
+.field-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.field label{font-size:.95rem;color:var(--on-s)}
+.field label small{display:block;font-size:.78rem;color:var(--on-s-m)}
+.field output{font-family:var(--serif);font-size:1.6rem;line-height:1;white-space:nowrap}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:36px;background:transparent;cursor:pointer;--fill:30%}
+input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--gold-a) var(--fill),rgba(243,238,228,.18) var(--fill))}
+input[type=range]::-moz-range-track{height:6px;border-radius:6px;background:linear-gradient(90deg,var(--gold-a) var(--fill),rgba(243,238,228,.18) var(--fill))}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-12px;border-radius:50%;background:var(--gold-hi);border:4px solid var(--surgery);box-shadow:0 0 0 2px var(--gold-a)}
+input[type=range]::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:var(--gold-hi);border:4px solid var(--surgery);box-shadow:0 0 0 2px var(--gold-a)}
+input[type=range]:focus-visible{outline:none}
+input[type=range]:focus-visible::-webkit-slider-thumb{box-shadow:0 0 0 2px var(--gold-a),0 0 0 7px rgba(241,212,139,.35)}
+.result{background:var(--surgery-2);border:1px solid rgba(241,212,139,.2);border-radius:28px;padding:clamp(22px,3vw,36px);display:grid;gap:20px}
+.dots{display:grid;grid-template-columns:repeat(20,1fr);gap:5px}
+.dots i{aspect-ratio:1;border-radius:50%;background:rgba(243,238,228,.16);transition:background .3s,box-shadow .3s}
+.dots i.on{background:var(--gold-hi);box-shadow:0 0 12px 2px rgba(241,212,139,.45)}
+.legend{display:flex;gap:16px;font-family:var(--mono);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-s-m)}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:50%;background:rgba(243,238,228,.3);margin-right:6px}
+.legend i.on{background:var(--gold-hi)}
+.r-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.r-k{font-size:.84rem;color:var(--on-s-m);line-height:1.3}
+.r-v{font-family:var(--serif);font-weight:350;font-size:clamp(2rem,3.6vw,3rem);line-height:1;letter-spacing:-.02em;margin-top:6px;white-space:nowrap}
+.r-v.gold{color:var(--gold-hi)}
+.fee{display:flex;justify-content:space-between;gap:12px;align-items:center;padding-top:16px;border-top:1px solid rgba(243,238,228,.12);font-size:.95rem}
+.fee b{color:var(--gold-hi);font-weight:600}
+.disc{font-family:var(--mono);font-size:.7rem;color:var(--on-s-m);line-height:1.5}
+
+/* PILOT */
+.pilot-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
+.pilot-head h2{margin-top:16px}
+.terms{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.term{background:var(--white);border:1px solid var(--line);border-radius:26px;padding:clamp(24px,3vw,36px);display:grid;align-content:start;gap:10px}
+.term.feat{background:var(--gold-a);border-color:var(--gold-a)}
+.term .big{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,5vw,4.4rem);line-height:.9;letter-spacing:-.03em}
+.term h3{font-family:var(--serif);font-weight:400;font-size:1.45rem;line-height:1.15}
+.term p{color:var(--ink-2);font-size:.98rem}
+.after-note{margin-top:18px;font-size:.92rem;color:var(--muted)}
+
+/* TIMELINE */
+.how{background:var(--cream)}
+.how-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:start}
+.how-side{position:sticky;top:110px;display:grid;gap:18px}
+.counter{display:flex;align-items:baseline;gap:12px}
+.counter span{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.counter b{font-family:var(--serif);font-weight:300;font-size:clamp(4rem,9vw,8rem);line-height:.85;letter-spacing:-.04em}
+.bar{height:3px;background:var(--line);border-radius:3px;overflow:hidden;max-width:360px}
+.bar i{display:block;height:100%;background:var(--gold-a);width:var(--w,100%);transition:width .4s var(--ease)}
+.tl{list-style:none;position:relative;border-left:1px solid var(--line)}
+.tl li{position:relative;padding:0 0 38px 32px;transition:opacity .4s}
+.tl li:last-child{padding-bottom:0}
+.tl li::before{content:"";position:absolute;left:-7px;top:5px;width:13px;height:13px;border-radius:50%;background:var(--gold-a);box-shadow:0 0 0 5px var(--cream)}
+.motion .tl li:not(.on)::before{background:var(--line)}
+.motion .tl li:not(.on) h3{color:var(--muted)}
+.tl .day{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--acc-ink)}
+.tl h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.5rem,2.2vw,2rem);line-height:1.1;margin:4px 0 6px}
+.tl p{color:var(--ink-2);max-width:30em}
+
+/* AFTER */
+.paths{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.path{border:1px solid rgba(243,238,228,.16);border-radius:26px;padding:clamp(24px,3vw,36px);display:grid;align-content:start;gap:10px;background:rgba(243,238,228,.03)}
+.path.feat{border-color:rgba(217,174,82,.7);background:rgba(217,174,82,.1)}
+.path .n{font-family:var(--serif);font-weight:300;font-size:3.2rem;line-height:.9;color:var(--gold-a)}
+.path h3{font-family:var(--serif);font-weight:400;font-size:1.6rem;line-height:1.1}
+.path p{color:rgba(243,238,228,.78);font-size:.98rem}
+.path .price{padding-top:12px;margin-top:4px;border-top:1px solid rgba(243,238,228,.14);color:var(--gold-hi)}
+.after-foot{margin-top:28px;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;color:var(--on-s-m)}
+
+/* FAQ + COMPLIANCE */
+.faq-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,90px);align-items:start}
+.comply{margin-top:28px;background:var(--surgery);color:var(--on-s);border-radius:24px;padding:24px}
+.comply h3{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-hi);margin-bottom:12px}
+.comply ul{list-style:none;display:grid;gap:9px;font-size:.93rem}
+.comply li{display:flex;gap:10px}
+.comply li::before{content:"✓";color:var(--gold-a);font-weight:600}
+.comply p{margin-top:14px;font-size:.78rem;color:var(--on-s-m)}
+details{border-top:1px solid var(--line);padding:20px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;font-family:var(--serif);font-size:clamp(1.25rem,1.7vw,1.5rem);line-height:1.25;min-height:32px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--sans);font-size:1.4rem;color:var(--acc-ink);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin-top:10px;color:var(--ink-2);max-width:38em}
+
+/* FOUNDER */
+.founder{background:var(--cream);overflow:hidden}
+.founder-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,90px);align-items:center}
+.pics{position:relative;aspect-ratio:1.15}
+.pics figure{position:absolute;border-radius:22px;overflow:hidden;box-shadow:0 24px 60px rgba(20,22,24,.14)}
+.pics img{width:100%;height:100%;object-fit:cover}
+.pics .p1{left:0;top:4%;width:74%;aspect-ratio:1179/863}
+.pics .p2{right:0;bottom:0;width:54%;aspect-ratio:3/2}
+.founder h2{margin:16px 0 20px}
+.founder .body{font-size:1.1rem;color:var(--ink-2);max-width:32em}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0;list-style:none}
+.creds li{padding:8px 14px;border-radius:999px;background:var(--white);font-size:.84rem;font-weight:500}
+.limit{display:inline-flex;gap:12px;align-items:center;padding:12px 18px;border-radius:999px;background:var(--ink);color:var(--off-white);font-size:.92rem}
+.limit i{width:9px;height:9px;border-radius:50%;background:var(--gold-a);box-shadow:0 0 0 5px rgba(217,174,82,.25)}
+
+/* BOOK */
+.book-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px);align-items:center}
+.book-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/5;margin:0}
+.book-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.book-photo figcaption{position:absolute;inset:auto 0 0;padding:60px 20px 18px;font-family:var(--serif);font-style:italic;font-size:1.6rem;color:var(--off-white);background:linear-gradient(transparent,rgba(13,31,37,.85))}
+.book-copy{display:grid;gap:22px;justify-items:start}
+.agenda{list-style:none;display:grid;gap:12px;counter-reset:a}
+.agenda li{display:flex;gap:12px;align-items:center;font-size:1.02rem;counter-increment:a}
+.agenda li::before{content:counter(a);flex:none;width:26px;height:26px;border-radius:50%;border:1px solid rgba(241,212,139,.5);display:grid;place-items:center;font-family:var(--mono);font-size:.72rem;color:var(--gold-hi)}
+.mail[hidden]{display:none}
+.mail{color:var(--on-s-m)}
+
+footer{background:var(--paper);padding:48px 0 calc(40px + env(safe-area-inset-bottom));font-size:.84rem;color:var(--ink-2);border-top:1px solid var(--line)}
+.foot{display:grid;grid-template-columns:1fr 2fr;gap:32px}
+.foot p+p{margin-top:10px}
+.foot b{color:var(--ink)}
+
+/* sticky mobile CTA */
+.sticky{display:none}
+@media (max-width:899px){
+  .sticky{display:flex;position:fixed;left:12px;right:12px;bottom:calc(12px + env(safe-area-inset-bottom));z-index:55;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 18px;border-radius:999px;background:rgba(20,22,24,.94);color:var(--off-white);box-shadow:0 14px 40px -12px rgba(0,0,0,.5);transform:translateY(160%);transition:transform .45s var(--ease)}
+  .sticky.on{transform:none}
+  .sticky span{font-size:.8rem;line-height:1.25;color:rgba(243,238,228,.85)}
+  .sticky .btn{min-height:44px;padding:0 18px;font-size:.88rem}
+  footer{padding-bottom:calc(100px + env(safe-area-inset-bottom))}
+}
+
+@media (max-width:1100px){.nav ul{display:none}}
+@media (max-width:899px){
+  .nav{gap:14px;padding-left:18px}
+  .hero{display:block;min-height:0}
+  .hero-grid{grid-template-columns:1fr;padding-block:92px 56px;gap:40px}
+  .hero::after{background:linear-gradient(180deg,rgba(13,31,37,.9),rgba(13,31,37,.72) 50%,var(--surgery) 85%)}
+  .control ul{grid-template-columns:1fr 1fr}
+  .control li{border-left:0;padding:18px 12px 18px 0;border-top:1px solid var(--line)}
+  .control li:nth-child(-n+2){border-top:0}
+  .why-grid,.calc-grid,.how-grid,.faq-grid,.founder-grid,.book-grid,.foot{grid-template-columns:1fr}
+  .why-img{aspect-ratio:16/12}
+  .terms,.paths{grid-template-columns:1fr}
+  .how-side{position:static}
+  .book-photo{aspect-ratio:16/10;order:2}
+}
+@media (max-width:520px){
+  .hero h1{font-size:2.55rem}
+  .hero-sub{font-size:1.02rem}
+  .hero .actions{width:100%}
+  .hero .actions .btn,.book-copy .actions,.book-copy .btn,.pilot-head .btn{width:100%}
+  .btn-glass{display:none}
+  .stats{grid-template-columns:1fr 1fr 1fr;gap:12px}
+  .stat .big{font-size:2.5rem}
+  .stat p{font-size:.84rem}
+  .dots{grid-template-columns:repeat(15,1fr)}
+  .r-row{grid-template-columns:1fr}
+  .r-v{font-size:2.3rem}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.sticky{transform:none}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<nav class="nav" aria-label="Main">
+  <a class="logo" href="#top" aria-label="Goldie, back to top">goldie<span>.</span></a>
+  <ul>
+    <li><a href="#calc">Your list</a></li>
+    <li><a href="#pilot">The pilot</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#faq">Questions</a></li>
+  </ul>
+  <a class="btn btn-ink" href="#book" data-book>Book 15 min</a>
+</nav>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- 1 HERO -->
+<section class="hero dark" aria-labelledby="h1">
+  <div class="hero-img"><img src="img/hero-wide.webp" width="2000" height="1506" alt="" fetchpriority="high" decoding="async"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">For NZ &amp; AU dental practices</span>
+      <h1 id="h1">Your next implant patients <em>already enquired.</em></h1>
+      <p class="hero-sub">We text your quiet aligner and implant enquiries, find who’s still keen, and hand them to your team.</p>
+      <ul class="chips"><li>No upfront fee</li><li>Pay only when a patient pays for treatment</li></ul>
+      <div class="actions">
+        <a class="btn btn-gold" href="#book" data-book>Book a 15-minute leak check</a>
+        <a class="btn btn-glass" href="#calc">Size your old list <span aria-hidden="true">↓</span></a>
+      </div>
+      <p class="micro">Run by Ari personally · 10 pilot spots</p>
+    </div>
+
+    <figure class="demo" aria-label="Illustrative example: a quiet enquiry is re-opened by text, handed to the practice team, and booked">
+      <div class="demo-cap"><span>Illustrative example</span></div>
+      <ol class="steps4" aria-hidden="true"><li data-s="0">Quiet</li><li data-s="1">Reply</li><li data-s="2">Handoff</li><li data-s="3">Booked</li></ol>
+      <div class="phone" aria-hidden="true">
+        <div class="ph-top"><span class="ph-av">H</span><b>Harbourside Dental</b><small>Text message</small></div>
+        <div class="thread" id="thread"></div>
+      </div>
+      <div class="handoff" id="handoff">
+        <p class="h3"><span>Handed to your team</span><span class="booked" id="booked">✓ Booked</span></p>
+        <dl><dt>Patient</dt><dd>Sam · enquired in April</dd><dt>Interest</dt><dd>Implants</dd><dt>Question</dt><dd>Payment options</dd><dt>Next step</dt><dd>Your TCO calls Thu after 5pm</dd></dl>
+      </div>
+      <figcaption class="demo-note"><span>Made-up practice and patient. Your team books it in your own diary.</span><button type="button" id="replay">Replay</button></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 2 WHAT YOU CONTROL -->
+<section class="control" aria-label="What you control">
+  <div class="wrap">
+    <ul>
+      <li><b>You sign off every word.</b><span>Nothing sends until you approve it.</span></li>
+      <li><b>Opt-out in every message.</b><span>STOP works, first time.</span></li>
+      <li><b>No system changes.</b><span>One export. Your diary stays yours.</span></li>
+      <li><b>You see every reply.</b><span>Bookings, opt-outs, who went ahead.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- 3 WHY IT LEAKS -->
+<section class="why pad" aria-labelledby="why-h">
+  <div class="wrap why-grid">
+    <figure class="why-img">
+      <img src="img/busy-team.webp" width="1200" height="1500" loading="lazy" decoding="async" alt="A dentist mid-treatment with a patient in the chair">
+      <div class="notes" aria-hidden="true">
+        <div class="note"><i></i>Missed call<small>10:42</small></div>
+        <div class="note"><i class="y"></i>Web enquiry · Implants<small>Unread</small></div>
+        <div class="note"><i></i>Missed call<small>10:51</small></div>
+      </div>
+    </figure>
+    <div>
+      <span class="eyebrow">Why it leaks</span>
+      <h2 class="h-lg" id="why-h" style="margin-top:16px">Your team isn’t the leak. <em>Nobody owns the follow-up.</em></h2>
+      <p class="lede">They’re with patients. Tuesday’s enquiry waits, then goes quiet. You already paid for it.</p>
+      <div class="stats">
+        <div class="stat"><span class="big"><span data-count="42">42</span><small>hrs</small></span><p>average reply to an online enquiry</p></div>
+        <div class="stat"><span class="big"><span data-count="23">23</span><small>%</small></span><p>of enquiries never got a reply</p></div>
+        <div class="stat"><span class="big"><span data-count="54">54</span><small>%</small></span><p>considered high-value treatment and didn’t go ahead</p></div>
+      </div>
+      <p class="src">42hrs, 23%: <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">Harvard Business Review, 2011</a>, 2,241 US companies. 54%: Practi with BCG, 2022, 500+ patients, in <a href="https://dentistry.co.uk/2024/01/16/the-case-acceptance-problem/" target="_blank" rel="noopener">Dentistry, Jan 2024</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4 CALCULATOR -->
+<section class="calc dark pad" id="calc" aria-labelledby="calc-h">
+  <div class="wrap calc-grid">
+    <div>
+      <span class="eyebrow">Your list</span>
+      <h2 class="h-lg" id="calc-h">What’s sitting in <em>your</em> old enquiries?</h2>
+      <p class="lede">Move the sliders to your numbers. Defaults are deliberately low.</p>
+      <div class="field">
+        <div class="field-top"><label for="n-enq">Aligner &amp; implant enquiries, 3+ months old</label><output for="n-enq" id="o-enq">150</output></div>
+        <input type="range" id="n-enq" min="20" max="1000" step="10" value="150">
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="n-cpl">Ad spend per enquiry<small>What each enquiry cost you to win</small></label><output for="n-cpl" id="o-cpl">$40</output></div>
+        <input type="range" id="n-cpl" min="0" max="300" step="5" value="40">
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="n-val">Average treatment value</label><output for="n-val" id="o-val">$5,000</output></div>
+        <input type="range" id="n-val" min="2000" max="20000" step="500" value="5000">
+      </div>
+      <div class="field">
+        <div class="field-top"><label for="n-rate">How many go ahead</label><output for="n-rate" id="o-rate">1 in 100</output></div>
+        <input type="range" id="n-rate" min="1" max="10" step="1" value="1">
+      </div>
+    </div>
+    <div class="result" aria-live="polite">
+      <div class="legend" aria-hidden="true"><span><i></i>Per 100 quiet enquiries</span><span><i class="on"></i>Goes ahead</span></div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+      <div class="r-row">
+        <div><div class="r-k">Already spent winning these enquiries</div><div class="r-v" id="r-spent">$6,000</div></div>
+        <div><div class="r-k"><span id="r-pat">2</span> patients go ahead, worth</div><div class="r-v gold" id="r-val">$10,000</div></div>
+      </div>
+      <div class="fee"><span>Goldie’s fee for those patients</span><b>Per patient, agreed with you</b></div>
+      <p class="disc">Your numbers, not a promise. The pilot measures the real figure. You pay nothing for patients who don’t go ahead.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 5 PILOT -->
+<section class="pilot pad" id="pilot" aria-labelledby="pilot-h">
+  <div class="wrap">
+    <div class="pilot-head">
+      <div><span class="eyebrow">The pilot</span><h2 class="h-lg" id="pilot-h">Nothing upfront. <em>Paid on treatment.</em></h2></div>
+      <a class="btn btn-ink" href="#book" data-book>Book a 15-minute leak check</a>
+    </div>
+    <div class="terms">
+      <div class="term"><span class="big">$0</span><h3>To start</h3><p>No set-up fee. No retainer.</p></div>
+      <div class="term"><span class="big">$0</span><h3>If nobody goes ahead</h3><p>Messages and conversations cost you nothing.</p></div>
+      <div class="term feat"><span class="big">1 fee</span><h3>Per patient who pays for treatment</h3><p>Set for your clinic, on one page, before we start.</p></div>
+    </div>
+    <p class="after-note">Fee, criteria and what counts as “went ahead” are agreed in writing before day one.</p>
+  </div>
+</section>
+
+<!-- 6 TIMELINE -->
+<section class="how pad" id="how" aria-labelledby="how-h">
+  <div class="wrap how-grid">
+    <div class="how-side">
+      <span class="eyebrow">How it works</span>
+      <h2 class="h-lg" id="how-h">Live in a week. <em>Reviewed at day 30.</em></h2>
+      <div class="counter" aria-hidden="true"><span>Day</span><b id="day">0</b></div>
+      <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    </div>
+    <ol class="tl">
+      <li data-day="0" data-w="5"><span class="day">Day 0</span><h3>15-minute leak check</h3><p>We size your old list. No fit? We’ll say so.</p></li>
+      <li data-day="1–3" data-w="15"><span class="day">Days 1–3</span><h3>You send one list</h3><p>Enquiries over three months old. We check consent and exclusions together.</p></li>
+      <li data-day="4–7" data-w="30"><span class="day">Days 4–7</span><h3>You approve the wording</h3><p>Nothing goes out until you sign it off.</p></li>
+      <li data-day="7–30" data-w="75"><span class="day">Days 7–30</span><h3>We restart the conversations</h3><p>Two-way texts, AI-assisted, a person behind them. Keen patients reach your team with a summary.</p></li>
+      <li data-day="30" data-w="100"><span class="day">Day 30</span><h3>You see every number</h3><p>Replies, bookings, opt-outs, who went ahead. You pay only for patients who paid.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7 AFTER DAY 30 -->
+<section class="after dark pad" id="after" aria-labelledby="after-h">
+  <div class="wrap">
+    <span class="eyebrow">Day 30</span>
+    <h2 class="h-lg" id="after-h" style="margin-top:16px">Worked? <em>Keep it running.</em><br>Didn’t? Walk away.</h2>
+    <div class="paths">
+      <div class="path feat"><span class="n">01</span><h3>Keep reactivating</h3><p>Every quiet enquiry followed up, every month. No gap after the pilot.</p><p class="price">Priced around what you already spend on marketing.</p></div>
+      <div class="path"><span class="n">02</span><h3>Fix the next leak</h3><p>Fast replies to new enquiries and after-hours cover, on the tools you use.</p><p class="price">Set-up plus monthly, quoted at day 30.</p></div>
+      <div class="path"><span class="n">03</span><h3>Or stop</h3><p>Keep the patients. Nothing more to pay.</p><p class="price">$0 from here.</p></div>
+    </div>
+    <div class="after-foot"><span>One recommendation at day 30, based on your numbers. Or none.</span><a class="btn btn-gold" href="#book" data-book>Book a 15-minute leak check</a></div>
+  </div>
+</section>
+
+<!-- 8 FAQ + COMPLIANCE -->
+<section class="faq pad" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div>
+      <span class="eyebrow">Straight answers</span>
+      <h2 class="h-lg" id="faq-h" style="margin-top:16px">What practices <em>ask first.</em></h2>
+      <div class="comply">
+        <h3>Compliance, built in</h3>
+        <ul>
+          <li>Only people who enquired with you, consent checked first</li>
+          <li>Every message names your practice and has an opt-out</li>
+          <li>AU Spam Act 2003 · NZ Unsolicited Electronic Messages Act 2007</li>
+          <li>No clinical advice, no discounts, no review incentives</li>
+        </ul>
+        <p>Not legal advice. We go through it together before anything sends.</p>
+      </div>
+    </div>
+    <div>
+      <details open><summary>Won’t this annoy patients?</summary><p>One friendly text from your practice, about something they asked you about. No reply means a short follow-up at most, then we stop. STOP opts them out straight away, and you see every opt-out.</p></details>
+      <details><summary>My front desk has no time.</summary><p>They don’t chase. We do. They get a patient who wants to talk, with a summary.</p></details>
+      <details><summary>Agencies send us junk leads.</summary><p>We don’t sell leads. Only your own enquirers who say they’re still keen. You pay when they pay.</p></details>
+      <details><summary>Do we have to change systems?</summary><p>No. One export, one sign-off. Bookings go in your own diary, made by your team.</p></details>
+      <details><summary>What if nobody goes ahead?</summary><p>You pay nothing, and you’ve learned what your old list is worth.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- 9 FOUNDER -->
+<section class="founder pad" id="about" aria-labelledby="about-h">
+  <div class="wrap founder-grid">
+    <div class="pics">
+      <figure class="p1" data-speed="0.3"><img src="img/practi-uk-team.webp" width="1179" height="863" loading="lazy" decoding="async" alt="Ari with the Practi UK team"></figure>
+      <figure class="p2" data-speed="0.9"><img src="img/practi-dentistry-show.webp" width="1400" height="933" loading="lazy" decoding="async" alt="Ari and colleagues at a dentistry show"></figure>
+    </div>
+    <div>
+      <span class="eyebrow">Who runs it</span>
+      <h2 class="h-lg" id="about-h">You deal with Ari. <em>Start to finish.</em></h2>
+      <p class="body">Ex-Practi, working with UK dental owners, managers and front desks. Four years at HotDoc with Australian GP practices. He runs every pilot himself.</p>
+      <ul class="creds"><li>Practi · UK dental</li><li>HotDoc · 4 years, AU</li><li>Live AI workflow in finance</li></ul>
+      <p class="limit"><i aria-hidden="true"></i>So only 10 pilots at a time.</p>
+      <!-- TESTIMONIAL hidden until Pete Freeman's text and written OK arrive:
+      <blockquote class="quote">[TESTIMONIAL TEXT]<cite>Pete Freeman, Freeman Finance</cite></blockquote> -->
+    </div>
+  </div>
+</section>
+
+<!-- 10 BOOK -->
+<section class="book dark pad" id="book" aria-labelledby="book-h">
+  <div class="wrap book-grid">
+    <figure class="book-photo">
+      <img src="img/full-chair.webp" width="1200" height="1800" loading="lazy" decoding="async" alt="A dentist laughing with a patient in the chair">
+      <figcaption>Back in the chair.</figcaption>
+    </figure>
+    <div class="book-copy">
+      <span class="eyebrow">15 minutes</span>
+      <h2 class="h-lg" id="book-h">Find out who’s <em>still keen.</em></h2>
+      <ol class="agenda"><li>We trace one real enquiry through your practice.</li><li>We size your old list.</li><li>You get a straight yes or no.</li></ol>
+      <!-- Booking link: set BOOKING_URL in the script below. -->
+      <div class="actions"><a class="btn btn-gold" href="#book" data-book>Book a 15-minute leak check</a></div>
+      <p class="mail" hidden>Or email <a data-mail href="#"></a></p>
+      <p class="micro">No prep · No obligation · 10 pilot spots</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><a class="logo" href="#top">goldie<span>.</span></a><p style="margin-top:8px">Thoughtful follow-up. Human next steps.</p><p>© 2026 Goldie · getgoldie.ai</p></div>
+    <div>
+      <p><b>Sources.</b> Oldroyd, McElheran and Elkington, <a href="https://hbr.org/2011/03/the-short-life-of-online-sales-leads" target="_blank" rel="noopener">“The Short Life of Online Sales Leads”</a>, Harvard Business Review, 2011: 2,241 US companies; 42 hours is the average among firms that replied within 30 days. Joss Duggan, <a href="https://dentistry.co.uk/2024/01/16/the-case-acceptance-problem/" target="_blank" rel="noopener">“The case acceptance problem”</a>, Dentistry, 16 January 2024: Practi’s 2022 study with BCG of 500+ patients. These figures come from other markets. They show a pattern, not a prediction for your practice.</p>
+      <p><b>Photos.</b> Unsplash: note thanun (hero), Nate Johnston (dentist mid-treatment), Ozkan Guner (back in the chair). Founder photos: Ari’s own.</p>
+      <p><b>Illustrative.</b> The practice, patient and conversation in the hero are made up. Calculator figures are your inputs, not results.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky"><span>No upfront fee.<br>Paid on treatment.</span><a class="btn btn-gold" href="#book" data-book>Book 15 min</a></div>
+
+<script>
+const BOOKING_URL = '';   // [BOOKING_URL: confirm]
+const CONTACT_EMAIL = ''; // [EMAIL: confirm]
+if (BOOKING_URL) document.querySelectorAll('[data-book]').forEach(a => { a.href = BOOKING_URL; a.target = '_blank'; a.rel = 'noopener'; });
+if (CONTACT_EMAIL) { const m = document.querySelector('[data-mail]'); m.href = 'mailto:' + CONTACT_EMAIL + '?subject=' + encodeURIComponent('Leak check'); m.textContent = CONTACT_EMAIL; m.closest('.mail').hidden = false; }
+
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const staticMode = /[?&]static=1/.test(location.search);
+const $ = s => document.querySelector(s);
+
+/* ---- calculator (no dependencies) ---- */
+(function () {
+  const money = n => '$' + Math.round(n).toLocaleString('en-NZ');
+  const enq = $('#n-enq'), cpl = $('#n-cpl'), val = $('#n-val'), rate = $('#n-rate'), dots = $('#dots');
+  for (let i = 0; i < 100; i++) dots.appendChild(document.createElement('i'));
+  const fill = r => r.style.setProperty('--fill', ((r.value - r.min) / (r.max - r.min) * 100) + '%');
+  function update() {
+    [enq, cpl, val, rate].forEach(fill);
+    const n = +enq.value, c = +cpl.value, v = +val.value, r = +rate.value;
+    const pts = Math.round(n * r / 100);
+    $('#o-enq').textContent = n.toLocaleString('en-NZ');
+    $('#o-cpl').textContent = money(c);
+    $('#o-val').textContent = money(v);
+    $('#o-rate').textContent = r + ' in 100';
+    $('#r-spent').textContent = money(n * c);
+    $('#r-pat').textContent = pts;
+    $('#r-val').textContent = money(pts * v);
+    [...dots.children].forEach((d, i) => d.classList.toggle('on', i < 100 && (i * 37 % 100) < r));
+  }
+  [enq, cpl, val, rate].forEach(r => r.addEventListener('input', update));
+  update();
+})();
+
+/* ---- hero SMS loop ---- */
+(function () {
+  const thread = $('#thread'), hand = $('#handoff'), booked = $('#booked'), steps = document.querySelectorAll('.steps4 li');
+  const script = [
+    [0, 'sys', 'Enquired 14 April · no reply since'],
+    [0, 'us', 'Hi Sam, it’s Harbourside Dental. You asked about implants back in April. Is that still on your mind?'],
+    [1, 'them', 'Yes! I just wasn’t sure about the cost'],
+    [1, 'us', 'Totally fair. Would a quick call with Priya, our treatment coordinator, about payment options help?'],
+    [1, 'them', 'Yes please. After 5 is best'],
+    [2, 'us', 'Done. Priya will call Thursday after 5. Reply STOP to opt out.'],
+    [3, 'sys', 'Thu · consult booked by your team']
+  ];
+  let timers = [];
+  const setStep = s => { steps.forEach(l => l.classList.toggle('on', +l.dataset.s <= s)); hand.classList.toggle('in', s >= 2); booked.classList.toggle('in', s >= 3); };
+  const add = ([s, who, text]) => { const b = document.createElement('div'); b.className = 'b ' + who; b.textContent = text; thread.appendChild(b); requestAnimationFrame(() => b.classList.add('in')); setStep(s); };
+  function play(instant) {
+    timers.forEach(clearTimeout); timers = []; thread.innerHTML = ''; setStep(-1);
+    if (instant) { script.forEach(add); thread.querySelectorAll('.b').forEach(b => b.classList.add('in')); return; }
+    let t = 500;
+    script.forEach(m => { timers.push(setTimeout(() => add(m), t)); t += m[1] === 'them' ? 1500 : 1900; });
+    timers.push(setTimeout(() => play(false), t + 5000));
+  }
+  $('#replay').addEventListener('click', () => play(reduce || staticMode));
+  play(reduce || staticMode);
+})();
+
+/* ---- sticky CTA ---- */
+(function () {
+  const sticky = $('.sticky');
+  if (staticMode) { sticky.style.display = 'none'; return; }
+  let pastHero = false, atBook = false;
+  const paint = () => sticky.classList.toggle('on', pastHero && !atBook);
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; paint(); }, { threshold: 0.1 }).observe($('.hero'));
+  new IntersectionObserver(([e]) => { atBook = e.isIntersecting; paint(); }, { threshold: 0.15 }).observe($('#book'));
+})();
+
+/* ---- motion: loaded after first paint ---- */
+function noMotion() { document.documentElement.classList.add('no-motion'); }
+if (reduce || staticMode) noMotion();
+else {
+  const srcs = ['https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js', 'https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js', 'https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js'];
+  const load = src => new Promise((ok, no) => { const s = document.createElement('script'); s.src = src; s.onload = ok; s.onerror = no; document.head.appendChild(s); });
+  const go = () => srcs.reduce((p, s) => p.then(() => load(s)), Promise.resolve()).then(initMotion).catch(noMotion);
+  const later = () => (window.requestIdleCallback ? requestIdleCallback(go, { timeout: 2500 }) : setTimeout(go, 800));
+  if (document.readyState === 'complete') later(); else addEventListener('load', later);
+}
+function initMotion() {
+  gsap.registerPlugin(ScrollTrigger);
+  document.documentElement.classList.add('motion');
+  if (window.Lenis) {
+    const lenis = new Lenis({ lerp: 0.1 });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(t => lenis.raf(t * 1000)); gsap.ticker.lagSmoothing(0);
+    window.__lenis = lenis;
+    document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+      const el = a.getAttribute('href').length > 1 && document.querySelector(a.getAttribute('href'));
+      if (el) { e.preventDefault(); lenis.scrollTo(el, { duration: 1.2 }); }
+    }));
+  }
+  gsap.to('.progress', { scaleX: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: 0.3 } });
+  gsap.to('.hero-img', { yPercent: 12, scale: 1.08, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
+  // count-ups
+  document.querySelectorAll('[data-count]').forEach(el => {
+    const o = { v: 0 }, to = +el.dataset.count;
+    gsap.to(o, { v: to, duration: 1.6, ease: 'power2.out', onUpdate: () => el.textContent = Math.round(o.v), scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
+  });
+  gsap.from('.note', { x: 40, opacity: 0, stagger: 0.25, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.why-img', start: 'top 70%' } });
+  // timeline + day counter
+  const items = gsap.utils.toArray('.tl li'), day = $('#day'), bar = $('#bar');
+  items.forEach(li => ScrollTrigger.create({ trigger: li, start: 'top 60%', end: 'bottom 60%',
+    onToggle: s => { if (s.isActive) { items.forEach(x => x.classList.toggle('on', x === li || items.indexOf(x) < items.indexOf(li))); day.textContent = li.dataset.day; bar.style.setProperty('--w', li.dataset.w + '%'); } } }));
+  bar.style.setProperty('--w', '5%'); items[0].classList.add('on');
+  gsap.utils.toArray('.term, .path, .control li, .comply, details, .book-copy > *, .founder-grid > div:last-child > *').forEach(el =>
+    gsap.from(el, { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 90%', once: true } }));
+  gsap.utils.toArray('.pics figure').forEach(f => gsap.fromTo(f, { y: 40 * f.dataset.speed }, { y: -40 * f.dataset.speed, ease: 'none', scrollTrigger: { trigger: '.pics', start: 'top bottom', end: 'bottom top', scrub: true } }));
+  ScrollTrigger.refresh();
+}
+</script>
+</body>
+</html>
